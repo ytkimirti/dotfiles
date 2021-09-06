@@ -10,4 +10,6 @@ alias condaset='export PATH="/Users/ytkimirti/opt/anaconda3/bin:$PATH"'
 alias condarm='export PATH=`echo $PATH | tr ":" "\n" | grep -v "anaconda" | tr "\n" ":"`'
 
 alias t='tldr'
-alias addalias='nvim ~/.oh-my-zsh/custom/my_aliases.zsh'
+alias editalias='vim ~/.oh-my-zsh/custom/my_aliases.zsh'
+alias editvim='vim ~/.vimrc'
+alias editzsh='vim ~/.zshrc'
