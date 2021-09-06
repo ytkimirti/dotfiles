@@ -1,5 +1,5 @@
-map <F8> :w <CR> :!gcc -Wall -Werror % && ./a.out <CR>
-map <F9> :w <CR> :!gcc -Wall -Werror -Wextra % && ./a.out <CR>
+map <F8> :w <CR> :!clear && gcc -Wall -Werror % && ./a.out <CR>
+map <F9> :w <CR> :!clear && gcc -Wall -Werror -Wextra % && ./a.out <CR>
 
 " For local replace
 nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
@@ -8,10 +8,14 @@ nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 
 " For ctrl-P
-nnoremap <C-p> :Files<Cr>
+nnoremap <C-t> :Files<Cr>
 
 
-" Shortcuts for running etc
+:set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+noremap <F3> :set list!<CR>
+inoremap <F3> <C-o>:set list!<CR>
+cnoremap <F3> <C-c>:set list!<CR>
+
 
 
 syntax on
@@ -30,12 +34,16 @@ set incsearch
 " Tab stuff
 set autoindent noexpandtab tabstop=4 shiftwidth=4
 
+
+
+
 call plug#begin('~/.vim/plugged')
 
 " Plug 'morhetz/gruvbox'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
+Plug 'andreyorst/SimpleSnippets.vim'
+Plug 'andreyorst/SimpleSnippets-snippets'
 Plug 'vim-syntastic/syntastic'
 Plug 'alexandregv/norminette-vim'
 
