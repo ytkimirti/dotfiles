@@ -1,4 +1,4 @@
-map <F8> :w <CR> :!clear && gcc -Wall -Werror % && ./a.out <CR>
+map <F8> :w <CR> :!clear && gcc -Werror % && ./a.out <CR>
 map <F9> :w <CR> :!clear && gcc -Wall -Werror -Wextra % && ./a.out <CR>
 
 " For local replace
