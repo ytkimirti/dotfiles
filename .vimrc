@@ -1,3 +1,10 @@
+" -- My Keymaps --
+"  F3 for seeing spaces
+"  F8 for gcc on current
+"  F9 for gcc with final flags
+"  F10 for toggling syntastic
+
+
 map <F8> :w <CR> :!clear && gcc -Werror % && ./a.out <CR>
 map <F9> :w <CR> :!clear && gcc -Wall -Werror -Wextra % && ./a.out <CR>
 
@@ -9,6 +16,10 @@ nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 
 " For ctrl-P
 nnoremap <C-t> :Files<Cr>
+
+" For backspace fricking delete
+set backspace=indent,eol,start
+
 
 
 :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
@@ -43,11 +54,26 @@ call plug#begin('~/.vim/plugged')
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'andreyorst/SimpleSnippets.vim'
-Plug 'andreyorst/SimpleSnippets-snippets'
+Plug 'ytkimirti/SimpleSnippets-snippets'
 Plug 'vim-syntastic/syntastic'
 Plug 'alexandregv/norminette-vim'
 
 call plug#end()
+
+" Toggling syntastic window
+
+function! ToggleSyntastic()
+    for i in range(1, winnr('$'))
+        let bnum = winbufnr(i)
+        if getbufvar(bnum, '&buftype') == 'quickfix'
+            lclose
+            return
+        endif
+    endfor
+    SyntasticCheck
+endfunction
+
+nnoremap <F10> :call ToggleSyntastic()<CR>
 
 " -- NORMINETTE SETTINGS --
 
@@ -64,7 +90,7 @@ let g:syntastic_c_include_dirs = ['include', '../include', '../../include', 'lib
 let g:syntastic_c_norminette_args = '-R CheckTopCommentHeader'
 
 " Check errors when opening a file (disable to speed up startup time)
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 
 " Enable error list
 let g:syntastic_always_populate_loc_list = 1
