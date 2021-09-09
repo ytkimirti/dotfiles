@@ -46,11 +46,15 @@ set incsearch
 set autoindent noexpandtab tabstop=4 shiftwidth=4
 
 
+" For commenting with Ctrl /
+xnoremap <C-\> gc
+
 
 
 call plug#begin('~/.vim/plugged')
 
 " Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'andreyorst/SimpleSnippets.vim'
