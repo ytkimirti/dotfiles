@@ -16,6 +16,7 @@ alias editzsh='vim ~/.zshrc'
 alias n='norminette -R CheckForbiddenSourceHeader'
 alias g='gcc -Wall -Wextra -Werror'
 
+alias editsnippets='cd ~/.vim/plugged/SimpleSnippets-snippets/snippets'
 alias send='git add . && git commit -m "autocommit" && git push'
 alias load='bash ~/dotfiles/load.sh'
 alias unload='bash ~/dotfiles/unload.sh'
