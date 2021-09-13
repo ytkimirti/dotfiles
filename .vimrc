@@ -1,5 +1,4 @@
-" -- My Keymaps --
-"  F3 for seeing spaces
+" -- My Keymaps -- "  F3 for seeing spaces
 "  F8 for gcc on current
 "  F9 for gcc with final flags
 "  F10 for toggling syntastic
@@ -27,8 +26,6 @@ noremap <F3> :set list!<CR>
 inoremap <F3> <C-o>:set list!<CR>
 cnoremap <F3> <C-c>:set list!<CR>
 
-
-
 syntax on
 
 " Video stuff
@@ -46,23 +43,45 @@ set incsearch
 set autoindent noexpandtab tabstop=4 shiftwidth=4
 
 
-" For commenting with Ctrl /
-xnoremap <C-\> gc
-
-
+" Shortcut for changing tabs
+nnoremap H gT
+nnoremap L gt
 
 call plug#begin('~/.vim/plugged')
 
 " Plug 'morhetz/gruvbox'
-Plug 'tpope/vim-commentary'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
 Plug 'andreyorst/SimpleSnippets.vim'
 Plug 'ytkimirti/SimpleSnippets-snippets'
 Plug 'vim-syntastic/syntastic'
 Plug 'alexandregv/norminette-vim'
+Plug 'morhetz/gruvbox'
+Plug 'kien/ctrlp.vim'
+
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+Plug 'preservim/nerdcommenter'
 
 call plug#end()
+
+colorscheme gruvbox
+
+" Ctrl / for commenting
+nmap <C-n> :NERDTreeToggle<CR>
+vmap ++ <plug>NERDCommenterToggle
+nmap ++ <plug>NERDCommenterToggle
+
+" NERD TREE
+nnoremap <C-n> :NERDTreeFocus<CR>
+nnoremap <C-h> :NERDTreeToggle<CR>
+let g:NERDTreeGitStatusWithFlags = 1
+
+
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " Toggling syntastic window
 

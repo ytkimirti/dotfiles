@@ -19,7 +19,3 @@ alias g='gcc -Wall -Wextra -Werror'
 alias send='git add . && git commit -m "autocommit" && git push'
 alias load='bash ~/dotfiles/load.sh'
 alias unload='bash ~/dotfiles/unload.sh'
-unalias l
-alias l='ls -al */**'
-
-
