@@ -4,8 +4,9 @@
 "  F10 for toggling syntastic
 
 
-map <F8> :w <CR> :!clear && gcc -Werror % && ./a.out <CR>
-map <F9> :w <CR> :!clear && gcc -Wall -Werror -Wextra % && ./a.out <CR>
+map <F8> :w <CR> :!clear && gcc -Werror -o rush-01 *.c && ./rush-01 <CR>
+map <F9> :w <CR> :!clear && gcc -Werror -Wall -Wextra -o rush-01 *.c && ./rush-01 <CR>
+" map <F9> :w <CR> :!clear && gcc -Wall -Werror -Wextra % && ./a.out <CR>
 
 " For local replace
 nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
