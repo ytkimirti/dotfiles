@@ -1,11 +1,16 @@
-" -- My Keymaps -- "  F3 for seeing spaces
-"  F8 for gcc on current
-"  F9 for gcc with final flags
+" -- My Keymaps -- 
+"  "  F3 for seeing spaces
+"  F9 for gcc on current
+"  F8 for gcc with final flags
 "  F10 for toggling syntastic
+"  C-h for nerd tree toggle
+"  C-n for nerd tree focus
+"  Cmd-p for ctrlp      ()
+"  Cmd-/ for commenting (++)
 
 
-map <F8> :w <CR> :!clear && gcc -Werror -o rush-01 *.c && ./rush-01 <CR>
-map <F9> :w <CR> :!clear && gcc -Werror -Wall -Wextra -o rush-01 *.c && ./rush-01 <CR>
+map <F8> :w <CR> :!clear && gcc -Werror -o a.out *.c && ./a.out <CR>
+map <F9> :w <CR> :!clear && gcc -Werror -Wall -Wextra -o a.out *.c && ./rush- <CR>
 " map <F9> :w <CR> :!clear && gcc -Wall -Werror -Wextra % && ./a.out <CR>
 
 " For local replace

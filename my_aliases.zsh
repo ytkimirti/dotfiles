@@ -20,3 +20,5 @@ alias editsnippets='cd ~/.vim/plugged/SimpleSnippets-snippets/snippets'
 alias send='git add . && git commit -m "autocommit" && git push'
 alias load='bash ~/dotfiles/load.sh'
 alias unload='bash ~/dotfiles/unload.sh'
+
+alias cc='pwd | pbcopy'
