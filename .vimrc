@@ -12,6 +12,8 @@
 map <F8> :w <CR> :!clear && gcc -Werror -o a.out *.c && ./a.out <CR>
 map <F9> :w <CR> :!clear && gcc -Werror -Wall -Wextra -o a.out *.c && ./rush- <CR>
 " map <F9> :w <CR> :!clear && gcc -Wall -Werror -Wextra % && ./a.out <CR>
+"
+nnoremap du gg11dj
 
 " For local replace
 nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
@@ -80,6 +82,9 @@ nmap <C-n> :NERDTreeToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 
+" The file root sync thing, cd to current file
+autocmd BufEnter * lcd %:p:h
+
 " NERD TREE
 nnoremap <C-n> :NERDTreeFocus<CR>
 nnoremap <C-h> :NERDTreeToggle<CR>
@@ -116,7 +121,10 @@ let g:c_syntax_for_h = 1
 let g:syntastic_c_include_dirs = ['include', '../include', '../../include', 'libft', '../libft/include', '../../libft/include']
 
 " Pass custom arguments to norminette (this one ignores 42header)
-let g:syntastic_c_norminette_args = '-R CheckTopCommentHeader'
+" let g:syntastic_c_norminette_args = '-R CheckTopCommentHeader'
+
+" For the things with headers
+let g:syntastic_c_norminette_args = '-R CheckDefine'
 
 " Check errors when opening a file (disable to speed up startup time)
 let g:syntastic_check_on_open = 0
