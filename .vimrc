@@ -36,6 +36,7 @@ cnoremap <F3> <C-c>:set list!<CR>
 
 syntax on
 
+set mouse=a
 " Video stuff
 set noerrorbells
 set nu
@@ -64,8 +65,13 @@ Plug 'andreyorst/SimpleSnippets.vim'
 Plug 'ytkimirti/SimpleSnippets-snippets'
 Plug 'vim-syntastic/syntastic'
 Plug 'alexandregv/norminette-vim'
-Plug 'morhetz/gruvbox'
 Plug 'kien/ctrlp.vim'
+
+Plug 'morhetz/gruvbox'
+Plug 'sickill/vim-monokai'
+
+Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
 
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'

@@ -18,6 +18,14 @@ alias nd='norminette -R CheckForbiddenSourceHeader -R CheckDefine'
 alias g='gcc -Wall -Wextra -Werror'
 alias a='./a.out'
 
+#Git stuff
+alias gitreset='git reset --hard'
+alias gitclean='git clean -f -d'
+alias gitrc='git clean -f -d && git reset --hard'
+alias gs='git status'
+alias gl='git log'
+alias gc='git commit'
+
 alias editsnippets='cd ~/.vim/plugged/SimpleSnippets-snippets/snippets'
 alias send='git add . && git commit -m "autocommit" && git push'
 alias load='bash ~/dotfiles/load.sh'
