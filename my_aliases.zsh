@@ -26,6 +26,10 @@ alias gs='git status'
 alias gl='git log'
 alias gc='git commit'
 
+#Prevent sleeping
+alias coffee='caffeinate -disu'
+alias covfefe='caffeinate -disu'
+
 alias editsnippets='cd ~/.vim/plugged/SimpleSnippets-snippets/snippets'
 alias send='git add . && git commit -m "autocommit" && git push'
 alias load='bash ~/dotfiles/load.sh'

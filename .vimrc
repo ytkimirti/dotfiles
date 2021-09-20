@@ -13,6 +13,10 @@ map <F8> :w <CR> :!clear && gcc -Werror -o a.out *.c && ./a.out <CR>
 map <F9> :w <CR> :!clear && gcc -Werror -Wall -Wextra -o a.out *.c && ./rush- <CR>
 " map <F9> :w <CR> :!clear && gcc -Wall -Werror -Wextra % && ./a.out <CR>
 "
+
+
+nnoremap ; :
+
 nnoremap du gg11dj
 
 " For local replace
@@ -69,6 +73,7 @@ Plug 'kien/ctrlp.vim'
 
 Plug 'morhetz/gruvbox'
 Plug 'sickill/vim-monokai'
+Plug 'taniarascia/new-moon.vim'
 
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
@@ -81,7 +86,7 @@ Plug 'preservim/nerdcommenter'
 
 call plug#end()
 
-colorscheme gruvbox
+colorscheme gruvbox 
 
 " Ctrl / for commenting
 nmap <C-n> :NERDTreeToggle<CR>
@@ -130,7 +135,7 @@ let g:syntastic_c_include_dirs = ['include', '../include', '../../include', 'lib
 " let g:syntastic_c_norminette_args = '-R CheckTopCommentHeader'
 
 " For the things with headers
-let g:syntastic_c_norminette_args = '-R CheckDefine'
+"let g:syntastic_c_norminette_args = '-R CheckDefine'
 
 " Check errors when opening a file (disable to speed up startup time)
 let g:syntastic_check_on_open = 0
