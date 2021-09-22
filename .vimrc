@@ -8,7 +8,6 @@
 "  Cmd-p for ctrlp      ()
 "  Cmd-/ for commenting (++)
 
-
 map <F8> :w <CR> :!clear && gcc -Werror -o a.out *.c && ./a.out <CR>
 map <F9> :w <CR> :!clear && gcc -Werror -Wall -Wextra -o a.out *.c && ./rush- <CR>
 " map <F9> :w <CR> :!clear && gcc -Wall -Werror -Wextra % && ./a.out <CR>
@@ -86,6 +85,10 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 Plug 'preservim/nerdcommenter'
+
+" The airline thing
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
