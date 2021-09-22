@@ -23,8 +23,9 @@ alias gitreset='git reset --hard'
 alias gitclean='git clean -f -d'
 alias gitrc='git clean -f -d && git reset --hard'
 alias gs='git status'
-alias gl='git log'
 alias gc='git commit'
+alias gl='git log --graph --oneline --decorate'
+alias gp='git push'
 
 #Prevent sleeping
 alias coffee='caffeinate -disu'

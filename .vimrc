@@ -14,6 +14,9 @@ map <F9> :w <CR> :!clear && gcc -Werror -Wall -Wextra -o a.out *.c && ./rush- <C
 " map <F9> :w <CR> :!clear && gcc -Wall -Werror -Wextra % && ./a.out <CR>
 "
 
+nnoremap Y "*y
+
+"nnoremap YY "*yy
 
 nnoremap ; :
 
