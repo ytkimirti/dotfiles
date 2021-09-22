@@ -13,3 +13,5 @@ git config --global user.name "Yusuf"
 git config --global user.email yusuftaha9@gmail.com
 git config --global diff.tool vimdiff
 git config --global difftool.prompt false
+
+git config --global core.excludesfile ~/dotfiles/gitignore_global
