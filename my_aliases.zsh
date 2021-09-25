@@ -40,4 +40,6 @@ alias l='ls -l */* | cut -c 57-'
 alias rmouts='rm */a.out'
 alias thereisnospoon='~/dotfiles/cmatrix -s'
 
+alias pth="echo $PATH | tr ':' '\n'"
+
 alias cc='pwd | pbcopy'

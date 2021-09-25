@@ -8,18 +8,44 @@
 "  Cmd-p for ctrlp      ()
 "  Cmd-/ for commenting (++)
 
-map <F8> :w <CR> :!clear && gcc -Werror -o a.out *.c && ./a.out <CR>
-map <F9> :w <CR> :!clear && gcc -Werror -Wall -Wextra -o a.out *.c && ./rush- <CR>
-" map <F9> :w <CR> :!clear && gcc -Wall -Werror -Wextra % && ./a.out <CR>
-"
+"nnoremap <SPACE> <Nop>
 
-nnoremap Y "*y
+let mapleader=" "
 
-"nnoremap YY "*yy
+map <F8> :w <CR> :!clear && gcc -o a.out *.c && ./a.out <CR>
+map <F9> :w <CR> :!clear && gcc -Wall -Wextra -o a.out *.c && ./a.out- <CR>
 
+" Map test
+
+" just much better
 nnoremap ; :
+vnoremap ; :
 
-nnoremap du gg11dj
+" Just for the vimrc
+nnoremap <Leader>w :up<CR>
+
+" Pasting the yank register
+nmap ,p "0p
+nmap ,P "0P
+
+" Copying to clipboard with capital Y
+nnoremap Y "*y
+vnoremap Y "*y
+
+" Moving selected lines with J and K
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
+" Open a new line with shift enter
+imap <S-CR> <ESC>o
+
+" Ctrl C same as ESC
+map <C-c> <ESC>
+
+filetype plugin on
+
+" For sourcing curr vimrc file
+nnoremap <leader>m :w<CR> :source %<CR>
 
 " For local replace
 nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
@@ -27,20 +53,19 @@ nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>
 " For global replace
 nnoremap gR gD:%s/<C-R>///gc<left><left><left>
 
-" For ctrl-P
-nnoremap <C-t> :Files<Cr>
-
 " For backspace fricking delete
 set backspace=indent,eol,start
 
-
-
+" Show hidden chars
 :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 noremap <F3> :set list!<CR>
 inoremap <F3> <C-o>:set list!<CR>
-cnoremap <F3> <C-c>:set list!<CR>
+noremap <F3> <C-c>:set list!<CR>
 
 syntax on
+
+" I dont want recording, for now at least
+map q <Nop>
 
 set mouse=a
 " Video stuff
@@ -57,45 +82,41 @@ set incsearch
 " Tab stuff
 set autoindent noexpandtab tabstop=4 shiftwidth=4
 
-
-" Shortcut for changing tabs
-nnoremap H gT
-nnoremap L gt
-
 call plug#begin('~/.vim/plugged')
 
-" Plug 'morhetz/gruvbox'
-" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-" Plug 'junegunn/fzf.vim'
-Plug 'andreyorst/SimpleSnippets.vim'
-Plug 'ytkimirti/SimpleSnippets-snippets'
 Plug 'vim-syntastic/syntastic'
-Plug 'alexandregv/norminette-vim'
+"Plug 'alexandregv/norminette-vim'
 Plug 'kien/ctrlp.vim'
 
 Plug 'morhetz/gruvbox'
 Plug 'sickill/vim-monokai'
-Plug 'taniarascia/new-moon.vim'
 
+Plug 'andreyorst/SimpleSnippets.vim'
+Plug 'ytkimirti/SimpleSnippets-snippets'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
+Plug 'preservim/nerdcommenter'
 
 Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
-Plug 'preservim/nerdcommenter'
-
-" The airline thing
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
 call plug#end()
 
-colorscheme gruvbox 
+colorscheme gruvbox
+
+" ------------Simple snippets
+
+let g:SimpleSnippetsExpandOrJumpTrigger = "<Tab>"
+let g:SimpleSnippetsJumpBackwardTrigger = "<S-Tab>"
+let g:SimpleSnippetsJumpToLastTrigger = "<C-j>"
+
+let g:SimpleSnippets_similar_filetypes = [
+			\ ['C_CPP', 'c', 'cpp', 'h']
+			\]
+
 
 " Ctrl / for commenting
-nmap <C-n> :NERDTreeToggle<CR>
 vmap ++ <plug>NERDCommenterToggle
 nmap ++ <plug>NERDCommenterToggle
 
@@ -103,6 +124,7 @@ nmap ++ <plug>NERDCommenterToggle
 autocmd BufEnter * lcd %:p:h
 
 " NERD TREE
+nmap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-n> :NERDTreeFocus<CR>
 nnoremap <C-h> :NERDTreeToggle<CR>
 let g:NERDTreeGitStatusWithFlags = 1
@@ -130,7 +152,8 @@ nnoremap <F10> :call ToggleSyntastic()<CR>
 
 
 " Enable norminette-vim (and gcc)
-let g:syntastic_c_checkers = ['gcc', 'norminette']
+" Add 'norminette here'
+let g:syntastic_c_checkers = ['gcc']
 let g:syntastic_aggregate_errors = 0
 
 " Support headers (.h)
