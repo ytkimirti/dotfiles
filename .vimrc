@@ -13,7 +13,7 @@
 let mapleader=" "
 
 map <F8> :w <CR> :!clear && gcc -o a.out *.c && ./a.out <CR>
-map <F9> :w <CR> :!clear && gcc -Wall -Wextra -o a.out *.c && ./a.out- <CR>
+map <F9> :w <CR> :!clear && gcc -Wall -Wextra -o a.out *.c && ./a.out <CR>
 
 " Map test
 
