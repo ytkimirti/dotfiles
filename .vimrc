@@ -23,6 +23,7 @@ vnoremap ; :
 
 " Just for the vimrc
 nnoremap <Leader>w :up<CR>
+nnoremap <Leader>s A;<ESC>
 
 " Pasting the yank register
 nmap ,p "0p
@@ -84,6 +85,7 @@ set autoindent noexpandtab tabstop=4 shiftwidth=4
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'aserebryakov/vim-todo-lists'
 Plug 'vim-syntastic/syntastic'
 "Plug 'alexandregv/norminette-vim'
 Plug 'kien/ctrlp.vim'

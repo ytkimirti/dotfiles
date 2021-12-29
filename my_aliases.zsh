@@ -1,6 +1,8 @@
 alias coode='code ~/tmp'
 alias leet='code ~/.leetcode'
+alias todo='code ~/.todo'
 #My experimental conda thing
+
 
 #fix this thing m8
 #Add conda to path
@@ -9,6 +11,8 @@ alias condaset='export PATH="/Users/ytkimirti/opt/anaconda3/bin:$PATH"'
 #Remove conda from path
 alias condarm='export PATH=`echo $PATH | tr ":" "\n" | grep -v "anaconda" | tr "\n" ":"`'
 
+alias namaz='python3 ~/Projects/Python/namazvakti.py'
+alias path="echo \"${PATH//:/\n}\""
 alias t='tldr'
 alias editalias='vim ~/.oh-my-zsh/custom/my_aliases.zsh'
 alias editvim='vim ~/.vimrc'
@@ -17,12 +21,15 @@ alias n='norminette -R CheckForbiddenSourceHeader'
 alias nd='norminette -R CheckForbiddenSourceHeader -R CheckDefine'
 alias g='gcc -Wall -Wextra -Werror'
 alias a='./a.out'
+alias p='pnpm'
+alias px='pnpx'
 
 #Git stuff
 alias gitreset='git reset --hard'
 alias gitclean='git clean -f -d'
 alias gitrc='git clean -f -d && git reset --hard'
 alias gs='git status'
+alias ga='git add .'
 alias gc='git commit'
 alias gl='git log --graph --oneline --decorate'
 alias gp='git push'
@@ -45,3 +52,6 @@ alias cow="fortune | cowsay -f "$(cowsay -l | sed '1d' | tr ' ' '\n' | sort -R |
 alias pth="echo $PATH | tr ':' '\n'"
 
 alias cc='pwd | pbcopy'
+alias localip='ifconfig | grep 192.168.'
+alias editcodenvim="code ~/.config/nvim/init.vim"
+alias editnvim="nvim ~/.config/nvim/init.vim"

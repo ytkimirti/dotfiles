@@ -3,12 +3,14 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/$USER/.oh-my-zsh"
+export EDITOR="vim"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="gallois"
+ZSH_THEME="arrow"
+# fino - multiline thing
 # My thing gallois
 # theunraveler real gud
 # arrow hmm noice
