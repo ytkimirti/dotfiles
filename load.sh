@@ -29,7 +29,7 @@ git add . && git commit -m "Autocommit"
 printrow
 printrow
 
-git --no-pager diff origin/master master
+#git --no-pager diff origin/master master
 
 printrow
 printrow
