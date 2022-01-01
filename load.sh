@@ -19,7 +19,7 @@ done
 
 git add . && git commit -m "Autocommit"
 
-yes '=' | head -n $COLUMNS | tr -d '\n'
+exec "yes '=' | head -n $COLUMNS | tr -d '\n'"
 
 #git --no-pager diff origin/master master
 
