@@ -13,6 +13,10 @@ confirm() {
 
 COLUMNS=`tput cols`
 
+printrow() {
+	yes '=' | head -n $COLUMNS | tr -d '\n'
+}
+
 confirm "This will overrite repo [y/N]"  || exit 0
 
 for item in $dotfiles ; do
@@ -21,11 +25,11 @@ done
 
 git add . && git commit -m "Autocommit"
 
-yes '=' | head -n $COLUMNS | tr -d '\n'
+printrow
 
-#git --no-pager diff origin/master master
+git --no-pager diff origin/master master
 
-#yes '=' | head -n $COLUMNS | tr -d '\n'
+printrow
 
 confirm "Push changes? [y/N]"  || exit 0
 
