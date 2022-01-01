@@ -19,11 +19,11 @@ done
 
 git add . && git commit -m "Autocommit"
 
-yes '=' | head -n$(($COLUMNS)) | tr -d '\n'
+yes '=' | head -n $(($COLUMNS)) | tr -d '\n'
 
 git --no-pager diff origin/master master
 
-yes '=' | head -n$(($COLUMNS)) | tr -d '\n'
+yes '=' | head -n $(($COLUMNS)) | tr -d '\n'
 
 confirm "Push changes? [y/N]"  || exit 0
 
