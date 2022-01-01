@@ -1,8 +1,5 @@
 alias coode='code ~/tmp'
-alias leet='code ~/.leetcode'
 alias todo='code ~/.todo'
-#My experimental conda thing
-
 
 #fix this thing m8
 #Add conda to path
@@ -22,6 +19,7 @@ alias p='pnpm'
 alias px='pnpx'
 
 #Git stuff
+alias send='git add . && git commit -m "autocommit" && git push'
 alias gitreset='git reset --hard'
 alias gitclean='git clean -f -d'
 alias gitrc='git clean -f -d && git reset --hard'
@@ -31,25 +29,20 @@ alias gc='git commit'
 alias gl='git log --graph --oneline --decorate'
 alias gp='git push'
 
-#Prevent sleeping
+# Prevent sleeping
 alias coffee='caffeinate -disu'
 alias covfefe='caffeinate -disu'
 
-alias send='git add . && git commit -m "autocommit" && git push'
-alias load='bash ~/dotfiles/load.sh'
-alias unload='bash ~/dotfiles/unload.sh'
-#alias l='ls -l */*'
-alias l='ls -l */* | cut -c 57-'
-alias rmouts='rm */a.out'
-alias thereisnospoon='~/dotfiles/cmatrix -s'
-
-alias cow="fortune | cowsay -f "$(cowsay -l | sed '1d' | tr ' ' '\n' | sort -R | head -1)" | lolcat -a -s 50 && caffeinate -disu"
-
-alias pth="echo $PATH | tr ':' '\n'"
-
+# Util
 alias cc='pwd | pbcopy'
 alias localip='ifconfig | grep 192.168.'
+alias load='bash ~/dotfiles/load.sh'
+alias unload='bash ~/dotfiles/unload.sh'
+alias rmouts='rm */a.out'
 
+# Easteregg
+alias cow="fortune | cowsay -f "$(cowsay -l | sed '1d' | tr ' ' '\n' | sort -R | head -1)" | lolcat -a -s 50 && caffeinate -disu"
+alias thereisnospoon='~/dotfiles/cmatrix -s'
 
 alias editcodenvim="code ~/.config/nvim/init.vim"
 alias editsnippets='cd ~/.vim/plugged/SimpleSnippets-snippets/snippets'

@@ -1,8 +1,3 @@
-#dotfiles=".vimrc .zshrc .tmux.conf"
-
-
-exit 0
-
 confirm() {
 	# call with a prompt string or use a default
 	read -r -p "${1:-Are you sure? [y/N]} " response
@@ -14,26 +9,29 @@ confirm() {
 			false
 			;;
 	esac
-
 }
 
-confirm "This will overrite repo [y/N]"  || exit 0
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}"   )" &> /dev/null && pwd   )
+COLUMNS=`tput cols`
 
-cp ~/dotfiles/.vimrc ~/.vimrc 
-cp ~/dotfiles/.zshrc ~/.zshrc 
-cp ~/dotfiles/my_aliases.zsh ~/.oh-my-zsh/custom/my_aliases.zsh 
+cd $SCRIPT_DIR
 
-git add . && git commit -m "Autocommit"
+printrow() {
+	yes '=' | head -n $COLUMNS | tr -d '\n'
+}
 
-yes '=' | head -n$(($COLUMNS)) | tr -d '\n'
+printrow
 
-git --no-pager diff origin/master master
+for item in $dotfiles ; do
+	git --no-pager diff ~/$item files/$item
+	#mkdir -p ~/`dirname $item` && cp -f files/$item ~/$item
+done
 
-yes '=' | head -n$(($COLUMNS)) | tr -d '\n'
+printrow
 
-confirm "Push changes? [y/N]"  || exit 0
+confirm "Overrite the local config? [y/N]" || exit 0
 
-git push
-
-
-
+for item in $dotfiles ; do
+	#git --no-pager diff ~/$item files/$item
+	mkdir -p ~/`dirname $item` && cp -f files/$item ~/$item
+done

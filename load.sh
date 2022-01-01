@@ -11,12 +11,25 @@ confirm() {
     esac
 }
 
-COLUMNS=`tput cols`
-
 printrow() {
 	yes '=' | head -n $COLUMNS | tr -d '\n'
 }
 
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}"  )" &> /dev/null && pwd  )
+COLUMNS=`tput cols`
+
+cd $SCRIPT_DIR
+
+printrow
+
+for item in $dotfiles ; do
+	#git --no-pager diff files/$item ~/$item
+	git --no-pager diff files/$item ~/$item
+done
+
+printrow
+
+echo -e "\n"
 confirm "This will overrite repo [y/N]"  || exit 0
 
 for item in $dotfiles ; do
@@ -24,12 +37,6 @@ for item in $dotfiles ; do
 done
 
 git add . && git commit -m "Autocommit"
-
-printrow
-
-git --no-pager diff origin/master master
-
-printrow
 
 echo '\n'
 
