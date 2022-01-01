@@ -14,11 +14,8 @@ confirm() {
 confirm "This will overrite repo [y/N]"  || exit 0
 
 for item in $dotfiles ; do
-	echo 'cp ~/$item ~/dotfiles/$item'
+	mkdir -p files/`dirname $item` && cp -f ~/$item files/$item
 done
-#cp ~/.vimrc ~/dotfiles/.vimrc
-#cp ~/.zshrc ~/dotfiles/.zshrc
-#cp ~/.oh-my-zsh/custom/my_aliases.zsh ~/dotfiles/my_aliases.zsh
 
 git add . && git commit -m "Autocommit"
 
