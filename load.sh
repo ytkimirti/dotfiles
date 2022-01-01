@@ -38,7 +38,7 @@ done
 
 git add . && git commit -m "Autocommit"
 
-echo '\n'
+echo -e '\n'
 
 confirm "Push changes? [y/N]"  || exit 0
 
