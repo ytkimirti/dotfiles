@@ -11,6 +11,8 @@ confirm() {
     esac
 }
 
+COLUMNS=`tput cols`
+
 confirm "This will overrite repo [y/N]"  || exit 0
 
 for item in $dotfiles ; do
@@ -19,7 +21,7 @@ done
 
 git add . && git commit -m "Autocommit"
 
-exec "yes '=' | head -n $COLUMNS | tr -d '\n'"
+yes '=' | head -n $COLUMNS | tr -d '\n'
 
 #git --no-pager diff origin/master master
 
