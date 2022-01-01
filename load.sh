@@ -31,7 +31,7 @@ git --no-pager diff origin/master master
 
 printrow
 
-echo ''
+echo '\n'
 
 confirm "Push changes? [y/N]"  || exit 0
 
