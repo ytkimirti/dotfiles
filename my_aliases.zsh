@@ -14,9 +14,6 @@ alias condarm='export PATH=`echo $PATH | tr ":" "\n" | grep -v "anaconda" | tr "
 alias namaz='python3 ~/Projects/Python/namazvakti.py'
 alias path="echo \"${PATH//:/\n}\""
 alias t='tldr'
-alias editalias='vim ~/.oh-my-zsh/custom/my_aliases.zsh'
-alias editvim='vim ~/.vimrc'
-alias editzsh='vim ~/.zshrc'
 alias n='norminette -R CheckForbiddenSourceHeader'
 alias nd='norminette -R CheckForbiddenSourceHeader -R CheckDefine'
 alias g='gcc -Wall -Wextra -Werror'
@@ -38,7 +35,6 @@ alias gp='git push'
 alias coffee='caffeinate -disu'
 alias covfefe='caffeinate -disu'
 
-alias editsnippets='cd ~/.vim/plugged/SimpleSnippets-snippets/snippets'
 alias send='git add . && git commit -m "autocommit" && git push'
 alias load='bash ~/dotfiles/load.sh'
 alias unload='bash ~/dotfiles/unload.sh'
@@ -53,5 +49,15 @@ alias pth="echo $PATH | tr ':' '\n'"
 
 alias cc='pwd | pbcopy'
 alias localip='ifconfig | grep 192.168.'
+
+
 alias editcodenvim="code ~/.config/nvim/init.vim"
+alias editsnippets='cd ~/.vim/plugged/SimpleSnippets-snippets/snippets'
 alias editnvim="nvim ~/.config/nvim/init.vim"
+alias editalias='vim ~/.oh-my-zsh/custom/my_aliases.zsh'
+alias editvim='vim ~/.vimrc'
+alias editzsh='vim ~/.zshrc'
+alias edittmux='vim ~/.tmux.conf'
+
+# Tmux
+alias ta="tmux attach-session -t main || tmux new -s main"

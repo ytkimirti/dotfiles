@@ -12,14 +12,15 @@
 
 let mapleader=" "
 
+map <F5> :w <CR> :!clear && gcc -g -o dbg.out *.c && lldb ./dbg.out <CR>
 map <F8> :w <CR> :!clear && gcc -o a.out *.c && ./a.out <CR>
 map <F9> :w <CR> :!clear && gcc -Wall -Wextra -o a.out *.c && ./a.out <CR>
 
 " Map test
 
 " just much better
-nnoremap ; :
-vnoremap ; :
+"nnoremap ; :
+"vnoremap ; :
 
 " Just for the vimrc
 nnoremap <Leader>w :up<CR>
@@ -45,7 +46,7 @@ map <C-c> <ESC>
 
 filetype plugin on
 
-" For sourcing curr vimrc file
+" For surcing curr vimrc file
 nnoremap <leader>m :w<CR> :source %<CR>
 
 " For local replace
@@ -85,6 +86,7 @@ set autoindent noexpandtab tabstop=4 shiftwidth=4
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'justinmk/vim-sneak'
 Plug 'aserebryakov/vim-todo-lists'
 Plug 'vim-syntastic/syntastic'
 "Plug 'alexandregv/norminette-vim'
