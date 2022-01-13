@@ -94,6 +94,8 @@ Plug 'vim-syntastic/syntastic'
 "Plug 'alexandregv/norminette-vim'
 Plug 'kien/ctrlp.vim'
 
+" Color themes
+Plug 'rafi/awesome-vim-colorschemes'
 Plug 'morhetz/gruvbox'
 Plug 'sickill/vim-monokai'
 
@@ -109,7 +111,28 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 call plug#end()
 
-colorscheme gruvbox
+colorscheme onedark
+"
+" ------------------ Colorscheme choices ----------------
+" onedark			easy on the eyes
+" two-firewatch		really really dark, reddish
+" spacecamp			really dark
+" spacecamp_lite	kinda dark
+" alduin			reaaaally easy on the eyes
+" solarized8		solarized but not blue bg
+" solarized8_flat
+" solarized8 high
+" dogrun			dog
+" tender			genorous
+" OceanicNext		really liked this one
+"
+" PaperColor	really contrasty
+" minimalist	purple
+"
+" ---------
+" hybrid_reverse	orangy
+" hybrid_material	
+" 
 
 " ------------Simple snippets
 
