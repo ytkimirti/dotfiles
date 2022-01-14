@@ -15,14 +15,7 @@ let mapleader=" "
 map <F5> :w <CR> :!clear && gcc -g -o dbg.out *.c && lldb ./dbg.out <CR>
 map <F8> :w <CR> :!clear && gcc -o a.out *.c && ./a.out <CR>
 map <F9> :w <CR> :!clear && gcc -Wall -Wextra -o a.out *.c && ./a.out <CR>
-
-" Just sayin hello
-
-" Map test
-
-" just much better
-"nnoremap ; :
-"vnoremap ; :
+nnoremap <F10> :call ToggleSyntastic()<CR>
 
 " Just for the vimrc
 nnoremap <Leader>w :up<CR>
@@ -175,9 +168,8 @@ function! ToggleSyntastic()
     SyntasticCheck
 endfunction
 
-nnoremap <F10> :call ToggleSyntastic()<CR>
 
-" -- NORMINETTE SETTINGS --
+" ------------------ SYNTASTIC SETTINGS ---------------------
 
 
 " Enable norminette-vim (and gcc)
@@ -190,10 +182,10 @@ let g:c_syntax_for_h = 1
 let g:syntastic_c_include_dirs = ['include', '../include', '../../include', 'libft', '../libft/include', '../../libft/include']
 
 " Pass custom arguments to norminette (this one ignores 42header)
-" let g:syntastic_c_norminette_args = '-R CheckTopCommentHeader'
+ "let g:syntastic_c_norminette_args = '-R CheckTopCommentHeader'
 
 " For the things with headers
-"let g:syntastic_c_norminette_args = '-R CheckDefine'
+let g:syntastic_c_norminette_args = '-R CheckDefine'
 
 " Check errors when opening a file (disable to speed up startup time)
 let g:syntastic_check_on_open = 0
