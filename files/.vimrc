@@ -13,17 +13,21 @@
 let mapleader=" "
 
 map <F5> :w <CR> :!clear && gcc -g -o dbg.out *.c && lldb ./dbg.out <CR>
-map <F8> :w <CR> :!clear && gcc -o a.out *.c && ./a.out <CR>
-map <F9> :w <CR> :!clear && gcc -Wall -Wextra -o a.out *.c && ./a.out <CR>
+map <F7> :w <CR> :!clear && make run<CR>
+map <F8> :w <CR> :!clear && gcc -o a.out % && ./a.out <CR>
+map <F9> :w <CR> :!clear && gcc -o a.out *.c && ./a.out <CR>
+
 nnoremap <F10> :call ToggleSyntastic()<CR>
 
-" Just for the vimrc
-nnoremap <Leader>w :up<CR>
+nnoremap <Leader>w :up<CR> :Baslik<CR>
 nnoremap <Leader>s A;<ESC>
 
 " Pasting the yank register
 nmap ,p "0p
 nmap ,P "0P
+
+nnoremap <Leader>p "*p
+nnoremap <Leader>P "*P
 
 " Copying to clipboard with capital Y
 nnoremap Y "*y

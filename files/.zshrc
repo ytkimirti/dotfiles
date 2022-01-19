@@ -30,7 +30,6 @@ plugins=(
 	rand-quote
 	themes
 )
-# zsh-vi-mode maybe???
 
 source $ZSH/oh-my-zsh.sh
 
@@ -39,11 +38,11 @@ source $ZSH/oh-my-zsh.sh
 ## -------- Custom -----------------
 export dotfiles=".vimrc .zshrc .tmux.conf .oh-my-zsh/custom/my_aliases.zsh .gitconfig .gitignore_global"
 
-ZVM_ESCAPE_KEYTIMEOUT=0.01
-ZVM_KEYTIMEOUT=0.01
 
 ## -------- Vi-mode options -------
 
+ZVM_ESCAPE_KEYTIMEOUT=0.01
+ZVM_KEYTIMEOUT=0.01
 #  mmmmmmmaaaaaaaaaaaaaayybe
 #my_init() {
 	  #[ -f ~/.fzf.zsh  ] && source ~/.fzf.zsh
@@ -52,12 +51,9 @@ ZVM_KEYTIMEOUT=0.01
 #zvm_after_init_commands+=(my_init)
 
 
-## NOTE
-#
-# ccat			syntaxed cat
-#
-#
-#
-#
-#
-#
+if [[ "$USER" == "ykimirti" ]]
+then
+	PATH=$PATH:"/goinfre/ykimirti/homebrew/bin"
+	PATH=$PATH:"/Users/ykimirti/Library/Python/3.9/bin"
+	PATH=$PATH:"/Users/ykimirti/Library/Python/3.9/lib/python/site-packages"
+fi
