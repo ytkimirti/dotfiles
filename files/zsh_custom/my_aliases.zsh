@@ -36,6 +36,7 @@ alias covfefe='caffeinate -disu'
 # Util
 alias cc='pwd | pbcopy'
 alias localip='ifconfig | grep 192.168.'
+alias publicip='dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com'
 alias load='bash ~/dotfiles/load.sh'
 alias unload='bash ~/dotfiles/unload.sh'
 alias rmouts='rm */a.out'
@@ -47,7 +48,7 @@ alias thereisnospoon='~/dotfiles/cmatrix -s'
 alias editcodenvim="code ~/.config/nvim/init.vim"
 alias editsnippets='cd ~/.vim/plugged/SimpleSnippets-snippets/snippets'
 alias editnvim="nvim ~/.config/nvim/init.vim"
-alias editalias='vim ~/.oh-my-zsh/custom/my_aliases.zsh'
+alias editalias='vim $ZSH_CUSTOM/my_aliases.zsh'
 alias editvim='vim ~/.vimrc'
 alias editzsh='vim ~/.zshrc'
 alias edittmux='vim ~/.tmux.conf'
