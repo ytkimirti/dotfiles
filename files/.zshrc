@@ -6,7 +6,7 @@ COMPLETION_WAITING_DOTS=true
 DISABLE_AUTO_UPDATE="true"
 #CASE_SENSITIVE="true"
 
-ZSH_THEME="daveverwer"
+ZSH_THEME="short"
 
 # ------- two line themes ----------
 # 'guezwho'
