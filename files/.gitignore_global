@@ -12,3 +12,8 @@ Thumbs.db
 
 # vi
 *~
+
+# C outputs
+*.o
+a.out
+

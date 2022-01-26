@@ -118,7 +118,7 @@ Plug 'preservim/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 Plug 'ryanoasis/vim-devicons'
-Plug 'airblade/vim-gitgutter'
+"Plug 'airblade/vim-gitgutter'
 
 Plug 'aserebryakov/vim-todo-lists'
 
@@ -205,7 +205,7 @@ endfunction
 
 " Enable norminette-vim (and gcc)
 " Add 'norminette here'
-let g:syntastic_c_checkers = ['gcc']
+let g:syntastic_c_checkers = ['gcc', 'norminette']
 let g:syntastic_aggregate_errors = 0
 
 " Support headers (.h)
@@ -213,7 +213,7 @@ let g:c_syntax_for_h = 1
 let g:syntastic_c_include_dirs = ['include', '../include', '../../include', 'libft', '../libft/include', '../../libft/include']
 
 " Pass custom arguments to norminette (this one ignores 42header)
- "let g:syntastic_c_norminette_args = '-R CheckTopCommentHeader'
+ let g:syntastic_c_norminette_args = '-R CheckTopCommentHeader'
 
 " For the things with headers
 let g:syntastic_c_norminette_args = '-R CheckDefine'

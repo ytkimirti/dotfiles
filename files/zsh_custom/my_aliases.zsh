@@ -43,7 +43,7 @@ alias rmouts='rm */a.out'
 alias cdwhich='cd "$(dirname "$(which pip3)")"'
 
 # Easteregg
-alias cow="fortune | cowsay -f "$(cowsay -l | sed '1d' | tr ' ' '\n' | sort -R | head -1)" | lolcat -a -s 50 && caffeinate -disu"
+#alias cow="fortune | cowsay -f "$(cowsay -l | sed '1d' | tr ' ' '\n' | sort -R | head -1)" | lolcat -a -s 50 && caffeinate -disu"
 alias thereisnospoon='~/dotfiles/cmatrix -s'
 
 alias editcodenvim="code ~/.config/nvim/init.vim"
