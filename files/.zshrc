@@ -56,4 +56,6 @@ then
 	PATH=$PATH:"/goinfre/ykimirti/homebrew/bin"
 	PATH=$PATH:"/Users/ykimirti/Library/Python/3.9/bin"
 	PATH=$PATH:"/Users/ykimirti/Library/Python/3.9/lib/python/site-packages"
+else
+	PATH=$PATH:"/usr/local/opt/llvm/bin/"
 fi
