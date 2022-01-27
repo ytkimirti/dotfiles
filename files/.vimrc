@@ -106,8 +106,8 @@ else 			" For vim
 	Plug 'ytkimirti/SimpleSnippets-snippets'
 	Plug 'jiangmiao/auto-pairs'
 endif
-
 " Editor
+Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-surround'
 Plug 'justinmk/vim-sneak'
 Plug 'kien/ctrlp.vim'
@@ -205,7 +205,8 @@ endfunction
 
 " Enable norminette-vim (and gcc)
 " Add 'norminette here'
-let g:syntastic_c_checkers = ['gcc', 'norminette']
+"let g:syntastic_c_checkers = ['gcc', 'norminette']
+let g:syntastic_c_checkers = ['gcc']
 let g:syntastic_aggregate_errors = 0
 
 " Support headers (.h)
