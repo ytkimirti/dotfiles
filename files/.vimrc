@@ -122,8 +122,6 @@ Plug 'ryanoasis/vim-devicons'
 
 Plug 'aserebryakov/vim-todo-lists'
 
-Plug 'alx741/vinfo'
-
 " Color themes
 Plug 'rafi/awesome-vim-colorschemes'
 "Plug 'morhetz/gruvbox'
