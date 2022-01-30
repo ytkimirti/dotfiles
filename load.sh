@@ -36,10 +36,11 @@ for item in $dotfiles ; do
 	mkdir -p files/`dirname $item` && cp -f ~/$item files/$item
 done
 
-git add . && git commit -m "Autocommit"
 
 echo -e '\n'
 
 confirm "Push changes? [y/N]"  || exit 0
+
+git add . && git commit -m "Autocommit"
 
 git push
