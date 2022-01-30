@@ -23,10 +23,12 @@ alias send='git add . && git commit -m "autocommit" && git push'
 alias gitreset='git reset --hard'
 alias gitclean='git clean -f -d'
 alias gitrc='git clean -f -d && git reset --hard'
-alias gs='git status'
+alias gs='git status -s -b'
 alias ga='git add .'
 alias gc='git commit'
-alias gl='git log --graph --oneline --decorate'
+alias gl='git log --graph --oneline --decorate --all'
+# Git log left-right
+alias glr='git log --graph --oneline --decorate --left-right'
 alias gp='git push'
 
 # Prevent sleeping
@@ -53,6 +55,7 @@ alias editalias='vim $ZSH_CUSTOM/my_aliases.zsh'
 alias editvim='vim ~/.vimrc'
 alias editzsh='vim ~/.zshrc'
 alias edittmux='vim ~/.tmux.conf'
+alias editgit='vim ~/.gitconfig'
 
 # Tmux
 alias ta="tmux attach-session -t main || tmux new -s main"

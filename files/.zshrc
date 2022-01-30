@@ -23,6 +23,7 @@ plugins=(
 	z
 	colored-man-pages
 	colorize
+	zsh-syntax-highlighting
 	copydir
 	copyfile
 	encode64
@@ -30,6 +31,11 @@ plugins=(
 	rand-quote
 	themes
 )
+
+# Declare the variable
+typeset -A ZSH_HIGHLIGHT_STYLES
+
+ZSH_HIGHLIGHT_STYLES[command]='fg=yellow'
 
 source $ZSH/oh-my-zsh.sh
 
