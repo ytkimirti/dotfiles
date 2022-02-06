@@ -124,6 +124,7 @@ Plug 'aserebryakov/vim-todo-lists'
 
 " Color themes
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'tpope/vim-sensible' " Great defaults 
 "Plug 'morhetz/gruvbox'
 
 call plug#end()
