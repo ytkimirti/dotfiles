@@ -9,6 +9,3 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
-git config --global url.ssh://git@github.com/.insteadOf https://github.com/
-
-git config --global core.excludesfile ~/dotfiles/gitignore_global
