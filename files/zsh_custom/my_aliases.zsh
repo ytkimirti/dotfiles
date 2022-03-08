@@ -56,6 +56,8 @@ alias editvim='vim ~/.vimrc'
 alias editzsh='vim ~/.zshrc'
 alias edittmux='vim ~/.tmux.conf'
 alias editgit='vim ~/.gitconfig'
+alias editnotes='vim ~/notes'
+alias editrice='vim ~/notes/torice.md'
 
 # Tmux
 alias ta="tmux attach-session -t main || tmux new -s main"
