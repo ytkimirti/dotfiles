@@ -61,3 +61,5 @@ alias editrice='vim ~/notes/torice.md'
 
 # Tmux
 alias ta="tmux attach-session -t main || tmux new -s main"
+
+alias setup-brew="mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew"
