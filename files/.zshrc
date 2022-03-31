@@ -2,9 +2,12 @@
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_CUSTOM="$HOME/dotfiles/files/zsh_custom"
 export EDITOR="vim"
+
+# This is temporary! For 42 warning thing
+export ZSH_DISABLE_COMPFIX="true"
+
 COMPLETION_WAITING_DOTS=true
 DISABLE_AUTO_UPDATE="true"
-#CASE_SENSITIVE="true"
 
 ZSH_THEME="short"
 
