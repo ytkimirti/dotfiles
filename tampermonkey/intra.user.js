@@ -10,7 +10,62 @@
 // Copy
 // ==/UserScript==
 
-function getProjectGitUrl(url, onComplete) {
+function injectStyles() {
+  $(`<style>
+		.button-utils-holder {
+			display: flex;
+			float: right;
+			justify-items: flex-end;
+			gap: 2px;
+		}
+	</style>`).appendTo("head");
+}
+
+// Returns the object to be appended
+function createProjectLinkDecoration(url) {
+  const holderElement = $("<div class='button-utils-holder'></div>");
+  const copyElement = $(`<a></a>`);
+  const subjectElement = $("<a></a>");
+
+  holderElement.append(copyElement, subjectElement);
+
+  getProjectPage(url, (htmlDoc) => {
+    console.log(`Got the doc for ${url}`);
+    // For the repo url
+    (function () {
+      const gitUrlElement = htmlDoc.querySelector(
+        "div.team-repo > div > input"
+      );
+      if (!gitUrlElement) return;
+
+      copyElement.text("Copy repo");
+
+      copyElement.click(function (event) {
+        navigator.clipboard.writeText(htmlDoc);
+        event.preventDefault();
+        const original_text = $(this).text();
+        $(this).text("Copied!");
+        setTimeout(() => {
+          $(this).text(original_text);
+        }, 1000);
+      });
+    })();
+    // For the subject
+    (function () {
+      const subjectLinkElement = htmlDoc.querySelector(
+        "#project-show > div.project-main > div.project-summary > div:nth-child(3) > div > div:nth-child(1) > h4 > a"
+      );
+      if (!subjectLinkElement || subjectLinkElement.innerText != "subject.pdf")
+        return;
+      subjectElement.text("Subject").attr("href", subjectLinkElement.href);
+      console.log(`Subject ID ${subjectLinkElement.href}`);
+    })();
+  });
+
+  return holderElement;
+}
+
+function getProjectPage(url, onComplete) {
   console.log(`Getting ${url}`);
   fetch(url, {
     headers: {
@@ -44,15 +99,7 @@ function getProjectGitUrl(url, onComplete) {
       var parser = new DOMParser();
       var htmlDoc = parser.parseFromString(html, "text/html");
 
-      const gitUrlElement = htmlDoc.querySelector(
-        "div.team-repo > div > input"
-      );
-      if (!gitUrlElement) return;
-
-      console.log(gitUrlElement.value);
-
-      // Execute the callback function
-      if (onComplete) onComplete(gitUrlElement.value);
+      onComplete(htmlDoc);
     })
     .catch(function (err) {
       // There was an error
@@ -63,56 +110,35 @@ function getProjectGitUrl(url, onComplete) {
 (function () {
   "use strict";
 
+  // When the doc is ready
   $(function () {
-    console.log(window.location.href);
+    injectStyles();
+    const currUrl = new URL(window.location.href);
+    const commandName = currUrl.searchParams.get("command");
 
-    const url = new URL(window.location.href);
-    const command_name = url.searchParams.get("command");
+    const urlBase = currUrl.hostname.toString().split(".")[0];
 
-    const url_base = url.hostname.toString().split(".")[0];
-
-    if (url_base == "profile") {
-      const project_item = $(
+    // We are on the main page
+    if (urlBase == "profile") {
+      const projectsHolder = $(
         "body > div.page > div.page-content.page-content-fluid > div > div.align-top > div > div.container-fullsize.full-width.fixed-height > div > div:nth-child(5) > div > div"
       );
 
-      //project_item.children().css("background-color", "red")
-      const links = project_item.children();
-
-      const new_obj = $("<a>Heloo!</a>");
+      const links = projectsHolder.children();
 
       // Copy git ID
       links.append(function (index, str) {
-        const original_link = $(this).attr("href");
-
-        const new_object = $(
-          `<a style="float: right; margin-left: 5px;">Copy URL</a>`
-        );
-
-        const new_link = getProjectGitUrl(original_link, (gitUrl) => {
-          new_object.text("NAJS");
-
-          new_object.click(function (event) {
-            navigator.clipboard.writeText(gitUrl);
-            event.preventDefault();
-            const original_text = $(this).text();
-            $(this).text("Copied!");
-            setTimeout(() => {
-              $(this).text(original_text);
-            }, 1000);
-          });
-        });
-
-        return new_object;
+        const originalUrl = $(this).attr("href");
+        return createProjectLinkDecoration(originalUrl);
       });
       // Subject link
-      links.append(function (index, str) {
-        const original_link = $(this).attr("href");
+      //   links.append(function (index, str) {
+      //     const original_link = $(this).attr("href");
 
-        const new_link = `${original_link}?command=click_subject`;
+      //     const new_link = `${original_link}?command=click_subject`;
 
-        return `<a style="float: right;" href="${new_link}">Subject</a>`;
-      });
+      //     return `<a style="float: right;" href="${new_link}">Subject</a>`;
+      //   });
 
       // links.each(function (id, link) {
       //     const new_element = $(`<p>Selam sekerim</p>`)
@@ -120,8 +146,8 @@ function getProjectGitUrl(url, onComplete) {
       //     link.append(new_element)
       // })
       console.log(links);
-    } else if (url_base == "projects") {
-      if (command_name == "click_subject") {
+    } else if (urlBase == "projects") {
+      if (commandName == "click_subject") {
         const subject_link = $(
           "#project-show > div.project-main > div.project-summary > div:nth-child(3) > div > div > h4 > a"
         );
