@@ -62,6 +62,7 @@ ZVM_KEYTIMEOUT=0.01
 
 if [[ "$USER" == "ykimirti" ]]
 then
+	PATH="/Users/ykimirti/mybin/homebrew/bin":$PATH
 	PATH=$PATH:"/goinfre/ykimirti/homebrew/bin"
 	PATH=$PATH:"/Users/ykimirti/Library/Python/3.9/bin"
 	PATH=$PATH:"/Users/ykimirti/Library/Python/3.9/lib/python/site-packages"

@@ -4,6 +4,7 @@
 [core]
 	excludesfile = /Users/ytkimirti/.gitignore_global
 	editor = vim
+	autocrlf = input
 [color]
 	ui = auto
 [filter "lfs"]
