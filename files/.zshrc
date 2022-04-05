@@ -45,7 +45,7 @@ source $ZSH/oh-my-zsh.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 ## -------- Custom -----------------
-export dotfiles=".vimrc .zshrc .tmux.conf .oh-my-zsh/custom/my_aliases.zsh .gitconfig .gitignore_global"
+export dotfiles=".ideavimrc .vimrc .zshrc .tmux.conf .oh-my-zsh/custom/my_aliases.zsh .gitconfig .gitignore_global"
 
 
 ## -------- Vi-mode options -------
