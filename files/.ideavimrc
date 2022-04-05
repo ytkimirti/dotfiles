@@ -1,0 +1,62 @@
+let mapleader=" "
+
+set visualbell
+
+set surround
+" set sneak
+set textobj-entire
+set ReplaceWithRegister
+
+set NERDTree
+map <leader>t :NERDTree<CR>
+
+set scrolloff=5
+set incsearch
+set ignorecase
+set smartcase
+set ideajoin
+set invhlsearch
+
+" Visual mode
+map J <Action>(MethodDown)
+map K <Action>(MethodUp)
+
+map <leader>j J
+map <leader>v <c-v>
+
+
+" Copying and pasting
+nnoremap <leader>p "*p
+nnoremap <leader>P "*P
+nnoremap Y "*y
+vnoremap Y "*y
+
+map <C-o> <Action>(Back)
+map <C-i> <Action>(Forward)
+
+map <leader>si :source C:\Users\kimirti\.ideavimrc<CR>
+
+" IntelliJ-specific Actions
+" -------------------------
+
+map <leader>i <Action>(QuickImplementations)
+
+" Navigation
+nmap <leader>o     :action GotoFile<CR>
+nmap <leader>r     :action RecentFiles<CR>
+nmap <leader>f     :action FileStructurePopup<CR>
+nmap <leader>F     :action GotoSymbol<CR>
+
+" Other
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>d <Action>(ShowErrorDescription)
+map <leader>e <Action>(GotoNextError)
+
+" Git actions
+nmap <leader>gm <Action>(Git.Menu)
+nmap <leader>gq <Action>(Vcs.QuickListPopupAction)
+map <leader>ga <Action>(Annotate)
+
+nmap <leader><CR>  :action GotoAction<CR>
+nmap <leader>w     :action SaveDocument<CR>
+nmap <leader>q     :q<CR>
