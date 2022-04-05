@@ -58,6 +58,7 @@ alias edittmux='vim ~/.tmux.conf'
 alias editgit='vim ~/.gitconfig'
 alias editnotes='vim ~/notes'
 alias editrice='vim ~/notes/torice.md'
+alias goinfre='cd /goinfre/ykimirti'
 
 # Tmux
 alias ta="tmux attach-session -t main || tmux new -s main"
