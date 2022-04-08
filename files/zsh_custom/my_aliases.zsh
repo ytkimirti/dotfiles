@@ -9,7 +9,8 @@ alias condaset='export PATH="/Users/ytkimirti/opt/anaconda3/bin:$PATH"'
 alias condarm='export PATH=`echo $PATH | tr ":" "\n" | grep -v "anaconda" | tr "\n" ":"`'
 
 alias namaz='python3 ~/Projects/Python/namazvakti.py'
-alias path="echo \"${PATH//:/\n}\""
+#alias path="echo \"${PATH//:/\n}\""
+alias path='echo $PATH | tr : "\n"'
 alias t='tldr'
 alias n='norminette -R CheckForbiddenSourceHeader'
 alias nd='norminette -R CheckForbiddenSourceHeader -R CheckDefine'

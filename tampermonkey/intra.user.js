@@ -12,11 +12,71 @@
 
 function injectStyles() {
   $(`<style>
+    /* Slider styles */
+    .zen-switch {
+      margin-top: 19px;
+      position: relative;
+      display: inline-block;
+      width: 45px;
+      height: 24px;
+    }
+    
+    .zen-switch input { 
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .zen-slider {
+      position: absolute;
+      border-radius: 34px;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    
+    .zen-slider:before {
+      border-radius: 50%;
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 4px;
+      bottom: 2px;
+      background-color: white;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    
+    input:checked + .zen-slider {
+      background-color: var(--event-meet);
+    }
+    
+    input:focus + .zen-slider {
+      box-shadow: 0 0 1px var(--event-meet);
+    }
+    
+    input:checked + .zen-slider:before {
+      -webkit-transform: translateX(17px);
+      -ms-transform: translateX(17px);
+      transform: translateX(17px);
+    }
+
+    .zen-checkbox-holder {
+      margin-right: 20px !important;
+    }
+    /* END */
+    
 		.button-utils-holder {
 			display: flex;
 			float: right;
 			justify-items: flex-end;
-			gap: 2px;
+			gap: 4px;
 		}
 	</style>`).appendTo("head");
 }
@@ -30,7 +90,6 @@ function createProjectLinkDecoration(url) {
   holderElement.append(copyElement, subjectElement);
 
   getProjectPage(url, (htmlDoc) => {
-    console.log(`Got the doc for ${url}`);
     // For the repo url
     (function () {
       const gitUrlElement = htmlDoc.querySelector(
@@ -41,7 +100,7 @@ function createProjectLinkDecoration(url) {
       copyElement.text("Copy repo");
 
       copyElement.click(function (event) {
-        navigator.clipboard.writeText(htmlDoc);
+        navigator.clipboard.writeText(gitUrlElement.value);
         event.preventDefault();
         const original_text = $(this).text();
         $(this).text("Copied!");
@@ -58,7 +117,6 @@ function createProjectLinkDecoration(url) {
       if (!subjectLinkElement || subjectLinkElement.innerText != "subject.pdf")
         return;
       subjectElement.text("Subject").attr("href", subjectLinkElement.href);
-      console.log(`Subject ID ${subjectLinkElement.href}`);
     })();
   });
 
@@ -66,7 +124,6 @@ function createProjectLinkDecoration(url) {
 }
 
 function getProjectPage(url, onComplete) {
-  console.log(`Getting ${url}`);
   fetch(url, {
     headers: {
       accept:
@@ -94,7 +151,6 @@ function getProjectPage(url, onComplete) {
       return response.text();
     })
     .then(function (html) {
-      console.log(`Success getting ${url}`);
       // SUCCESSS HERE
       var parser = new DOMParser();
       var htmlDoc = parser.parseFromString(html, "text/html");
@@ -105,6 +161,10 @@ function getProjectPage(url, onComplete) {
       // There was an error
       console.warn(`Requesting ${url} unsuccessfull`, err);
     });
+}
+
+function updateZenMode(zenMode) {
+  //console.log(`New mode is ${zenMode}`);
 }
 
 (function () {
@@ -120,44 +180,42 @@ function getProjectPage(url, onComplete) {
 
     // We are on the main page
     if (urlBase == "profile") {
+      // Zen mode checkbox injection
+      let isZenMode = localStorage.getItem("zenMode") === "true";
+      console.log(`Zen mode is ${isZenMode}`);
+
+      if (isZenMode) updateZenMode(isZenMode);
+
+      const zenModeCheckboxHolder =
+        $(`<div class="user-actions zen-checkbox-holder">
+        <label class="zen-switch">
+            <input type="checkbox">
+            <span class="zen-slider"></span>
+        </label>
+      </div>`);
+
+      zenModeCheckboxHolder
+        .find("input")
+        .prop("checked", isZenMode)
+        .change(function () {
+          localStorage.setItem("zenMode", this.checked);
+          updateZenMode(this.checked);
+        });
+
+      $("body > div.main-navbar > div.main-navbar-user-nav").prepend(
+        zenModeCheckboxHolder
+      );
+
+      // Project utils injection
       const projectsHolder = $(
         "body > div.page > div.page-content.page-content-fluid > div > div.align-top > div > div.container-fullsize.full-width.fixed-height > div > div:nth-child(5) > div > div"
       );
 
-      const links = projectsHolder.children();
-
-      // Copy git ID
-      links.append(function (index, str) {
+      projectsHolder.children().append(function (index, str) {
         const originalUrl = $(this).attr("href");
         return createProjectLinkDecoration(originalUrl);
       });
-      // Subject link
-      //   links.append(function (index, str) {
-      //     const original_link = $(this).attr("href");
-
-      //     const new_link = `${original_link}?command=click_subject`;
-
-      //     return `<a style="float: right;" href="${new_link}">Subject</a>`;
-      //   });
-
-      // links.each(function (id, link) {
-      //     const new_element = $(`<p>Selam sekerim</p>`)
-
-      //     link.append(new_element)
-      // })
-      console.log(links);
     } else if (urlBase == "projects") {
-      if (commandName == "click_subject") {
-        const subject_link = $(
-          "#project-show > div.project-main > div.project-summary > div:nth-child(3) > div > div > h4 > a"
-        );
-        //subject_link.attr("target", "")
-        subject_link[0].click();
-
-        $(
-          "body > div.main-navbar > div.main-navbar-left > div > a > img"
-        )[0].click();
-      }
     }
   });
 })();
