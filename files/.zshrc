@@ -74,3 +74,6 @@ fi
 
 # For adb
 source ~/dotfiles/scripts/add_unity_to_path.sh > /dev/null
+
+# For unity aliases
+source ~/dotfiles/scripts/unity_aliases.sh > /dev/null
