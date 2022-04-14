@@ -37,6 +37,11 @@ typeset -A ZSH_HIGHLIGHT_STYLES
 
 ZSH_HIGHLIGHT_STYLES[command]='fg=yellow'
 
+
+if [[ $USER == "ykimirti" ]]; then
+	ZSH_DISABLE_COMPFIX="true"
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
