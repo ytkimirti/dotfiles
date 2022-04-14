@@ -129,7 +129,7 @@ Plug 'tpope/vim-sensible' " Great defaults
 
 call plug#end()
 
-colorscheme alduin
+colorscheme OceanicNext
 "
 " ------------------ Colorscheme choices ----------------
 " onedark			easy on the eyes

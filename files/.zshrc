@@ -68,4 +68,4 @@ else
 fi
 
 # For adb
-source ~/dotfiles/scripts/add_platform_tools_to_path.sh > /dev/null
+source ~/dotfiles/scripts/add_unity_to_path.sh > /dev/null

@@ -12,15 +12,28 @@ if [[ $OSTYPE == 'darwin'* ]]; then
 			echo "Selected version is $version_name"
 			platform_tools_path="/PlaybackEngines/AndroidPlayer/SDK/platform-tools"
 
-			new_path="$editor_path/$version_name/$platform_tools_path"
+			adb_path="$editor_path/$version_name/$platform_tools_path"
 
-			echo "Attempt adding $new_path"
-			if [[ ":$PATH:" == *"$new_path"* ]]; then
+			echo "Attempt adding $adb_path"
+			if [[ ":$PATH:" == *"$adb_path"* ]]; then
 				echo "Path already exists in the environment. Aborting"
 			else
 				echo "Adding to PATH"
 
-				PATH=$PATH:$new_path
+				PATH=$PATH:$adb_path
+				export PATH
+			fi
+
+			#/Applications/Unity/Hub/Editor/2020.3.28f1/Unity.app/Contents/MacOS
+			unity_path="$editor_path/$version_name/Unity.app/Contents/MacOS"
+
+			echo "Attempt adding unity path:\n$unity_path"
+			if [[ ":$PATH:" == *"$unity_path"* ]]; then
+				echo "Path already exists in the environment. Aborting"
+			else
+				echo "Adding to PATH"
+
+				PATH=$PATH:$unity_path
 				export PATH
 			fi
 		else
