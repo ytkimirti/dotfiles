@@ -1,30 +1,62 @@
-"" Source your .vimrc
-"source ~/.vimrc
-
-"" -- Suggested options --
-" Show a few lines of context around the cursor. Note that this makes the
-" text scroll if you mouse-click near the start or end of the window.
-set scrolloff=5
-
-" Do incremental searching.
-set incsearch
-
-" Don't use Ex mode, use Q for formatting.
-map Q gq
+let mapleader=" "
 
 set visualbell
-set sneak
+
 set surround
+" set sneak
+set textobj-entire
+set ReplaceWithRegister
 
-"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-"" Map \r to the Reformat Code action
-"map \r <Action>(ReformatCode)
+set NERDTree
+map <leader>t :NERDTree<CR>
 
-"" Map <leader>d to start debug
-"map <leader>d <Action>(Debug)
+set scrolloff=5
+set incsearch
+set ignorecase
+set smartcase
+set ideajoin
+set invhlsearch
 
-"" Map \b to toggle the breakpoint on the current line
-"map \b <Action>(ToggleLineBreakpoint)
+" Visual mode
+map J <Action>(MethodDown)
+map K <Action>(MethodUp)
+
+map <leader>j J
+map <leader>v <c-v>
 
 
-" Find more examples here: https://jb.gg/share-ideavimrc
+" Copying and pasting
+nnoremap <leader>p "*p
+nnoremap <leader>P "*P
+nnoremap Y "*y
+vnoremap Y "*y
+
+map <C-o> <Action>(Back)
+map <C-i> <Action>(Forward)
+
+map <leader>si :source C:\Users\kimirti\.ideavimrc<CR>
+
+" IntelliJ-specific Actions
+" -------------------------
+
+map <leader>i <Action>(QuickImplementations)
+
+" Navigation
+nmap <leader>o     :action GotoFile<CR>
+nmap <leader>r     :action RecentFiles<CR>
+nmap <leader>f     :action FileStructurePopup<CR>
+nmap <leader>F     :action GotoSymbol<CR>
+
+" Other
+map <leader>b <Action>(ToggleLineBreakpoint)
+map <leader>d <Action>(ShowErrorDescription)
+map <leader>e <Action>(GotoNextError)
+
+" Git actions
+nmap <leader>gm <Action>(Git.Menu)
+nmap <leader>gq <Action>(Vcs.QuickListPopupAction)
+map <leader>ga <Action>(Annotate)
+
+nmap <leader><CR>  :action GotoAction<CR>
+nmap <leader>w     :action SaveDocument<CR>
+nmap <leader>q     :q<CR>
