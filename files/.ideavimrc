@@ -2,12 +2,13 @@ let mapleader=" "
 
 set visualbell
 
-set surround
+" set surround
 " set sneak
 set textobj-entire
 set ReplaceWithRegister
 
-set NERDTree
+set easymotion
+" set NERDTree
 map <leader>t :NERDTree<CR>
 
 set scrolloff=5
@@ -17,12 +18,18 @@ set smartcase
 set ideajoin
 set invhlsearch
 
+" Easymotion
+" Couldn't decide lol
+map q <Plug>(easymotion-prefix)
+map m <Plug>(easymotion-prefix)
+
 " Visual mode
 map J <Action>(MethodDown)
 map K <Action>(MethodUp)
 
-map <leader>j J
+" map <leader>j J
 map <leader>v <c-v>
+map <leader>h :nohl<CR>
 
 
 " Copying and pasting
@@ -34,7 +41,8 @@ vnoremap Y "*y
 map <C-o> <Action>(Back)
 map <C-i> <Action>(Forward)
 
-map <leader>si :source C:\Users\kimirti\.ideavimrc<CR>
+" map <leader>si :source C:\Users\kimirti\.ideavimrc<CR>
+map <leader>si :source /Users/ykimirti/.ideavimrc<CR>
 
 " IntelliJ-specific Actions
 " -------------------------
@@ -49,7 +57,7 @@ nmap <leader>F     :action GotoSymbol<CR>
 
 " Other
 map <leader>b <Action>(ToggleLineBreakpoint)
-map <leader>d <Action>(ShowErrorDescription)
+map <leader>d <Action>(QuickJavaDoc)
 map <leader>e <Action>(GotoNextError)
 
 " Git actions
