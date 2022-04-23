@@ -105,6 +105,7 @@ else 			" For vim
 	Plug 'andreyorst/SimpleSnippets.vim'
 	Plug 'ytkimirti/SimpleSnippets-snippets'
 	Plug 'jiangmiao/auto-pairs'
+	Plug 'dag/vim-fish'
 endif
 " Editor
 Plug 'tpope/vim-obsession'
