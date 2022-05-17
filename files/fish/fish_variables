@@ -4,14 +4,13 @@ SETUVAR Z_DATA_DIR:/Users/ytkimirti/\x2elocal/share/z
 SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_covfefe:caffeinate\x20\x2ddisu
 SETUVAR _fish_abbr_gca:git\x20add\x20\x2d\x2dall\x20\x26\x26\x20git\x20commit\x20\x26\x26\x20git\x20push
+SETUVAR _fish_abbr_gf:cd\x20/goinfre/ykimirti
 SETUVAR _fish_abbr_gl:git\x20log\x20\x2d\x2doneline\x20\x2d\x2ddecorate\x20\x2d\x2dgraph
 SETUVAR _fish_abbr_gla:git\x20log\x20\x2d\x2doneline\x20\x2d\x2ddecorate\x20\x2d\x2dgraph\x20\x2d\x2dall
 SETUVAR _fish_abbr_gs:git\x20status\x20\x2d\x2dshort
 SETUVAR _fish_abbr_n:norminette\x20\x7c\x20grep\x20\x2dE\x20\x27\x5eError\x3a\x20\x7cError\x21\x27
 SETUVAR _fish_abbr_nh:norminette\x20\x7c\x20grep\x20\x2dE\x20\x27\x5eError\x3a\x20\x7cError\x21\x27\x20\x7c\x20head
 SETUVAR _fish_abbr_ta:tmux\x20attach
-SETUVAR _fisher_jorgebucaran_2F_fisher_files:/Users/ytkimirti/\x2econfig/fish/functions/fisher\x2efish\x1e/Users/ytkimirti/\x2econfig/fish/completions/fisher\x2efish
-SETUVAR _fisher_plugins:jorgebucaran/fisher
 SETUVAR fish_color_autosuggestion:4c566a
 SETUVAR fish_color_cancel:\x2d\x2dreverse
 SETUVAR fish_color_command:81a1c1
