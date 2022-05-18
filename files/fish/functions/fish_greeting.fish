@@ -13,13 +13,7 @@ function fish_greeting
 		   'Hoşgeldiniz efendim' \
 		   'Çay veriyim mi abim' \
 		   'Welcome' \
-		   'Sa' \
-		   'Çay veriyim mi abim' \
-		   'Çay veriyim mi abim' \
-		   'Çay veriyim mi abim' \
-		   'Çay veriyim mi abim'
-	set -l random_num (count $message)
-	echo random
+		   'sa' \
 
-	magical $message[(random (count $message))]
+	magical $message[(random 1 (count $message))]
 end
