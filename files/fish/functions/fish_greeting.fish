@@ -9,5 +9,17 @@ $(set_color yellow)\
 end
 
 function fish_greeting
-	magical "Welcome"
+	set -l message \
+		   'Hoşgeldiniz efendim' \
+		   'Çay veriyim mi abim' \
+		   'Welcome' \
+		   'Sa' \
+		   'Çay veriyim mi abim' \
+		   'Çay veriyim mi abim' \
+		   'Çay veriyim mi abim' \
+		   'Çay veriyim mi abim'
+	set -l random_num (count $message)
+	echo random
+
+	magical $message[(random (count $message))]
 end

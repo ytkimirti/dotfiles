@@ -9,3 +9,6 @@ if status is-interactive
 	end
 end
 
+if [ "$USER" = "ykimirti" ]
+	
+end

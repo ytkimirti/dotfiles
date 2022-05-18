@@ -1,11 +1,13 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --path PATH:/usr/local/bin\x1e/usr/bin\x1e/bin\x1e/usr/sbin\x1e/sbin\x1e/Library/Apple/usr/bin\x1e/Library/Frameworks/Mono\x2eframework/Versions/Current/Commands\x1e/usr/local/munki\x1e/Applications/Visual\x1eStudio\x1eCode\x2eapp/Contents/MacOS/Electron
 SETUVAR Z_DATA_DIR:/Users/ytkimirti/\x2elocal/share/z
 SETUVAR __fish_initialized:3400
+SETUVAR _fish_abbr_addpath:set\x20\x2dU\x20\x2da\x20fish_user_path
 SETUVAR _fish_abbr_covfefe:caffeinate\x20\x2ddisu
 SETUVAR _fish_abbr_gca:git\x20add\x20\x2d\x2dall\x20\x26\x26\x20git\x20commit\x20\x26\x26\x20git\x20push
-SETUVAR _fish_abbr_gf:cd\x20/goinfre/ykimirti
 SETUVAR _fish_abbr_gcaa:git\x20add\x20\x2d\x2dall\x20\x26\x26\x20git\x20commit\x20\x2dm\x20\x27Autocommit\x27\x20\x26\x26\x20git\x20pull\x20\x26\x26\x20git\x20push
+SETUVAR _fish_abbr_gf:cd\x20/goinfre/ykimirti
 SETUVAR _fish_abbr_gl:git\x20log\x20\x2d\x2doneline\x20\x2d\x2ddecorate\x20\x2d\x2dgraph
 SETUVAR _fish_abbr_gla:git\x20log\x20\x2d\x2doneline\x20\x2d\x2ddecorate\x20\x2d\x2dgraph\x20\x2d\x2dall
 SETUVAR _fish_abbr_gra:git\x20reset\x20\x2d\x2dhard\x20HEAD\x20\x26\x26\x20git\x20clean\x20\x2dfd
@@ -14,24 +16,24 @@ SETUVAR _fish_abbr_n:norminette\x20\x7c\x20grep\x20\x2dE\x20\x27\x5eError\x3a\x2
 SETUVAR _fish_abbr_nh:norminette\x20\x7c\x20grep\x20\x2dE\x20\x27\x5eError\x3a\x20\x7cError\x21\x27\x20\x7c\x20head
 SETUVAR _fish_abbr_p:pnpm
 SETUVAR _fish_abbr_ta:tmux\x20attach
-SETUVAR fish_color_autosuggestion:4c566a
+SETUVAR fish_color_autosuggestion:555
 SETUVAR fish_color_cancel:\x2d\x2dreverse
-SETUVAR fish_color_command:81a1c1
-SETUVAR fish_color_comment:434c5e
+SETUVAR fish_color_command:blue
+SETUVAR fish_color_comment:red
 SETUVAR fish_color_cwd:green
 SETUVAR fish_color_cwd_root:red
-SETUVAR fish_color_end:88c0d0
-SETUVAR fish_color_error:ebcb8b
-SETUVAR fish_color_escape:00a6b2
+SETUVAR fish_color_end:green
+SETUVAR fish_color_error:brred
+SETUVAR fish_color_escape:brcyan
 SETUVAR fish_color_history_current:\x2d\x2dbold
 SETUVAR fish_color_host:normal
 SETUVAR fish_color_host_remote:yellow
 SETUVAR fish_color_match:\x2d\x2dbackground\x3dbrblue
 SETUVAR fish_color_normal:normal
-SETUVAR fish_color_operator:00a6b2
-SETUVAR fish_color_param:eceff4
-SETUVAR fish_color_quote:a3be8c
-SETUVAR fish_color_redirection:b48ead
+SETUVAR fish_color_operator:brcyan
+SETUVAR fish_color_param:cyan
+SETUVAR fish_color_quote:yellow
+SETUVAR fish_color_redirection:cyan\x1e\x2d\x2dbold
 SETUVAR fish_color_search_match:bryellow\x1e\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_color_status:red
@@ -39,7 +41,9 @@ SETUVAR fish_color_user:brgreen
 SETUVAR fish_color_valid_path:\x2d\x2dunderline
 SETUVAR fish_key_bindings:fish_vi_key_bindings
 SETUVAR fish_pager_color_completion:normal
-SETUVAR fish_pager_color_description:B3A06D
+SETUVAR fish_pager_color_description:B3A06D\x1e\x2d\x2ditalics
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
-SETUVAR fish_pager_color_selected_background:\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_pager_color_selected_background:\x2d\x2dreverse
+SETUVAR fish_user_path:/Applications/Visual\x1eStudio\x1eCode\x2eapp/Contents/MacOS/Electron
+SETUVAR fish_user_paths:/Users/ykimirti/mybin/homebrew/bin
