@@ -10,7 +10,7 @@ cmd=""
 # look for if you want with the second argument
 install()
 {
-	cmd_name=${$2:-$1}
+	cmd_name=${2:-$1}
 	if ! command -v $cmd_name &> /dev/null
 	then
 	echo "🧐 $1 could not be found"
