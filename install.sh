@@ -61,10 +61,12 @@ echo "✅ All packages are installed!"
 
 echo "🚛 Linking config files"
 
-configs=( .zshrc .vimrc .gitconfig .gitignore_global .ideavimrc .tmux.conf fish )
+configs=( .zshrc .vimrc .gitconfig .gitignore_global .ideavimrc .tmux.conf fish iterm )
 for i in "${configs[@]}"
 do
 	fish $HOME/dotfiles/scripts/link_config.fish $i
 done
+
+# fish $HOME/dotfiles/scripts/configure_apps.fish
 
 echo "✅ All OK!"
