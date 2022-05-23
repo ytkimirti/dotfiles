@@ -4,6 +4,8 @@ if status is-interactive
 		thefuck --alias | source
 	end
 
+    set -x FZF_DEFAULT_COMMAND 'rg --files --hidden'
+
 	if test -d $HOME/dotfiles/files/zsh_custom/my_aliases.zsh
 		source $HOME/dotfiles/files/zsh_custom/my_aliases.zsh
 	end

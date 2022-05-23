@@ -25,6 +25,7 @@ SETUVAR _fish_abbr_nh:norminette\x20\x7c\x20grep\x20\x2dE\x20\x27\x5eError\x3a\x
 SETUVAR _fish_abbr_p:pnpm
 SETUVAR _fish_abbr_ta:tmux\x20attach
 SETUVAR _fish_abbr_tree:exa\x20\x2d\x2dtree
+SETUVAR _fish_abbr_vimfzf:vim\x20\x28fzf\x29
 SETUVAR _fisher_jethrokuan_2F_z_files:/Users/ytkimirti/\x2econfig/fish/functions/__z\x2efish\x1e/Users/ytkimirti/\x2econfig/fish/functions/__z_add\x2efish\x1e/Users/ytkimirti/\x2econfig/fish/functions/__z_clean\x2efish\x1e/Users/ytkimirti/\x2econfig/fish/functions/__z_complete\x2efish\x1e/Users/ytkimirti/\x2econfig/fish/conf\x2ed/z\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:/Users/ytkimirti/\x2econfig/fish/functions/fisher\x2efish\x1e/Users/ytkimirti/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1ejethrokuan/z
