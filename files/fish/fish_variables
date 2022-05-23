@@ -58,4 +58,4 @@ SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2d\x2dreverse
 SETUVAR fish_user_path:/Applications/Visual\x1eStudio\x1eCode\x2eapp/Contents/MacOS/Electron
-SETUVAR fish_user_paths:/Users/ykimirti/mybin/homebrew/bin
+SETUVAR fish_user_paths:/Users/ykimirti/mybin/homebrew/bin\x1e/Users/ytkimirti/\x2efzf/bin

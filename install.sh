@@ -41,6 +41,7 @@ install tmux
 install exa
 install bat
 install ripgrep rg
+install entr
 
 if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]
 then
