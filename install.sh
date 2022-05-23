@@ -6,9 +6,12 @@ line()
 }
 cmd=""
 
+# Takes package name as first argument, you can specify a command name to
+# look for if you want with the second argument
 install()
 {
-	if ! command -v $1 &> /dev/null
+	cmd_name=${$2:-$1}
+	if ! command -v $cmd_name &> /dev/null
 	then
 	echo "🧐 $1 could not be found"
 	read -p "🤨 Install $1? " -n 1 -r
@@ -37,7 +40,7 @@ install fish
 install tmux
 install exa
 install bat
-install ripgrep
+install ripgrep rg
 
 if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]
 then
