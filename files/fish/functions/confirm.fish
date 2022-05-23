@@ -1,4 +1,4 @@
-function read_confirm
+function confirm
   while true
     read -l -P "$(set_color cyan)\
 $argv[1] \
