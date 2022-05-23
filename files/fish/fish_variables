@@ -7,6 +7,7 @@ SETUVAR Z_DATA:/Users/ytkimirti/\x2elocal/share/z/data
 SETUVAR Z_DATA_DIR:/Users/ytkimirti/\x2elocal/share/z
 SETUVAR Z_EXCLUDE:\x5e/Users/ytkimirti\x24
 SETUVAR __fish_initialized:3400
+SETUVAR _fish_abbr_aa:abbr\x20\x2da\x20\x2dU
 SETUVAR _fish_abbr_addpath:set\x20\x2dU\x20\x2da\x20fish_user_path
 SETUVAR _fish_abbr_covfefe:caffeinate\x20\x2ddisu
 SETUVAR _fish_abbr_gca:git\x20add\x20\x2d\x2dall\x20\x26\x26\x20git\x20commit\x20\x26\x26\x20git\x20push
@@ -16,6 +17,7 @@ SETUVAR _fish_abbr_gl:git\x20log\x20\x2d\x2doneline\x20\x2d\x2ddecorate\x20\x2d\
 SETUVAR _fish_abbr_gla:git\x20log\x20\x2d\x2doneline\x20\x2d\x2ddecorate\x20\x2d\x2dgraph\x20\x2d\x2dall
 SETUVAR _fish_abbr_gra:git\x20reset\x20\x2d\x2dhard\x20HEAD\x20\x26\x26\x20git\x20clean\x20\x2dfd
 SETUVAR _fish_abbr_gs:git\x20status\x20\x2d\x2dshort
+SETUVAR _fish_abbr_ls:exa
 SETUVAR _fish_abbr_n:norminette\x20\x7c\x20grep\x20\x2dE\x20\x27\x5eError\x3a\x20\x7cError\x21\x27
 SETUVAR _fish_abbr_nh:norminette\x20\x7c\x20grep\x20\x2dE\x20\x27\x5eError\x3a\x20\x7cError\x21\x27\x20\x7c\x20head
 SETUVAR _fish_abbr_p:pnpm
