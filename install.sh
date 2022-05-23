@@ -35,6 +35,9 @@ echo "🔎 Checking packages..."
 
 install fish
 install tmux
+install exa
+install bat
+install ripgrep
 
 if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]
 then
