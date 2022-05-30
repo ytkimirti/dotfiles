@@ -93,6 +93,13 @@ set undofile
 " Tab stuff
 set autoindent noexpandtab tabstop=4 shiftwidth=4
 
+" ---------- Plugins -----------
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+	silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
 
@@ -114,14 +121,10 @@ Plug 'justinmk/vim-sneak'
 Plug 'kien/ctrlp.vim'
 Plug 'preservim/nerdcommenter'
 
-Plug 'preservim/nerdtree'
+"Plug 'preservim/nerdtree'
 "Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-
-Plug 'ryanoasis/vim-devicons'
-"Plug 'airblade/vim-gitgutter'
-
-Plug 'aserebryakov/vim-todo-lists'
+"Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+"Plug 'ryanoasis/vim-devicons'
 
 " Color themes
 Plug 'rafi/awesome-vim-colorschemes'
@@ -165,16 +168,16 @@ nmap ++ <plug>NERDCommenterToggle
 autocmd BufEnter * lcd %:p:h
 
 " ------------- NERD TREE ---------------
-nmap <C-n> :NERDTreeToggle<CR>
-nnoremap <C-n> :NERDTreeFocus<CR>
-nnoremap <C-h> :NERDTreeToggle<CR>
-let g:NERDTreeGitStatusWithFlags = 1
+"nmap <C-n> :NERDTreeToggle<CR>
+"nnoremap <C-n> :NERDTreeFocus<CR>
+"nnoremap <C-h> :NERDTreeToggle<CR>
+"let g:NERDTreeGitStatusWithFlags = 1
 
-let g:NERDTreeIgnore = ['^node_modules$']
+"let g:NERDTreeIgnore = ['^node_modules$']
 
 
-" Exit Vim if NERDTree is the only window remaining in the only tab.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+"" Exit Vim if NERDTree is the only window remaining in the only tab.
+"autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
 
 " >>>>>>>>>>>>>	VIM ONLY <<<<<<<<<<<<<
 
