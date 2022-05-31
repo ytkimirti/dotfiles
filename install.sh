@@ -27,6 +27,7 @@ install()
 }
 
 if [[ $OSTYPE == 'darwin'* ]]; then
+	bash $HOME/dotfiles/scripts/configure_macos.sh
 	bash $HOME/dotfiles/scripts/install_brew.sh
 	cmd="brew"
 elif [[ $OSTYPE == 'linux-gnu'* ]]; then
