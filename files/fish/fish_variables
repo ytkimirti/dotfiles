@@ -1,11 +1,16 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --path PATH:/usr/local/bin\x1e/usr/bin\x1e/bin\x1e/usr/sbin\x1e/sbin\x1e/Library/Apple/usr/bin\x1e/Library/Frameworks/Mono\x2eframework/Versions/Current/Commands\x1e/usr/local/munki\x1e/Applications/Visual\x1eStudio\x1eCode\x2eapp/Contents/MacOS/Electron
-SETUVAR Z_DATA_DIR:/Users/ytkimirti/\x2elocal/share/z
+SETUVAR ZO_CMD:zo
+SETUVAR Z_CMD:z
+SETUVAR Z_DATA:/Users/ykimirti/\x2elocal/share/z/data
+SETUVAR Z_DATA_DIR:/Users/ykimirti/\x2elocal/share/z
+SETUVAR Z_EXCLUDE:\x5e/Users/ykimirti\x24
 SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_aa:abbr\x20\x2da\x20\x2dU
 SETUVAR _fish_abbr_addpath:set\x20\x2dU\x20\x2da\x20fish_user_path
 SETUVAR _fish_abbr_covfefe:caffeinate\x20\x2ddisu
+SETUVAR _fish_abbr_edittmux:vim\x20\x7e/\x2etmux\x2econf
 SETUVAR _fish_abbr_gca:git\x20add\x20\x2d\x2dall\x20\x26\x26\x20git\x20commit\x20\x26\x26\x20git\x20push
 SETUVAR _fish_abbr_gcaa:git\x20add\x20\x2d\x2dall\x20\x26\x26\x20git\x20commit\x20\x2dm\x20\x27Autocommit\x27\x20\x26\x26\x20git\x20pull\x20\x26\x26\x20git\x20push
 SETUVAR _fish_abbr_gf:cd\x20/goinfre/ykimirti
@@ -52,4 +57,4 @@ SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2d\x2dreverse
 SETUVAR fish_user_path:/Applications/Visual\x1eStudio\x1eCode\x2eapp/Contents/MacOS/Electron
-SETUVAR fish_user_paths:/Users/ykimirti/mybin/homebrew/bin\x1e/Users/ytkimirti/\x2efzf/bin
+SETUVAR fish_user_paths:/Users/ykimirti/mybin/homebrew/bin\x1e/Users/ytkimirti/\x2efzf/bin\x1e/Users/ykimirti/\x2efzf/bin
