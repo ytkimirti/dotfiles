@@ -11,6 +11,7 @@ SETUVAR _fish_abbr_aa:abbr\x20\x2da\x20\x2dU
 SETUVAR _fish_abbr_addpath:set\x20\x2dU\x20\x2da\x20fish_user_path
 SETUVAR _fish_abbr_covfefe:caffeinate\x20\x2ddisu
 SETUVAR _fish_abbr_edittmux:vim\x20\x7e/\x2etmux\x2econf
+SETUVAR _fish_abbr_editfiles:cd\x20\x24HOME/dotfiles
 SETUVAR _fish_abbr_gca:git\x20add\x20\x2d\x2dall\x20\x26\x26\x20git\x20commit\x20\x26\x26\x20git\x20push
 SETUVAR _fish_abbr_gcaa:git\x20add\x20\x2d\x2dall\x20\x26\x26\x20git\x20commit\x20\x2dm\x20\x27Autocommit\x27\x20\x26\x26\x20git\x20pull\x20\x26\x26\x20git\x20push
 SETUVAR _fish_abbr_gf:cd\x20/goinfre/ykimirti
