@@ -74,6 +74,11 @@ _G.packer_plugins = {
     path = "/Users/ytkimirti/.local/share/nvim/site/pack/packer/start/Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim"
   },
+  ["awesome-vim-colorschemes"] = {
+    loaded = true,
+    path = "/Users/ytkimirti/.local/share/nvim/site/pack/packer/start/awesome-vim-colorschemes",
+    url = "https://github.com/rafi/awesome-vim-colorschemes"
+  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/Users/ytkimirti/.local/share/nvim/site/pack/packer/start/nvim-autopairs",

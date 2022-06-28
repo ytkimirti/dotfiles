@@ -2,6 +2,7 @@ local options = {
   backup = false,                          -- creates a backup file
   -- clipboard = "",               -- allows neovim to access the system clipboard
   cmdheight = 1,                           -- more space in the neovim command line for displaying messages
+  guicursor = "i:block",
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp*
   conceallevel = 0,                        -- so that `` is visible in markdown files
   fileencoding = "utf-8",                  -- the encoding written to a file
@@ -44,3 +45,5 @@ end
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]              -- w-15 or flex-wrap is trated as one word
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
+
+vim.cmd('colorscheme gruvbox')
