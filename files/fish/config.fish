@@ -13,4 +13,6 @@ end
 
 if [ "$USER" = "ykimirti" ]
 	
+else if [ "$USER" = "ytkimirti" ]
+	set -x EDITOR nvim
 end

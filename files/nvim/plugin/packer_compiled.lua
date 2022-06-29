@@ -108,6 +108,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ytkimirti/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
+  },
+  ["vim-kitty"] = {
+    loaded = true,
+    path = "/Users/ytkimirti/.local/share/nvim/site/pack/packer/start/vim-kitty",
+    url = "https://github.com/fladson/vim-kitty"
+  },
+  ["vim-kitty-navigator"] = {
+    loaded = true,
+    path = "/Users/ytkimirti/.local/share/nvim/site/pack/packer/start/vim-kitty-navigator",
+    url = "https://github.com/knubie/vim-kitty-navigator"
   }
 }
 

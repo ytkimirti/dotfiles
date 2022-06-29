@@ -42,7 +42,11 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-  -- My plugins here
+  -- Syntax highlighting stuff
+  use "fladson/vim-kitty"
+  use 'knubie/vim-kitty-navigator'
+
+  -- From video
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
