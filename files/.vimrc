@@ -133,7 +133,7 @@ Plug 'tpope/vim-sensible' " Great defaults
 
 call plug#end()
 
-colorscheme gruvbox
+colorscheme OceanicNext
 "
 " ------------------ Colorscheme choices ----------------
 " onedark			easy on the eyes
