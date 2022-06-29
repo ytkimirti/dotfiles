@@ -46,4 +46,5 @@ vim.cmd "set whichwrap+=<,>,[,],h,l"
 vim.cmd [[set iskeyword+=-]]              -- w-15 or flex-wrap is trated as one word
 vim.cmd [[set formatoptions-=cro]] -- TODO: this doesn't seem to work
 
-vim.cmd('colorscheme gruvbox')
+-- This is now in ./options.nvim
+-- vim.cmd('colorscheme gruvbox')
