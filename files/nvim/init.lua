@@ -5,3 +5,4 @@ vim.cmd('source ' .. '$HOME/.config/nvim/lua/user/options.vim')
 require 'user.plugins'
 require 'user.cmp'
 require 'user.lsp'
+require 'user.treesitter'
