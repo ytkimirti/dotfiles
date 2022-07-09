@@ -113,7 +113,7 @@ cmp.setup {
     { name = "nvim_lua" },
     { name = "nvim_lsp" },
     { name = "luasnip" },
-    { name = "buffer" },
+    -- { name = "buffer" },
     { name = "path" },
   },
   confirm_opts = {

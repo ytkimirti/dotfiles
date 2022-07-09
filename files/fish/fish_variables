@@ -10,6 +10,7 @@ SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_aa:abbr\x20\x2da\x20\x2dU
 SETUVAR _fish_abbr_addpath:set\x20\x2dU\x20\x2da\x20fish_user_path
 SETUVAR _fish_abbr_covfefe:caffeinate\x20\x2ddisu
+SETUVAR _fish_abbr_dfiles:cd\x20\x24HOME/dotfiles
 SETUVAR _fish_abbr_editfiles:cd\x20\x24HOME/dotfiles
 SETUVAR _fish_abbr_editfish:vim\x20\x7e/\x2econfig/fish/config\x2efish
 SETUVAR _fish_abbr_editkitty:nvim\x20\x7e/\x2econfig/kitty/kitty\x2econf
@@ -17,6 +18,7 @@ SETUVAR _fish_abbr_editmacos:vim\x20\x7e/\x2emacos
 SETUVAR _fish_abbr_editnvimp:nvim\x20\x7e/\x2econfig/nvim/lua/user/plugins\x2elua
 SETUVAR _fish_abbr_edittmux:vim\x20\x7e/\x2etmux\x2econf
 SETUVAR _fish_abbr_editvim:vim\x20\x7e/\x2evimrc
+SETUVAR _fish_abbr_fen:funced\x20\x2de\x20nvim
 SETUVAR _fish_abbr_g:git
 SETUVAR _fish_abbr_gca:git\x20add\x20\x2d\x2dall\x20\x26\x26\x20git\x20commit\x20\x26\x26\x20git\x20push
 SETUVAR _fish_abbr_gcaa:git\x20add\x20\x2d\x2dall\x20\x26\x26\x20git\x20commit\x20\x2dm\x20\x27Autocommit\x27\x20\x26\x26\x20git\x20pull\x20\x26\x26\x20git\x20push
