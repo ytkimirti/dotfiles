@@ -19,6 +19,7 @@ SETUVAR _fish_abbr_editnvimp:nvim\x20\x7e/\x2econfig/nvim/lua/user/plugins\x2elu
 SETUVAR _fish_abbr_edittmux:vim\x20\x7e/\x2etmux\x2econf
 SETUVAR _fish_abbr_editvim:vim\x20\x7e/\x2evimrc
 SETUVAR _fish_abbr_fen:funced\x20\x2de\x20nvim
+SETUVAR _fish_abbr_g:git
 SETUVAR _fish_abbr_gca:git\x20add\x20\x2d\x2dall\x20\x26\x26\x20git\x20commit\x20\x26\x26\x20git\x20push
 SETUVAR _fish_abbr_gcaa:git\x20add\x20\x2d\x2dall\x20\x26\x26\x20git\x20commit\x20\x2dm\x20\x27Autocommit\x27\x20\x26\x26\x20git\x20pull\x20\x26\x26\x20git\x20push
 SETUVAR _fish_abbr_gf:cd\x20/goinfre/ykimirti
