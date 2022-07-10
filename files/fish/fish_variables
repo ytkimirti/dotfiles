@@ -13,6 +13,7 @@ SETUVAR _fish_abbr_covfefe:caffeinate\x20\x2ddisu
 SETUVAR _fish_abbr_dfiles:cd\x20\x24HOME/dotfiles
 SETUVAR _fish_abbr_editfiles:cd\x20\x24HOME/dotfiles
 SETUVAR _fish_abbr_editfish:vim\x20\x7e/\x2econfig/fish/config\x2efish
+SETUVAR _fish_abbr_editgit:nvim\x20\x7e/\x2egitconfig
 SETUVAR _fish_abbr_editkitty:nvim\x20\x7e/\x2econfig/kitty/kitty\x2econf
 SETUVAR _fish_abbr_editmacos:vim\x20\x7e/\x2emacos
 SETUVAR _fish_abbr_editnvimp:nvim\x20\x7e/\x2econfig/nvim/lua/user/plugins\x2elua

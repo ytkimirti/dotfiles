@@ -46,6 +46,10 @@ return packer.startup(function(use)
   use "fladson/vim-kitty"
   use 'knubie/vim-kitty-navigator'
 
+  -- Editor
+  use 'tpope/vim-fugitive'
+  use 'tpope/vim-surround'
+
   -- From video
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins

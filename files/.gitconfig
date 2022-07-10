@@ -27,5 +27,11 @@
 	ca = commit -a
 	p = push
 	s = status --short
+	a = add
+	aa = add --all
 [pull]
 	rebase = true
+[mergetool "fugitive"]
+	cmd = nvim -d -c \"wincmd l\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
+[merge]
+	tool = fugitive

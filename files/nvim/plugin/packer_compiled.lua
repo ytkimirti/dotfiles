@@ -164,6 +164,11 @@ _G.packer_plugins = {
     path = "/Users/ytkimirti/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/Users/ytkimirti/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
+  },
   ["vim-kitty"] = {
     loaded = true,
     path = "/Users/ytkimirti/.local/share/nvim/site/pack/packer/start/vim-kitty",
@@ -173,6 +178,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/ytkimirti/.local/share/nvim/site/pack/packer/start/vim-kitty-navigator",
     url = "https://github.com/knubie/vim-kitty-navigator"
+  },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/Users/ytkimirti/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
   }
 }
 
