@@ -63,9 +63,25 @@ keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Terminal --
--- Better terminal navigation
+-- Better terminal navigation (doesnt work with control mappings in kitty)
 -- keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
 -- keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts)
 -- keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts)
 -- keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
+keymap("n", "<leader>o", "<cmd>Telescope find_files<cr>", opts)
+keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", opts)
+keymap("n", "<leader>gd", "<cmd>Telescope git_bcommits<cr>", opts)
+keymap("n", "<leader>gs", "<cmd>Telescope git_status<cr>", opts)
+
+keymap("n", "<leader>f", "<cmd>Telescope lsp_document_symbols<cr>", opts)
+
+
+keymap("n", "gb", "<cmd>Telescope builtin<cr>", opts) -- Ripgrep
+keymap("n", "gr", "<cmd>Telescope live_grep<cr>", opts) -- Ripgrep
+keymap("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
+keymap("n", "gf", "<cmd>Telescope lsp_implementations<cr>", opts) -- More like go_to_function_code
+keymap("n", "gr", "<cmd>Telescope lsp_references<cr>", opts)
+
+keymap("n", "gi", "<cmd>Telescope lsp_incoming_calls<cr>", opts)
+keymap("n", "go", "<cmd>Telescope lsp_outgoing_calls<cr>", opts)
