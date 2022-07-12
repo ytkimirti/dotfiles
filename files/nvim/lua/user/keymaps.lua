@@ -78,7 +78,7 @@ keymap("n", "<leader>f", "<cmd>Telescope lsp_document_symbols<cr>", opts)
 
 
 keymap("n", "gb", "<cmd>Telescope builtin<cr>", opts) -- Ripgrep
-keymap("n", "gr", "<cmd>Telescope live_grep<cr>", opts) -- Ripgrep
+keymap("n", "gh", "<cmd>Telescope live_grep<cr>", opts) -- Ripgrep
 keymap("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
 keymap("n", "gf", "<cmd>Telescope lsp_implementations<cr>", opts) -- More like go_to_function_code
 keymap("n", "gr", "<cmd>Telescope lsp_references<cr>", opts)
