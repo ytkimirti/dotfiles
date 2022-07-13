@@ -1,4 +1,9 @@
 return {
+   ['bfredl/nvim-luadev'] = {
+      cmd = {
+         "Luadev"
+      }
+   }
    -- format & linting
    -- ["jose-elias-alvarez/null-ls.nvim"] = {
    --    after = "nvim-lspconfig",

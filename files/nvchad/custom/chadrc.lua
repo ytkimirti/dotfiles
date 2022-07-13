@@ -18,11 +18,14 @@ M.plugins = {
 
    },
 
-   -- options = {
-   --    lspconfig = {
-   --       setup_lspconf = "custom.plugins.lspconfig"
-   --    }
-   -- }
+   options = {
+      lspconfig = {
+         setup_lspconf = "nvchad.plugins.lspconfig"
+      }
+   },
+
+   -- My plugins
+   user = require 'nvchad.plugins'
 }
 
 
