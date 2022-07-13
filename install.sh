@@ -23,7 +23,9 @@ install()
 		echo
 		echo "\$ $cmd install $1"
 		$cmd install $1
-	fi
+         else
+            echo "✅ $cmd_name already installed"
+         fi
 }
 
 if [[ $OSTYPE == 'darwin'* ]]; then
@@ -35,20 +37,17 @@ elif [[ $OSTYPE == 'linux-gnu'* ]]; then
 	cmd="apt"
 fi
 
-echo "🔎 Checking packages..."
-
-read -p "Check for packages? [y/N]" -n 1 -r
-if [[ ! $REPLY =~ ^[Yy]$  ]]
+read -p "🔎 Install packages with $cmd? [Y/n]" -n 1 -r
+if [[ ! $REPLY =~ ^[Nn]$  ]]
 then
-	install fish
-	install tmux
-	install exa
-	install bat
-	install ripgrep rg
-	install entr
+   install fish
+   install ripgrep rg
+   install nvim
+else
+   echo "Skipped..."
 fi
 
-if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]
+if command -v tmux &> /dev/null && [[ ! -d "$HOME/.tmux/plugins/tpm" ]]
 then
 	# Tmux plugin manager
 	line "Installing tmux plugin manager"
@@ -63,11 +62,14 @@ then
 	~/.fzf/install
 fi
 
+fish $HOME/dotfiles/scripts/install_nvchad.fish
+
 echo "✅ All packages are installed!"
 
 echo "🚛 Linking config files"
 
-configs=( .zshrc .vimrc nvim .macos .gitconfig .gitignore .ideavimrc .tmux.conf fish iterm kitty )
+# Disabled nvim for now, because using nvchad!!
+configs=( .zshrc .vimrc .macos .gitconfig .gitignore .ideavimrc .tmux.conf fish iterm kitty )
 for i in "${configs[@]}"
 do
 	fish $HOME/dotfiles/scripts/link_config.fish $i
