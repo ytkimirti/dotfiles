@@ -16,6 +16,7 @@ SETUVAR _fish_abbr_editfish:vim\x20\x7e/\x2econfig/fish/config\x2efish
 SETUVAR _fish_abbr_editgit:nvim\x20\x7e/\x2egitconfig
 SETUVAR _fish_abbr_editkitty:nvim\x20\x7e/\x2econfig/kitty/kitty\x2econf
 SETUVAR _fish_abbr_editmacos:vim\x20\x7e/\x2emacos
+SETUVAR _fish_abbr_editnvchad:cd\x20\x7e/\x2econfig/nvim/lua/custom\x20\x26\x26\x20nvim\x20\x7e/\x2econfig/nvim/lua/custom/chadrc\x2elua\x20\x26\x26\x20cd\x20\x2d
 SETUVAR _fish_abbr_editnvimp:nvim\x20\x7e/\x2econfig/nvim/lua/user/plugins\x2elua
 SETUVAR _fish_abbr_edittmux:vim\x20\x7e/\x2etmux\x2econf
 SETUVAR _fish_abbr_editvim:vim\x20\x7e/\x2evimrc

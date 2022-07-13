@@ -8,25 +8,26 @@ local M = {}
 --]]
 
 M.ui = {
-   theme = 'gruvchad'
+   theme = 'gruvchad',
+   hl_add = require "custom.highlights",
 }
 
 M.plugins = {
    -- Override init settings for stuff like
    -- nvim-tree or treesitter
-   override = {
-
-   },
+   override = require("custom.override"),
 
    options = {
       lspconfig = {
-         setup_lspconf = "nvchad.plugins.lspconfig"
+         setup_lspconf = "custom.plugins.lspconfig"
       }
    },
 
    -- My plugins
-   user = require 'nvchad.plugins'
+   user = require("custom.plugins")
 }
+
+M.mappings = require("custom.mappings")
 
 
 return M

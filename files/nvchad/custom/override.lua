@@ -2,7 +2,7 @@
 
 local M = {}
 
-M.treesitter = {
+M["kyazdani42/nvim-tree.lua"] = {
    ensure_installed = {
       "vim",
       "html",
@@ -14,11 +14,10 @@ M.treesitter = {
       "c",
       "bash",
       "lua",
-      "norg",
    },
 }
 
-M.nvimtree = {
+M["nvim-treesitter/nvim-treesitter"] = {
    git = {
       enable = true,
    },
@@ -33,7 +32,7 @@ M.nvimtree = {
    },
 }
 
-M.blankline = {
+M["lukas-reineke/indent-blankline.nvim"] = {
    filetype_exclude = {
       "help",
       "terminal",

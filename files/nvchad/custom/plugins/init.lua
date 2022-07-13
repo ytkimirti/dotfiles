@@ -1,16 +1,15 @@
 return {
    ['bfredl/nvim-luadev'] = {
-      cmd = {
-         "Luadev"
-      }
-   }
+      cmd = "Luadev"
+   },
+
    -- format & linting
-   -- ["jose-elias-alvarez/null-ls.nvim"] = {
-   --    after = "nvim-lspconfig",
-   --    config = function()
-   --       require "custom.plugins.null-ls"
-   --    end,
-   -- },
+   ["jose-elias-alvarez/null-ls.nvim"] = {
+      after = "nvim-lspconfig",
+      config = function()
+         require "custom.plugins.null-ls"
+      end,
+   },
 
    -- minimal modes
    -- ["Pocco81/TrueZen.nvim"] = {
