@@ -13,6 +13,15 @@ M.setup_lsp = function(attach, capabilities)
       }
    end
 
+   -- C# config
+   local pid = vim.fn.getpid()
+   local omnisharp_bin = "/Library/Frameworks/Mono.framework/Versions/Current/Commands/mono"
+
+   lspconfig.omnisharp.setup{
+      use_mono = true,
+       cmd = { omnisharp_bin, "--languageserver" , "--hostPID", tostring(pid) }
+   }
+
    -- temporarily disable tsserver suggestions
    require("lspconfig").tsserver.setup {
       init_options = {
