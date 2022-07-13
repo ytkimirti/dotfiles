@@ -1,4 +1,14 @@
 return {
+   ['tpope/vim-surround'] = {},
+   ['knubie/vim-kitty-navigator'] = {
+      cmd = {
+         "KittyNavigateLeft",
+         "KittyNavigateRight",
+         "KittyNavigateUp",
+         "KittyNavigateDown",
+      }
+   },
+
    ['bfredl/nvim-luadev'] = {
       cmd = "Luadev"
    },
