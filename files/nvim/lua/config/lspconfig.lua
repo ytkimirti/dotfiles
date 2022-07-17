@@ -29,7 +29,10 @@ config.pyright.setup{
     flags = lsp_flags,
 }
 
-config.clangd.setup {}
+config.clangd.setup {
+	on_attach = on_attach,
+	flags = lsp_flags,
+}
 
 config.tsserver.setup{
     on_attach = on_attach,

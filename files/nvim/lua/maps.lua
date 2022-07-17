@@ -83,3 +83,16 @@ keymap("n", "<leader>f", "<cmd>Telescope lsp_document_symbols<cr>", opts)
 keymap("n", "<leader>gb", "<cmd>Telescope builtin<cr>", opts) -- Ripgrep
 keymap("n", "<leader>gh", "<cmd>Telescope live_grep<cr>", opts) -- Ripgrep
 
+
+-- Float term
+
+local term = require("lspsaga.floaterm")
+
+-- float terminal also you can pass the cli command in open_float_terminal function
+vim.keymap.set("n", "<A-d>", function()
+    term.open_float_terminal()
+end, { silent = true,noremap = true })
+vim.keymap.set("t", "<A-d>", function()
+    vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true))
+    term.close_float_terminal()
+end, { silent = true })
