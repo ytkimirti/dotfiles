@@ -3,18 +3,18 @@ local fn = vim.fn
 -- Automatically install packer
 local install_path = fn.stdpath "data" .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
-  print "Running the function"
-  PACKER_BOOTSTRAP = fn.system {
-    "git",
-    "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  }
-  print("Function return value: " .. PACKER_BOOTSTRAP)
-  print "Installing packer close and reopen Neovim..."
-  vim.cmd [[packadd packer.nvim]]
+	print "Running the function"
+	PACKER_BOOTSTRAP = fn.system {
+		"git",
+		"clone",
+		"--depth",
+		"1",
+		"https://github.com/wbthomason/packer.nvim",
+		install_path,
+	}
+	print("Function return value: " .. PACKER_BOOTSTRAP)
+	print "Installing packer close and reopen Neovim..."
+	vim.cmd [[packadd packer.nvim]]
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
@@ -28,88 +28,88 @@ vim.cmd [[
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-  return
+	return
 end
 
 -- Have packer use a popup window
 packer.init {
-  display = {
-    open_fn = function()
-      return require("packer.util").float { border = "rounded" }
-    end,
-  },
+	display = {
+		open_fn = function()
+			return require("packer.util").float { border = "rounded" }
+		end,
+	},
 }
 
 -- Install your plugins here
 return packer.startup(function(use)
 	-- Essential
-  use "wbthomason/packer.nvim"
-  use "nvim-lua/plenary.nvim"
+	use "wbthomason/packer.nvim"
+	use "nvim-lua/plenary.nvim"
 
-  -- Movement
-  use 'knubie/vim-kitty-navigator'
+	-- Movement
+	use 'knubie/vim-kitty-navigator'
 
-  -- Editor
-  use 'tpope/vim-fugitive'
-  use 'tpope/vim-surround'
-  use "windwp/nvim-autopairs"
-  use {"numToStr/Comment.nvim", config = [[require('config.comment')]]}
+	-- Editor
+	use 'tpope/vim-fugitive'
+	use "tpope/vim-surround"
+	use { "windwp/nvim-autopairs", config = [[require('config.autopairs')]] }
+	use { "numToStr/Comment.nvim", config = [[require('config.comment')]] }
 
-  -- use 'windwp/nvim-ts-autotag' -- TODO: What is this?
+	-- use 'windwp/nvim-ts-autotag' -- TODO: What is this?
 
 	-- Visual
-  use "fladson/vim-kitty"
-  use "rafi/awesome-vim-colorschemes"
-  use "kyazdani42/nvim-web-devicons"
-  use "nvim-lua/popup.nvim"
+	use "fladson/vim-kitty"
+	use "rafi/awesome-vim-colorschemes"
+	use "kyazdani42/nvim-web-devicons"
+	use "nvim-lua/popup.nvim"
 
 	-- Other
-  -- use "kyazdani42/nvim-tree.lua"
-  -- use "akinsho/bufferline.nvim"
-  -- use "moll/vim-bbye"
-  -- use "nvim-lualine/lualine.nvim"
-  -- use "akinsho/toggleterm.nvim"
-  -- use "ahmedkhalf/project.nvim"
-  -- use "lewis6991/impatient.nvim"
-  -- use "lukas-reineke/indent-blankline.nvim"
-  -- use "goolord/alpha-nvim"
-  -- use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
+	-- use "kyazdani42/nvim-tree.lua"
+	-- use "akinsho/bufferline.nvim"
+	-- use "moll/vim-bbye"
+	-- use "nvim-lualine/lualine.nvim"
+	-- use "akinsho/toggleterm.nvim"
+	-- use "ahmedkhalf/project.nvim"
+	-- use "lewis6991/impatient.nvim"
+	-- use "lukas-reineke/indent-blankline.nvim"
+	-- use "goolord/alpha-nvim"
+	-- use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
 
-  -- cmp plugins
-  use "hrsh7th/nvim-cmp" -- The completion plugin
-  -- use "saadparwaiz1/cmp_luasnip"
+	-- cmp plugins
+	use "hrsh7th/nvim-cmp" -- The completion plugin
+	-- use "saadparwaiz1/cmp_luasnip"
 
-  use "hrsh7th/cmp-nvim-lsp"
-  -- use "hrsh7th/cmp-nvim-lua"
-  use "hrsh7th/cmp-buffer" -- buffer completions
-  use "hrsh7th/cmp-path" -- path completions
-  use "hrsh7th/cmp-cmdline" -- cmdline completions
+	use "hrsh7th/cmp-nvim-lsp"
+	-- use "hrsh7th/cmp-nvim-lua"
+	use "hrsh7th/cmp-buffer" -- buffer completions
+	use "hrsh7th/cmp-path" -- path completions
+	use "hrsh7th/cmp-cmdline" -- cmdline completions
 
-  -- snippets
-  use "L3MON4D3/LuaSnip" --snippet engine
-  -- use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+	-- snippets
+	use "L3MON4D3/LuaSnip" --snippet engine
+	-- use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
-  -- LSP
-  use {"neovim/nvim-lspconfig", config = [[require('config.lspconfig')]]}
-	use {"williamboman/nvim-lsp-installer", config = [[require('config.lsp-installer')]]}
-  use {'glepnir/lspsaga.nvim', branch = 'main', config = [[require('config.lspsaga')]]}
-  -- use 'folke/lsp-colors.nvim'
-  -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
-  -- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+	-- LSP
+	use { "neovim/nvim-lspconfig", config = [[require('config.lspconfig')]] }
+	use { "williamboman/nvim-lsp-installer", config = [[require('config.lsp-installer')]] }
+	use { 'glepnir/lspsaga.nvim', branch = 'main', config = [[require('config.lspsaga')]] }
+	-- use 'folke/lsp-colors.nvim'
+	-- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+	-- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
-  -- Telescope
-  use "nvim-telescope/telescope.nvim"
-  use 'nvim-telescope/telescope-media-files.nvim'
+	-- Telescope
+	use "nvim-telescope/telescope.nvim"
+	use 'nvim-telescope/telescope-media-files.nvim'
 
-  -- Treesitter
-  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+	-- Treesitter
+	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 
-  -- Git
-  -- use "lewis6991/gitsigns.nvim"
+	-- Git
+	-- use "lewis6991/gitsigns.nvim"
 
-  -- Automatically set up your configuration after cloning packer.nvim
-  -- Put this at the end after all plugins
-  if PACKER_BOOTSTRAP then
-    require("packer").sync()
-  end
+	-- Automatically set up your configuration after cloning packer.nvim
+	-- Put this at the end after all plugins
+	if PACKER_BOOTSTRAP then
+		require("packer").sync()
+	end
 end)

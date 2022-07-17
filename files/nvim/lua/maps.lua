@@ -1,6 +1,7 @@
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
+local set = vim.keymap.set
 
 keymap("", "C-c", "<ESC>", opts) -- C-c same as ESC
 
@@ -22,21 +23,18 @@ vim.g.maplocalleader = " "
 -- keymap("n", "<C-k>", "<C-w>k", opts)
 -- keymap("n", "<C-l>", "<C-w>l", opts)
 
-
--- TODO add these
--- :set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
--- noremap <F3> :set list!<CR>
--- inoremap <F3> <C-o>:set list!<CR>
--- noremap <F3> <C-c>:set list!<CR>
+vim.cmd('set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<')
+set('n', '<F3>', '<esc><cmd>set list!<cr>', {})
+set('i', '<F3>', '<C-o><cmd>set list!<cr>', {})
 
 -- Yank --
-keymap("n", "<leader>p", '"*p', opts)
-keymap("n", "<leader>P", '"*P', opts)
-keymap("n", "Y", '"*y', opts)
+set("n", "<leader>p", '"*p', {})
+set("n", "<leader>P", '"*P', {})
+set("n", "Y", '"*y', {})
 
-keymap("n", "<leader>p", '"*p', opts)
-keymap("n", "<leader>P", '"*P', opts)
-keymap("n", "Y", '"*y', opts)
+set("v", "<leader>p", '"*p', {})
+set("v", "<leader>P", '"*P', {})
+set("v", "Y", '"*y', {})
 
 -- Resizing --
 keymap("n", "<M-Up>", ":resize -2<CR>", opts)
