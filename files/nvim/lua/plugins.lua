@@ -102,7 +102,7 @@ return packer.startup(function(use)
 	use 'nvim-telescope/telescope-media-files.nvim'
 
 	-- Treesitter
-	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = [[require('config.treesitter')]] }
 
 	-- Git
 	-- use "lewis6991/gitsigns.nvim"
