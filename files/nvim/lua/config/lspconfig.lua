@@ -21,16 +21,22 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
+local config = require('lspconfig')
+
 -- Language configs --
-require('lspconfig')['pyright'].setup{
+config.pyright.setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
-require('lspconfig')['tsserver'].setup{
+
+config.clangd.setup {}
+
+config.tsserver.setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
-require('lspconfig')['sumneko_lua'].setup{
+
+config.sumneko_lua.setup{
     on_attach = on_attach,
     flags = lsp_flags,
 		settings = {
@@ -49,7 +55,7 @@ require('lspconfig')['sumneko_lua'].setup{
       },
 		},
 }
-require('lspconfig')['rust_analyzer'].setup{
+config.rust_analyzer.setup{
     on_attach = on_attach,
     flags = lsp_flags,
     -- Server-specific settings...

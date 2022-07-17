@@ -62,6 +62,8 @@ M.setup = function()
 	vim.keymap.set("n", "gs", require("lspsaga.signaturehelp").signature_help, { silent = true,noremap = true})
 	-- rename
 	vim.keymap.set("n", "gr", require("lspsaga.rename").lsp_rename, { silent = true,noremap = true })
+	-- preview definition
+	-- vim.keymap.set("n", "gd", require("lspsaga.definition").preview_definition, { silent = true,noremap = true })
 end
 
 vim.cmd("nnoremap <C-f> <nop>")
