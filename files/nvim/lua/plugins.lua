@@ -42,22 +42,28 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-  -- Syntax highlighting stuff
-  use "fladson/vim-kitty"
+	-- Essential
+  use "wbthomason/packer.nvim"
+  use "nvim-lua/plenary.nvim"
+
+  -- Movement
   use 'knubie/vim-kitty-navigator'
 
   -- Editor
   use 'tpope/vim-fugitive'
   use 'tpope/vim-surround'
+  use "windwp/nvim-autopairs"
+  use {"numToStr/Comment.nvim", config = [[require('config.comment')]]}
 
-  -- From video
-  use "wbthomason/packer.nvim" -- Have packer manage itself
-  use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
-  use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
-  use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  use "numToStr/Comment.nvim" -- Easily comment stuff
+  -- use 'windwp/nvim-ts-autotag' -- TODO: What is this?
+
+	-- Visual
+  use "fladson/vim-kitty"
   use "rafi/awesome-vim-colorschemes"
-  -- use "kyazdani42/nvim-web-devicons"
+  use "kyazdani42/nvim-web-devicons"
+  use "nvim-lua/popup.nvim"
+
+	-- Other
   -- use "kyazdani42/nvim-tree.lua"
   -- use "akinsho/bufferline.nvim"
   -- use "moll/vim-bbye"
@@ -68,28 +74,26 @@ return packer.startup(function(use)
   -- use "lukas-reineke/indent-blankline.nvim"
   -- use "goolord/alpha-nvim"
   -- use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
-  -- use "folke/which-key.nvim"
-
-  -- Colorschemes
-  -- use "lunarvim/colorschemes" -- A bunch of colorschemes you can try out
-  -- use "lunarvim/darkplus.nvim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
+  -- use "saadparwaiz1/cmp_luasnip"
+
+  use "hrsh7th/cmp-nvim-lsp"
+  -- use "hrsh7th/cmp-nvim-lua"
   use "hrsh7th/cmp-buffer" -- buffer completions
   use "hrsh7th/cmp-path" -- path completions
   use "hrsh7th/cmp-cmdline" -- cmdline completions
-  use "saadparwaiz1/cmp_luasnip" -- snippet completions
-  use "hrsh7th/cmp-nvim-lsp"
-  use "hrsh7th/cmp-nvim-lua"
 
   -- snippets
   use "L3MON4D3/LuaSnip" --snippet engine
-  use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+  -- use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
   -- LSP
-  use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use {"neovim/nvim-lspconfig", config = [[require('config.lspconfig')]]}
+  use "williamboman/nvim-lsp-installer"
+  use {'glepnir/lspsaga.nvim', branch = 'main', config = [[require('config.lspsaga')]]}
+  -- use 'folke/lsp-colors.nvim'
   -- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
   -- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
@@ -98,11 +102,7 @@ return packer.startup(function(use)
   use 'nvim-telescope/telescope-media-files.nvim'
 
   -- Treesitter
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    run = ":TSUpdate",
-  }
-  use "JoosepAlviste/nvim-ts-context-commentstring"
+  use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
 
   -- Git
   -- use "lewis6991/gitsigns.nvim"
