@@ -18,12 +18,12 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerSync
-  augroup end
-]]
+-- vim.cmd [[
+--   augroup packer_user_config
+--     autocmd!
+--     autocmd BufWritePost plugins.lua source <afile> | PackerSync
+--   augroup end
+-- ]]
 
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
@@ -53,15 +53,19 @@ return packer.startup(function(use)
 	use 'tpope/vim-fugitive'
 	use "tpope/vim-surround"
 	use { "windwp/nvim-autopairs", config = [[require('config.autopairs')]] }
+  use {'windwp/nvim-ts-autotag', config = [[require('config.ts-autotag')]]}
 	use { "numToStr/Comment.nvim", config = [[require('config.comment')]] }
+	use {"Pocco81/AutoSave.nvim", module="autosave"}
 
 	-- use 'windwp/nvim-ts-autotag' -- TODO: What is this?
 
 	-- Visual
 	use "fladson/vim-kitty"
-	use "rafi/awesome-vim-colorschemes"
+	use "sainnhe/gruvbox-material"
+	-- use "rafi/awesome-vim-colorschemes"
 	use "kyazdani42/nvim-web-devicons"
-	use "nvim-lua/popup.nvim"
+	use { "rcarriga/nvim-notify", module = "notify" }
+	use { 'goolord/alpha-nvim', config = [[require('config.alpha')]] }
 
 	-- Other
 	-- use "kyazdani42/nvim-tree.lua"
@@ -75,23 +79,29 @@ return packer.startup(function(use)
 	-- use "goolord/alpha-nvim"
 	-- use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
 
-	-- cmp plugins
-	use "hrsh7th/nvim-cmp" -- The completion plugin
-	-- use "saadparwaiz1/cmp_luasnip"
+	-- COQ plugins, configured already under lspconfig
+	-- use { 'ms-jpq/coq_nvim', branch = 'coq' }
+	-- use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
+	-- use {'ms-jpq/coq.thirdparty', branch = '3p'}
 
+	-- cmp plugins
+	use {"hrsh7th/nvim-cmp", config = [[require('config.cmp')]]}
 	use "hrsh7th/cmp-nvim-lsp"
-	-- use "hrsh7th/cmp-nvim-lua"
-	use "hrsh7th/cmp-buffer" -- buffer completions
-	use "hrsh7th/cmp-path" -- path completions
-	use "hrsh7th/cmp-cmdline" -- cmdline completions
+	use "hrsh7th/cmp-nvim-lua" -- vim api stuff
+	use "hrsh7th/cmp-buffer"
+	use "hrsh7th/cmp-path"
+	use "hrsh7th/cmp-nvim-lsp-signature-help"
+	use "hrsh7th/cmp-cmdline"
+	use { "mtoohey31/cmp-fish", ft = "fish" }
+	use "onsails/lspkind.nvim"
 
 	-- snippets
 	use "L3MON4D3/LuaSnip" --snippet engine
-	-- use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+ 	use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
 	-- LSP
 	use { "neovim/nvim-lspconfig", config = [[require('config.lspconfig')]] }
-	use { "williamboman/nvim-lsp-installer", config = [[require('config.lsp-installer')]] }
+	use { "williamboman/nvim-lsp-installer" }
 	use { 'glepnir/lspsaga.nvim', branch = 'main', config = [[require('config.lspsaga')]] }
 	-- use 'folke/lsp-colors.nvim'
 	-- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
@@ -106,6 +116,9 @@ return packer.startup(function(use)
 
 	-- Git
 	-- use "lewis6991/gitsigns.nvim"
+
+	-- Misc
+	use {"alec-gibson/nvim-tetris", command = ":Tetris"}
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

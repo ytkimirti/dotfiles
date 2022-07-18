@@ -1,68 +1,71 @@
+require("nvim-lsp-installer").setup {}
+
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+	-- Enable completion triggered by <c-x><c-o>
+	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  -- Mappings.
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+	-- Mappings.
+	-- See `:help vim.lsp.*` for documentation on any of the below functions
+	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
 	-- Mappings
 	require('lspmaps').setup()
 end
 
 local lsp_flags = {
-  -- This is the default in Nvim 0.7+
-  debounce_text_changes = 150,
+	-- This is the default in Nvim 0.7+
+	debounce_text_changes = 150,
 }
 
-local config = require('lspconfig')
-
--- Language configs --
-config.pyright.setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
+local server_configs = {
+	pyright = {},
+	clangd = {},
+	emmet_ls = require('server.emmet_ls'),
+	tsserver = require('server.tsserver'),
+	diagnosticls = require('server.diagnosticls'),
+	sumneko_lua = require('server.sumneko_lua'),
+	rust_analyzer = require('server.rust_analyzer')
 }
 
-config.clangd.setup {
+local lsp = require "lspconfig"
+-- local coq = require "coq"
+
+-- Setup cmp with lsp
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+local default_config = {
 	on_attach = on_attach,
 	flags = lsp_flags,
+	capabilities = capabilities
 }
 
-config.tsserver.setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-}
+for server, config in pairs(server_configs) do
+	local merged = {}
 
-config.sumneko_lua.setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-		settings = {
-			Lua = {
-				diagnostics = {
-					globals = { 'vim' },
-				},
-			},
-      workspace = {
-        -- Make the server aware of Neovim runtime files
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      -- Do not send telemetry data containing a randomized but unique identifier
-      telemetry = {
-        enable = false,
-      },
-		},
-}
-config.rust_analyzer.setup{
-    on_attach = on_attach,
-    flags = lsp_flags,
-    -- Server-specific settings...
-    settings = {
-      ["rust-analyzer"] = {}
-    }
-}
+	for k, v in pairs(default_config) do merged[k] = v end
+	for k, v in pairs(config) do merged[k] = v end
+
+	lsp[server].setup(
+		merged
+	-- coq.lsp_ensure_capabilities(merged)
+	)
+end
+
+
+-- Diagnostic style, i guess
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+--   vim.lsp.diagnostic.on_publish_diagnostics, {
+--     underline = true,
+--     -- This sets the spacing and the prefix, obviously.
+--     virtual_text = {
+--       spacing = 4,
+--       prefix = ''
+--     }
+--   }
+-- )

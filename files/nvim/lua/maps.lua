@@ -62,10 +62,10 @@ keymap("v", "<A-j>", ":m .+1<CR>==", opts)
 keymap("v", "<A-k>", ":m .-2<CR>==", opts)
 keymap("v", "p", '"_dP', opts)
 
--- Comment
+-- Comment (doesn't work for some reason?!?!?)
 
-keymap("n", "<leader>/", "gcc", {noremap = true})
-keymap("v", "<leader>/", "gc", {noremap = true})
+set("n", "<C-/>", "gcc", {})
+set("v", "<C-/>", "gc", {})
 
 -- Telescope
 
@@ -81,6 +81,8 @@ keymap("n", "<leader>f", "<cmd>Telescope lsp_document_symbols<cr>", opts)
 keymap("n", "<leader>gb", "<cmd>Telescope builtin<cr>", opts) -- Ripgrep
 keymap("n", "<leader>gh", "<cmd>Telescope live_grep<cr>", opts) -- Ripgrep
 
+-- Custom
+keymap("n", "<leader>as", "<cmd>EnableAutoSave<cr>", opts) -- Ripgrep
 
 -- Float term
 

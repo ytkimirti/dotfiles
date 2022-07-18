@@ -30,7 +30,13 @@ local options = {
   wrap = false,                            -- display lines as one long line
   scrolloff = 8,                           -- is one of my fav
   sidescrolloff = 8,
+	background = 'dark',
 }
+
+-- Available values: 'hard', 'medium'(default), 'soft'
+vim.g.gruvbox_material_background = 'medium'
+
+vim.cmd('colorscheme gruvbox-material')
 
 vim.opt.shortmess:append "c"
 
@@ -40,3 +46,5 @@ end
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"
 -- vim.cmd [[set iskeyword+=-]]              -- w-15 or flex-wrap is trated as one word
+
+
