@@ -7,7 +7,7 @@ local set = vim.keymap.set
 -- See `:help vim.lsp.*` for documentation on any of the below functions
 
 M.setup = function()
-	print('Lsp hooked')
+	-- print('Lsp hooked')
 	-- diagnostic
 	-- set('n', '<space>e', vim.diagnostic.open_float, opts)
 	-- set('n', '[d', vim.diagnostic.goto_prev, opts)

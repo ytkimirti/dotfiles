@@ -56,6 +56,7 @@ return packer.startup(function(use)
   use {'windwp/nvim-ts-autotag', config = [[require('config.ts-autotag')]]}
 	use { "numToStr/Comment.nvim", config = [[require('config.comment')]] }
 	use {"Pocco81/AutoSave.nvim", module="autosave"}
+	use {"kyazdani42/nvim-tree.lua", config = [[require('config.nvim-tree')]], cmd = {'NvimTreeToggle', 'NvimTreeFocus', 'NvimTreeFindFile', 'NvimTreeCollapse'}}
 
 	-- use 'windwp/nvim-ts-autotag' -- TODO: What is this?
 
@@ -68,7 +69,6 @@ return packer.startup(function(use)
 	use { 'goolord/alpha-nvim', config = [[require('config.alpha')]] }
 
 	-- Other
-	-- use "kyazdani42/nvim-tree.lua"
 	-- use "akinsho/bufferline.nvim"
 	-- use "moll/vim-bbye"
 	-- use "nvim-lualine/lualine.nvim"
