@@ -5,6 +5,7 @@ local M = {}
 M.disabled = {
    n = {
       ["<leader>pt"] = "",
+      ["B"] = ""
    }
 }
 
@@ -25,8 +26,26 @@ M.yanking = {
       ["<leader>p"] = {'"*p', "Paste to front from clipboard"},
       ["<leader>P"] = {'"*P', "Paste to back from clipboard"},
 
-      ["y"] = {'"*y'},
-      ["Y"] = {'"*Y'},
+      ["Y"] = {'"*y'},
+   }
+}
+
+M.sizing = {
+   n = {
+      -- ["<C-w>K"] = {":resize -2<CR>"},
+      -- ["<C-w>J"] = {":resize +2<CR>"},
+      -- ["<C-w>L"] = {":vertical resize -2<CR>"},
+      -- ["<C-w>H"] = {":vertical resize +2<CR>"},
+      ["<C-j>"] = {":echo 'yoo'"},
+      ["a"] = {":echo 'yoo'"}
+   },
+   v = {
+      ["p"] = {"_dP"},
+      ["<A-j>"] = {"<cmd>m .+1<CR>=="},
+      ["<A-k>"] = {"<cmd>m .-2<CR>=="},
+      ["<A-l>"] = {":echo 'yoo'"},
+      ["<"] = {"<gv"},
+      [">"] = {">gv"}
    }
 }
 
@@ -49,31 +68,13 @@ M.general = {
       },
    },
 }
-
-M.truzen = {
-   n = {
-      ["<leader>ta"] = { "<cmd> TZAtaraxis <CR>", "   truzen ataraxis" },
-      ["<leader>tm"] = { "<cmd> TZMinimalist <CR>", "   truzen minimal" },
-      ["<leader>tf"] = { "<cmd> TZFocus <CR>", "   truzen focus" },
-   },
-}
-
-M.treesitter = {
-   n = {
-      ["<leader>cu"] = { "<cmd> TSCaptureUnderCursor <CR>", "  find media" },
-   },
-}
-
-M.shade = {
-   n = {
-      ["<leader>s"] = {
-         function()
-            require("shade").toggle()
-         end,
-
-         "   toggle shade.nvim",
-      },
-   },
-}
+--
+-- M.truzen = {
+--    n = {
+--       ["<leader>ta"] = { "<cmd> TZAtaraxis <CR>", "   truzen ataraxis" },
+--       ["<leader>tm"] = { "<cmd> TZMinimalist <CR>", "   truzen minimal" },
+--       ["<leader>tf"] = { "<cmd> TZFocus <CR>", "   truzen focus" },
+--    },
+-- }
 
 return M

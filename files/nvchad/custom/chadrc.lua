@@ -1,11 +1,15 @@
 local M = {}
 
+local g = vim.g
+local opt = vim.opt
+
 --[[
 # Notes
 `lua/core/default_config.lua` has the structure
 
 
 --]]
+
 
 M.ui = {
    theme = 'gruvchad',
@@ -25,6 +29,16 @@ M.plugins = {
 
    -- My plugins
    user = require("custom.plugins")
+}
+
+M.options = {
+   user = function()
+      opt.clipboard = ""
+      opt.backup = false
+      opt.completeopt = { "menuone", "noselect" }
+      opt.wrap = false
+      opt.sidescrolloff = 8
+   end
 }
 
 M.mappings = require("custom.mappings")

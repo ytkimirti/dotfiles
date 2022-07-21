@@ -1,4 +1,6 @@
 return {
+   ["Pocco81/AutoSave.nvim"] = {
+   },
    ['tpope/vim-surround'] = {},
    ['knubie/vim-kitty-navigator'] = {
       cmd = {
@@ -58,10 +60,4 @@ return {
    --    end,
    -- },
 
-   -- ["Pocco81/AutoSave.nvim"] = {
-   --    module = "autosave",
-   --    config = function()
-   --       require("custom.plugins.smolconfigs").autosave()
-   --    end,
-   -- },
 }
