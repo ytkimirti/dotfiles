@@ -107,3 +107,33 @@ vim.keymap.set("t", "<A-d>", function()
 end, { silent = true })
 
 
+-- Gitsigns
+
+local ok, gs = pcall(require, "gitsigns")
+if not ok then return end
+
+set('n', ']c', function()
+	if vim.wo.diff then return ']c' end
+	vim.schedule(function() gs.next_hunk() end)
+	return '<Ignore>'
+end, {expr=true})
+
+set('n', '[c', function()
+	if vim.wo.diff then return '[c' end
+	vim.schedule(function() gs.prev_hunk() end)
+	return '<Ignore>'
+end, {expr=true})
+
+-- Actions
+set({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
+set({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+set('n', '<leader>hS', gs.stage_buffer)
+set('n', '<leader>hu', gs.undo_stage_hunk)
+set('n', '<leader>hR', gs.reset_buffer)
+set('n', '<leader>hp', gs.preview_hunk)
+set('n', '<leader>hd', gs.diffthis)
+set('n', '<leader>hD', function() gs.diffthis('~') end)
+
+-- Text object
+set({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+

@@ -50,6 +50,7 @@ return packer.startup(function(use)
 	use 'knubie/vim-kitty-navigator'
 
 	-- Editor
+	use { 'lewis6991/gitsigns.nvim', tag = 'release', config = [[require('config.gitsigns')]] }
 	use 'tpope/vim-fugitive'
 	use "tpope/vim-surround"
 	use { "windwp/nvim-autopairs", config = [[require('config.autopairs')]] }
@@ -85,7 +86,7 @@ return packer.startup(function(use)
 	-- use {'ms-jpq/coq.thirdparty', branch = '3p'}
 
 	-- cmp plugins
-	use {"hrsh7th/nvim-cmp", config = [[require('config.cmp')]]}
+	use { "hrsh7th/nvim-cmp", config = [[require('config.cmp')]] }
 	use "hrsh7th/cmp-nvim-lsp"
 	use "hrsh7th/cmp-nvim-lua" -- vim api stuff
 	use "hrsh7th/cmp-buffer"
