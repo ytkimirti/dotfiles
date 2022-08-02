@@ -24,6 +24,8 @@ set -q PATH; or set PATH ''; set -gx PATH "/opt/homebrew/bin" "/opt/homebrew/sbi
 set -q MANPATH; or set MANPATH ''; set -gx MANPATH "/opt/homebrew/share/man" $MANPATH;
 set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "/opt/homebrew/share/info" $INFOPATH;
 
-if type -q starship
-	starship init fish | source
-end
+set -gx PATH "$HOME/.fzf/bin" $PATH;
+set -gx PATH "$HOME/.cargo/bin" $PATH;
+# if type -q starship
+# 	starship init fish | source
+# end
