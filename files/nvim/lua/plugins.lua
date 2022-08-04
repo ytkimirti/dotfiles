@@ -63,7 +63,8 @@ return packer.startup(function(use)
 
 	-- Visual
 	use "fladson/vim-kitty"
-	use "sainnhe/gruvbox-material"
+	-- use "sainnhe/gruvbox-material"
+	use "https://github.com/morhetz/gruvbox"
 	-- use "rafi/awesome-vim-colorschemes"
 	use "kyazdani42/nvim-web-devicons"
 	use { "rcarriga/nvim-notify", module = "notify" }

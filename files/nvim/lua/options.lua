@@ -33,10 +33,14 @@ local options = {
 	background = 'dark',
 }
 
--- Available values: 'hard', 'medium'(default), 'soft'
-vim.g.gruvbox_material_background = 'medium'
+-- This is for gruvbox-material. Available values: 'hard', 'medium'(default), 'soft'
+-- vim.g.gruvbox_material_background = 'medium'
 
-vim.cmd('colorscheme gruvbox-material')
+if pcall(vim.cmd, "colorscheme gruvbox") then
+	vim.g.gruvbox_transparent_bg = 1
+else
+	print("Need gruvbox")
+end
 
 vim.opt.shortmess:append "c"
 
