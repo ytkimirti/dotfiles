@@ -67,7 +67,7 @@ return packer.startup(function(use)
 	-- use "rafi/awesome-vim-colorschemes"
 	use "kyazdani42/nvim-web-devicons"
 	use { "rcarriga/nvim-notify", module = "notify" }
-	use { 'goolord/alpha-nvim', config = [[require('config.alpha')]] }
+	-- use { 'goolord/alpha-nvim', config = [[require('config.alpha')]] }
 
 	-- Other
 	-- use "akinsho/bufferline.nvim"
