@@ -63,28 +63,41 @@ function fish_prompt
     set -l blue (set_color -o blue)
     set -l normal (set_color normal)
 
-    set -l arrow_color "$green"
+		set -l status_info ""
     if test $__last_command_exit_status != 0
-        set arrow_color "$red"
+        set status_info "$red""[$__last_command_exit_status] "
     end
 
-    set -l arrow "$arrow_color➜ "
+    set -l arrow "$status_info"
     if fish_is_root_user
-        set arrow "$arrow_color# "
+        set arrow $red"#"$status_info
     end
 
-    set -l cwd $cyan(basename (prompt_pwd))
+    # set -l arrow_color "$green"
+    # if test $__last_command_exit_status != 0
+    #     set arrow_color "$red"
+    # end
+    #
+    # set -l arrow "$arrow_color➜ "
+    # if fish_is_root_user
+    #     set arrow "$arrow_color# "
+    # end
+
+    set -l cwd $normal$cyan(basename (prompt_pwd))
 
     set -l repo_info
     if set -l repo_type (_repo_type)
-        set -l repo_branch $red(_repo_branch_name $repo_type)
-        set repo_info "$blue $repo_type:($repo_branch$blue)"
+        set -l repo_branch (_repo_branch_name $repo_type)
+
+				set -l info_color $blue
 
         if _is_repo_dirty $repo_type
-            set -l dirty "$yellow ✗"
-            set repo_info "$repo_info$dirty"
+            # set -l dirty "$yellow "
+            # set repo_info "$repo_info$dirty"
+						set info_color $yellow
         end
+        set repo_info "$normal on $info_color$repo_branch"
     end
 
-    echo -n -s $arrow ' '$cwd $repo_info $normal ' '
+    echo -n -s $arrow $cwd $repo_info $normal ' '
 end
