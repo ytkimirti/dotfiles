@@ -65,3 +65,30 @@ map <leader>z <Action>(ToggleDistractionFreeMode)
 
 
 map q <Action>(EditorSelectWord)
+
+
+" Handlers
+sethandler <C-D> a:vim
+sethandler <C-I> a:vim
+sethandler <C-J> a:vim
+sethandler <C-O> a:vim
+
+sethandler <C-2> a:ide
+sethandler <C-S-2> a:ide
+sethandler <C-6> a:ide
+sethandler <C-S-6> a:ide
+sethandler <C-A> a:ide
+sethandler <C-B> a:ide
+sethandler <C-E> a:ide
+sethandler <C-F> a:ide
+sethandler <C-H> a:ide
+sethandler <C-K> a:ide
+sethandler <C-L> a:ide
+sethandler <C-M> a:ide
+sethandler <C-N> a:ide
+sethandler <C-P> a:ide
+sethandler <C-R> a:ide
+sethandler <C-S> a:ide
+sethandler <C-T> a:ide
+sethandler <C-V> a:ide
+sethandler <C-W> a:ide
