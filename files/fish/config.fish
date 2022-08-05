@@ -16,9 +16,15 @@ end
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden'
 
 # Homebrew stuff
-set -gx HOMEBREW_PREFIX "/opt/homebrew"
-set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar"
-set -gx HOMEBREW_REPOSITORY "/opt/homebrew"
+if [ "$IS_ECOLE" = "true" ]
+	set -gx HOMEBREW_PREFIX "$HOME/mybin/homebrew"
+	set -gx HOMEBREW_CELLAR "$HOME/mybin/homebrew/Cellar"
+	set -gx HOMEBREW_REPOSITORY "$HOME/mybin/homebrew"
+else
+	set -gx HOMEBREW_PREFIX "/opt/homebrew"
+	set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar"
+	set -gx HOMEBREW_REPOSITORY "/opt/homebrew"
+end
 
 set -gxp PATH "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin"
 set -gxp MANPATH "$HOMEBREW_PREFIX/share/man"
@@ -41,7 +47,9 @@ set -gx PYENV_ROOT $HOME/.pyenv
 
 # You can manually set shims like this too but with it's own init script, it's safer
 # set -gxp PATH $PYENV_ROOT/shims
-pyenv init - | source
+if type -q fnm
+	pyenv init - | source
+end
 
 if type -q fnm
 	eval (fnm env)
