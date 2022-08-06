@@ -27,6 +27,13 @@ vim.cmd('set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<')
 set('n', '<F3>', '<esc><cmd>set list!<cr>', {})
 set('i', '<F3>', '<C-o><cmd>set list!<cr>', {})
 
+set({'i', 'n', 'v'}, '<esc>', '<esc><cmd>noh<cr>', {silent = true})
+set({'n'}, 'i', '<cmd>noh<cr><esc>i', {silent= true})
+-- I have no idea for a better approach to this, above line doesn't work
+--vim.cmd('map <esc> <esc>:noh<cr>')
+--vim.cmd('map i <>:noh<cr>')
+--vim.cmd('map c :noh<cr>')
+
 -- Yank --
 set("n", "<leader>p", '"*p', {})
 set("n", "<leader>P", '"*P', {})
