@@ -38,6 +38,7 @@ local options = {
 
 if pcall(vim.cmd, "colorscheme gruvbox") then
 	vim.g.gruvbox_transparent_bg = 1
+	vim.g.gruvbox_bold = 0
 else
 	print("Need gruvbox")
 end
