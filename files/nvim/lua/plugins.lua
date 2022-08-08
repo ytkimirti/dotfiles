@@ -58,6 +58,7 @@ return packer.startup(function(use)
 	use { "numToStr/Comment.nvim", config = [[require('config.comment')]] }
 	use {"Pocco81/AutoSave.nvim", module="autosave"}
 	use {"kyazdani42/nvim-tree.lua", config = [[require('config.nvim-tree')]], cmd = {'NvimTreeToggle', 'NvimTreeFocus', 'NvimTreeFindFile', 'NvimTreeCollapse'}}
+	use { "wellle/targets.vim"}
 
 	-- use 'windwp/nvim-ts-autotag' -- TODO: What is this?
 
