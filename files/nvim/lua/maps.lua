@@ -99,6 +99,15 @@ keymap("n", "<leader>tm", "<cmd>Telescope marks<cr>", opts)
 -- TODO: Fix autosave error
 keymap("n", "<leader>as", "<cmd>EnableAutoSave<cr>", opts)
 
+keymap("n", "<leader>qw", "<cmd>wq<cr>", opts)
+keymap("n", "<leader>qa", "<cmd>qa<cr>", opts)
+keymap("n", "<leader>qwa", "<cmd>wqa<cr>", opts)
+
+keymap("n", "<leader>qe", "<cmd>q<cr>", opts)
+keymap("n", "<leader>qq", "<cmd>q<cr>", opts)
+keymap("n", "<leader>qf", "<cmd>q!<cr>", opts)
+keymap("n", "<leader>w", "<cmd>:up<cr>", opts)
+
 -- Nvimtree
 keymap("n", "<C-n>", "<cmd>NvimTreeFocus<cr>", opts)
 
