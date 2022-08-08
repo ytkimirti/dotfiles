@@ -82,16 +82,12 @@ keymap("n", "<leader>o", "<cmd>Telescope find_files<cr>", opts)
 keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>", opts)
 keymap("n", "<C-p>", "<cmd>Telescope find_files<cr>", opts)
 
-keymap("n", "<leader>gc", "<cmd>Telescope git_commits<cr>", opts)
-keymap("n", "<leader>gd", "<cmd>Telescope git_bcommits<cr>", opts)
-keymap("n", "<leader>gs", "<cmd>Telescope git_status<cr>", opts)
 keymap("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", opts)
-
 keymap("n", "<leader>f", "<cmd>Telescope lsp_document_symbols<cr>", opts)
-
+keymap("n", "<leader>F", "<cmd>Telescope lsp_workspace_symbols<cr>", opts)
 
 keymap("n", "<leader>tb", "<cmd>Telescope builtin<cr>", opts)
-keymap("n", "<leader>to", "<cmd>Telescope old_files<cr>", opts)
+keymap("n", "<leader>to", "<cmd>Telescope oldfiles<cr>", opts)
 keymap("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>tm", "<cmd>Telescope marks<cr>", opts)
 
