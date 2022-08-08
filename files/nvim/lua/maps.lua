@@ -53,9 +53,6 @@ keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
 -- Navigate buffers
 
-keymap("n", "<A-j>", ":m +1<CR>==", opts)
-keymap("n", "<A-k>", ":m -2<CR>==", opts)
-
 -- Insert --
 keymap("i", "<S-CR>", "<ESC>o", opts) -- Newline with S-CR
 
@@ -65,14 +62,19 @@ keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
 -- Move text up and down
-keymap("v", "<A-j>", ":m .+1<CR>==", opts)
-keymap("v", "<A-k>", ":m .-2<CR>==", opts)
+keymap("n", "<A-j>", ":m +1<CR>==", opts)
+keymap("n", "<A-k>", ":m -2<CR>==", opts)
+keymap("i", "<A-j>", "<esc>:m .+1<CR>==gi", opts)
+keymap("i", "<A-k>", "<esc>:m .-2<CR>==gi", opts)
+keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
+keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
+
+-- Replacing with p doesn't override the yank register
 keymap("v", "p", '"_dP', opts)
 
--- Comment (doesn't work for some reason?!?!?)
-
-set("n", "<C-/>", "gcc", {})
-set("v", "<C-/>", "gc", {})
+-- Comment
+set("n", "<C-/>", "gcc", {remap = true})
+set("v", "<C-/>", "gc", {remap = true})
 
 -- Telescope
 
@@ -94,14 +96,13 @@ keymap("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>tm", "<cmd>Telescope marks<cr>", opts)
 
 -- Custom
-keymap("n", "<leader>as", "<cmd>EnableAutoSave<cr>", opts) -- Ripgrep
-keymap("n", "<leader>h", "<cmd>nop<cr>", opts)
+-- TODO: Fix autosave error
+keymap("n", "<leader>as", "<cmd>EnableAutoSave<cr>", opts)
 
 -- Nvimtree
 keymap("n", "<C-n>", "<cmd>NvimTreeFocus<cr>", opts)
 
 -- Float term
-
 local term = require("lspsaga.floaterm")
 
 -- float terminal also you can pass the cli command in open_float_terminal function
