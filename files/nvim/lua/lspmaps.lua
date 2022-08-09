@@ -18,11 +18,11 @@ M.setup = function()
 	set("n", "gR", "<cmd>Telescope lsp_references<cr>", opts) -- saga is better
 
 
-	set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-	set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-	set('n', '<space>wl', function()
-		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-	end, opts)
+	-- set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+	-- set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+	-- set('n', '<space>wl', function()
+	-- 	print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+	-- end, opts)
 
 	-- set('n', '<space>D', vim.lsp.buf.type_definition, opts)
 	-- set('n', '<space>rn', vim.lsp.buf.rename, opts)
