@@ -1,6 +1,10 @@
 local new_cmd = vim.api.nvim_create_user_command
 local set = vim.keymap.set
 
+P = function(v)
+	print(vim.inspect(v))
+end
+
 new_cmd("EnableAutoSave", function()
 	require('config.auto-save')
 	require('notify')('AutoSave enabled!', "success", {

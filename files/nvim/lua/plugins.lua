@@ -46,6 +46,9 @@ return packer.startup(function(use)
 	use "wbthomason/packer.nvim"
 	use "nvim-lua/plenary.nvim"
 
+	-- MY <3
+	use "ytkimirti/nvim-norm"
+
 	-- Movement
 	use 'knubie/vim-kitty-navigator'
 
