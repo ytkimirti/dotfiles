@@ -53,6 +53,7 @@ return packer.startup(function(use)
 	use 'knubie/vim-kitty-navigator'
 
 	-- Editor
+	use { "mfussenegger/nvim-dap", config = [[require('config.dap')]] }
 	use { 'lewis6991/gitsigns.nvim', tag = 'release', config = [[require('config.gitsigns')]] }
 	use 'tpope/vim-fugitive'
 	use "tpope/vim-surround"
