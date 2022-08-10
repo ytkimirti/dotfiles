@@ -26,9 +26,9 @@ else
 	set -gx HOMEBREW_REPOSITORY "/opt/homebrew"
 end
 
-set -gxp PATH "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin"
-set -gxp MANPATH "$HOMEBREW_PREFIX/share/man"
-set -gxp INFOPATH "$HOMEBREW_PREFIX/share/info"
+set -q PATH; or set PATH ''; set -gx PATH "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin" $PATH;
+set -q MANPATH; or set MANPATH ''; set -gx MANPATH "$HOMEBREW_PREFIX/share/man" $MANPATH;
+set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "$HOMEBREW_PREFIX/share/info" $INFOPATH;
 
 # Set modes for these vars to path, (':' seperated)
 set --path LIBRARY_PATH
