@@ -3,7 +3,7 @@ local term_opts = { silent = true }
 local keymap = vim.api.nvim_set_keymap
 local set = vim.keymap.set
 
-keymap("", "C-c", "<ESC>", opts) -- C-c same as ESC
+set("", "<C-c>", "<ESC>", {remap = true, silent = true}) -- C-c same as ESC
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
