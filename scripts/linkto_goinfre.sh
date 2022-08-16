@@ -18,18 +18,23 @@ fi
 # linkfolder Library/Caches
 mkdir -p /goinfre/$USER/$1
 
-if [[ ! -L "/$HOME/$1" ]]
+if [ ! -L "$HOME/$1" ] && [ -d "$HOME/$1" ]
 then
-	ln -s /goinfre/$USER/$1/ $HOME/$1
-	echo "Created link ~/$1 -> /goinfre/$USER/$1"
+	# echo "The directory ~/$1 is moving to ~/$1_backup"
+	# mv "$HOME/$1/" "$HOME/$1_backup/"
+	rm -rf "$HOME/$1"
+	echo "The folder $1 already exists, deleting it."
+fi
+
+if [[ ! -L "$HOME/$1" ]]
+then
+	if ln -s /goinfre/$USER/$1/ $HOME/$1; then
+		echo "Created link ~/$1 -> /goinfre/$USER/$1"
+	else
+		echo "😈 Creating link failed!"
+	fi
 else
 	echo "Link ~/$1 already exists... Skipping"
 	exit 0
-fi
-
-if [ ! -L "/$HOME/$1" ] && [ -d "/$HOME/$1" ]
-then
-	echo "The directory ~/$1 is moving to ~/$1_backup"
-	mv "/$HOME/$1" "/$HOME/$1_backup"
 fi
 
