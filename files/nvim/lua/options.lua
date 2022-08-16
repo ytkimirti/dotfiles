@@ -1,4 +1,5 @@
 local options = {
+	joinspaces = false,											 -- Insert only one space when joining lines with J
   backup = false,                          -- creates a backup file
   cmdheight = 1,                           -- more space in the neovim command line for displaying messages
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp*
@@ -22,7 +23,7 @@ local options = {
   -- expandtab = true,                     -- convert tabs to spaces
   shiftwidth = 2,                          -- the number of spaces inserted for each indentation
   tabstop = 2,                             -- insert 2 spaces for a tab
-  cursorline = true,                       -- highlight the current line
+  cursorline = false,                      -- highlight the current line
   number = true,                           -- set numbered lines
   relativenumber = false,                  -- set relative numbered lines
   numberwidth = 2,                         -- set number column width to 2 {default 4}

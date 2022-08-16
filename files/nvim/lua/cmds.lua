@@ -48,12 +48,12 @@ new_cmd("ToggleZen", function()
 		-- })
 		o['showmode'] = true
 		o['ruler'] = false
-		o['laststatus'] = 1
+		o['laststatus'] = 2
 		o['showcmd'] = true
 	end
 end, {})
 
-vim.cmd('ToggleZen')
+-- vim.cmd('ToggleZen')
 
 set('n', '<leader>z', '<cmd>ToggleZen<cr>', {})
 

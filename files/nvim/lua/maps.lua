@@ -93,11 +93,12 @@ keymap("n", "<leader>tm", "<cmd>Telescope marks<cr>", opts)
 
 -- Custom
 -- TODO: Fix autosave error
+set({"n", "v", "i"}, "<c-e>", "<cmd>Ex<cr>", opts)
 keymap("n", "<leader>as", "<cmd>EnableAutoSave<cr>", opts)
 
 keymap("n", "<leader>qw", "<cmd>wq<cr>", opts)
 keymap("n", "<leader>qa", "<cmd>qa<cr>", opts)
-keymap("n", "<leader>qwa", "<cmd>wqa<cr>", opts)
+keymap("n", "<leader>qW", "<cmd>wqa<cr>", opts)
 
 keymap("n", "<leader>qe", "<cmd>q<cr>", opts)
 keymap("n", "<leader>qq", "<cmd>q<cr>", opts)

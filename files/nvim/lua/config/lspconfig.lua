@@ -25,6 +25,8 @@ local lsp_flags = {
 
 local server_configs = {
 	pyright = {},
+	bashls = {},
+	cssls = {},
 	clangd = {},
 	emmet_ls = require('server.emmet_ls'),
 	tsserver = require('server.tsserver'),

@@ -58,11 +58,12 @@ return packer.startup(function(use)
 	use 'tpope/vim-fugitive'
 	use "tpope/vim-surround"
 	use { "windwp/nvim-autopairs", config = [[require('config.autopairs')]] }
-  use {'windwp/nvim-ts-autotag', config = [[require('config.ts-autotag')]]}
+	use { 'windwp/nvim-ts-autotag', config = [[require('config.ts-autotag')]] }
 	use { "numToStr/Comment.nvim", config = [[require('config.comment')]] }
-	use {"Pocco81/AutoSave.nvim", module="autosave"}
-	use {"kyazdani42/nvim-tree.lua", config = [[require('config.nvim-tree')]], cmd = {'NvimTreeToggle', 'NvimTreeFocus', 'NvimTreeFindFile', 'NvimTreeCollapse'}}
-	use { "wellle/targets.vim"}
+	use { "Pocco81/AutoSave.nvim", module = "autosave" }
+	use { "kyazdani42/nvim-tree.lua", config = [[require('config.nvim-tree')]],
+		cmd = { 'NvimTreeToggle', 'NvimTreeFocus', 'NvimTreeFindFile', 'NvimTreeCollapse' } }
+	use { "wellle/targets.vim" }
 
 	-- use 'windwp/nvim-ts-autotag' -- TODO: What is this?
 
@@ -72,7 +73,7 @@ return packer.startup(function(use)
 	use "https://github.com/morhetz/gruvbox"
 	-- use "rafi/awesome-vim-colorschemes"
 	use "kyazdani42/nvim-web-devicons"
-	use { "rcarriga/nvim-notify", module = "notify" }
+	-- use { "rcarriga/nvim-notify", module = "notify" }
 	-- use { 'goolord/alpha-nvim', config = [[require('config.alpha')]] }
 
 	-- Other
@@ -104,12 +105,13 @@ return packer.startup(function(use)
 
 	-- snippets
 	use "L3MON4D3/LuaSnip" --snippet engine
- 	use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
+	use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
 	-- LSP
 	use { "neovim/nvim-lspconfig", config = [[require('config.lspconfig')]] }
 	use { "williamboman/nvim-lsp-installer" }
 	use { 'glepnir/lspsaga.nvim', branch = 'main', config = [[require('config.lspsaga')]] }
+	use { 'dense-analysis/ale', config = [[require('config.ale')]] }
 	-- use 'folke/lsp-colors.nvim'
 	-- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
 	-- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
@@ -125,7 +127,7 @@ return packer.startup(function(use)
 	-- use "lewis6991/gitsigns.nvim"
 
 	-- Misc
-	use {"alec-gibson/nvim-tetris", command = ":Tetris"}
+	use { "alec-gibson/nvim-tetris", command = ":Tetris" }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
