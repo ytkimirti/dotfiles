@@ -111,10 +111,12 @@ return packer.startup(function(use)
 	use { "neovim/nvim-lspconfig", config = [[require('config.lspconfig')]] }
 	use { "williamboman/nvim-lsp-installer" }
 	use { 'glepnir/lspsaga.nvim', branch = 'main', config = [[require('config.lspsaga')]] }
-	use { 'dense-analysis/ale', config = [[require('config.ale')]] }
+	use { 'ytkimirti/ale', config = [[require('config.ale')]] }
 	-- use 'folke/lsp-colors.nvim'
 	-- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
 	-- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
+
+	use {"alec-gibson/nvim-tetris", command = ":Tetris"}
 
 	-- Telescope
 	use "nvim-telescope/telescope.nvim"
@@ -122,12 +124,6 @@ return packer.startup(function(use)
 
 	-- Treesitter
 	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = [[require('config.treesitter')]] }
-
-	-- Git
-	-- use "lewis6991/gitsigns.nvim"
-
-	-- Misc
-	use {"alec-gibson/nvim-tetris", command = ":Tetris"}
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
