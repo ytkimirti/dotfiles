@@ -45,6 +45,12 @@ set -gxp PATH "$HOME/.cargo/bin"
 set -gx PYENV_SHELL fish
 set -gx PYENV_ROOT $HOME/.pyenv
 
+set -gx LC_ALL "en_US.UTF-8"
+
+if type -q id; set -gx GROUP (id -gn $USER); end
+set -gx ECOLE_MAIL "ykimirti@42istanbul.com.tr"
+set -gx ECOLE_USER "ykimirti"
+
 # You can manually set shims like this too but with it's own init script, it's safer
 # set -gxp PATH $PYENV_ROOT/shims
 if type -q fnm

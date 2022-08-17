@@ -23,6 +23,9 @@ vim.g.maplocalleader = " "
 -- keymap("n", "<C-k>", "<C-w>k", opts)
 -- keymap("n", "<C-l>", "<C-w>l", opts)
 
+set('n', ';', ':', opts)
+set('n', ':', ';', opts)
+
 vim.cmd('set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<')
 set('n', '<F3>', '<esc><cmd>set list!<cr>', {})
 set('i', '<F3>', '<C-o><cmd>set list!<cr>', {})
@@ -92,6 +95,9 @@ keymap("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
 keymap("n", "<leader>tm", "<cmd>Telescope marks<cr>", opts)
 
 -- Custom
+
+set('n', '<leader>eh', '<cmd>EcoleHeader<cr>', opts)
+
 -- TODO: Fix autosave error
 set({"n", "v", "i"}, "<c-e>", "<cmd>Ex<cr>", opts)
 keymap("n", "<leader>as", "<cmd>EnableAutoSave<cr>", opts)
@@ -147,6 +153,7 @@ set('n', '<leader>hR', gs.reset_buffer)
 set('n', '<leader>hp', gs.preview_hunk)
 set('n', '<leader>hd', gs.diffthis)
 set('n', '<leader>hD', function() gs.diffthis('~') end)
+
 
 -- Text object
 set({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')

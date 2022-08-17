@@ -47,7 +47,7 @@ return packer.startup(function(use)
 	use "nvim-lua/plenary.nvim"
 
 	-- MY <3
-	use "ytkimirti/nvim-norm"
+	-- use "ytkimirti/nvim-norm"
 
 	-- Movement
 	use 'knubie/vim-kitty-navigator'
@@ -127,7 +127,7 @@ return packer.startup(function(use)
 	-- use "lewis6991/gitsigns.nvim"
 
 	-- Misc
-	use { "alec-gibson/nvim-tetris", command = ":Tetris" }
+	use {"alec-gibson/nvim-tetris", command = ":Tetris"}
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
