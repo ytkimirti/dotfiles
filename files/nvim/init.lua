@@ -3,7 +3,7 @@ require 'options'
 require 'maps'
 require 'cmds'
 
-function source_vim(filename)
+local function source_vim(filename)
 	vim.cmd('source ' .. vim.fn.stdpath('config') .. '/vim/' .. filename)
 end
 
