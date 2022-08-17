@@ -1,6 +1,5 @@
 local opts = { noremap = true, silent = true }
 local term_opts = { silent = true }
-local keymap = vim.api.nvim_set_keymap
 local set = vim.keymap.set
 
 set("", "<C-c>", "<ESC>", {remap = true, silent = true}) -- C-c same as ESC
@@ -18,13 +17,13 @@ vim.g.maplocalleader = " "
 
 -- Normal --
 -- Better window navigation
--- keymap("n", "<C-h>", "<C-w>h", opts)
--- keymap("n", "<C-j>", "<C-w>j", opts)
--- keymap("n", "<C-k>", "<C-w>k", opts)
--- keymap("n", "<C-l>", "<C-w>l", opts)
+-- set("n", "<C-h>", "<C-w>h", opts)
+-- set("n", "<C-j>", "<C-w>j", opts)
+-- set("n", "<C-k>", "<C-w>k", opts)
+-- set("n", "<C-l>", "<C-w>l", opts)
 
-set('n', ';', ':', opts)
-set('n', ':', ';', opts)
+set('n', ';', ':', {remap = false, silent = false})
+set('n', ':', ';', {remap = false, silent = false})
 
 vim.cmd('set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<')
 set('n', '<F3>', '<esc><cmd>set list!<cr>', {})
@@ -32,48 +31,44 @@ set('i', '<F3>', '<C-o><cmd>set list!<cr>', {})
 
 set({'i', 'n', 'v'}, '<esc>', '<esc><cmd>noh<cr>', {silent = true})
 set({'n'}, 'i', '<cmd>noh<cr><esc>i', {silent= true})
--- I have no idea for a better approach to this, above line doesn't work
---vim.cmd('map <esc> <esc>:noh<cr>')
---vim.cmd('map i <>:noh<cr>')
---vim.cmd('map c :noh<cr>')
 
 -- Yank --
-set("n", "<leader>p", '"*p', {})
-set("n", "<leader>P", '"*P', {})
-set("n", "Y", '"*y', {})
+set("n", "<leader>p", '"*p', opts)
+set("n", "<leader>P", '"*P', opts)
+set("n", "Y", '"*y', opts)
 
-set("v", "<leader>p", '"*p', {})
-set("v", "<leader>P", '"*P', {})
-set("v", "Y", '"*y', {})
+set("v", "<leader>p", '"*p', opts)
+set("v", "<leader>P", '"*P', opts)
+set("v", "Y", '"*y', opts)
 
 -- Resizing --
-keymap("n", "<M-Up>", ":resize -2<CR>", opts)
-keymap("n", "<M-Down>", ":resize +2<CR>", opts)
-keymap("n", "<M-Left>", ":vertical resize -2<CR>", opts)
-keymap("n", "<M-Right>", ":vertical resize +2<CR>", opts)
+set("n", "<M-Up>", ":resize -2<CR>", opts)
+set("n", "<M-Down>", ":resize +2<CR>", opts)
+set("n", "<M-Left>", ":vertical resize -2<CR>", opts)
+set("n", "<M-Right>", ":vertical resize +2<CR>", opts)
 
-keymap("n", "<S-l>", ":bnext<CR>", opts)
-keymap("n", "<S-h>", ":bprevious<CR>", opts)
 -- Navigate buffers
+set("n", "<S-l>", ":bnext<CR>", opts)
+set("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Insert --
-keymap("i", "<S-CR>", "<ESC>o", opts) -- Newline with S-CR
+set("i", "<S-CR>", "<ESC>o", opts) -- Newline with S-CR
 
 -- Visual --
 -- Stay in indent mode
-keymap("v", "<", "<gv", opts)
-keymap("v", ">", ">gv", opts)
+set("v", "<", "<gv", opts)
+set("v", ">", ">gv", opts)
 
 -- Move text up and down
-keymap("n", "<A-j>", ":m +1<CR>==", opts)
-keymap("n", "<A-k>", ":m -2<CR>==", opts)
-keymap("i", "<A-j>", "<esc>:m .+1<CR>==gi", opts)
-keymap("i", "<A-k>", "<esc>:m .-2<CR>==gi", opts)
-keymap("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
-keymap("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
+set("n", "<A-j>", ":m +1<CR>==", opts)
+set("n", "<A-k>", ":m -2<CR>==", opts)
+set("i", "<A-j>", "<esc>:m .+1<CR>==gi", opts)
+set("i", "<A-k>", "<esc>:m .-2<CR>==gi", opts)
+set("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
+set("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 
 -- Replacing with p doesn't override the yank register
-keymap("v", "p", '"_dP', opts)
+set("v", "p", '"_dP', opts)
 
 -- Comment
 set("n", "<C-/>", "gcc", {remap = true})
@@ -81,47 +76,36 @@ set("v", "<C-/>", "gc", {remap = true})
 
 -- Telescope
 
-keymap("n", "<leader>o", "<cmd>Telescope find_files<cr>", opts)
-keymap("n", "<leader>b", "<cmd>Telescope buffers<cr>", opts)
-keymap("n", "<C-p>", "<cmd>Telescope find_files<cr>", opts)
+set("n", "<leader>o", "<cmd>Telescope find_files<cr>", opts)
+set("n", "<leader>b", "<cmd>Telescope buffers<cr>", opts)
 
-keymap("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", opts)
-keymap("n", "<leader>f", "<cmd>Telescope lsp_document_symbols<cr>", opts)
-keymap("n", "<leader>F", "<cmd>Telescope lsp_workspace_symbols<cr>", opts)
+set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", opts)
+set("n", "<leader>f", "<cmd>Telescope lsp_document_symbols<cr>", opts)
+set("n", "<leader>F", "<cmd>Telescope lsp_workspace_symbols<cr>", opts)
 
-keymap("n", "<leader>tb", "<cmd>Telescope builtin<cr>", opts)
-keymap("n", "<leader>to", "<cmd>Telescope oldfiles<cr>", opts)
-keymap("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
-keymap("n", "<leader>tm", "<cmd>Telescope marks<cr>", opts)
+set("n", "<leader>tb", "<cmd>Telescope builtin<cr>", opts)
+set("n", "<leader>to", "<cmd>Telescope oldfiles<cr>", opts)
+set("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
+set("n", "<leader>tm", "<cmd>Telescope marks<cr>", opts)
 
 -- Custom
 
-set('n', '<leader>eh', '<cmd>EcoleHeader<cr>', opts)
+set('n', '<leader>hh', '<cmd>EcoleHeader<cr>', opts)
 
 -- TODO: Fix autosave error
-set({"n", "v", "i"}, "<c-e>", "<cmd>Ex<cr>", opts)
-keymap("n", "<leader>as", "<cmd>EnableAutoSave<cr>", opts)
-
-keymap("n", "<leader>qw", "<cmd>wq<cr>", opts)
-keymap("n", "<leader>qa", "<cmd>qa<cr>", opts)
-keymap("n", "<leader>qW", "<cmd>wqa<cr>", opts)
-
-keymap("n", "<leader>qe", "<cmd>q<cr>", opts)
-keymap("n", "<leader>qq", "<cmd>q<cr>", opts)
-keymap("n", "<leader>qf", "<cmd>q!<cr>", opts)
-keymap("n", "<leader>w", "<cmd>:up<cr>", opts)
+set("n", "<leader>as", "<cmd>EnableAutoSave<cr>", opts)
 
 -- Nvimtree
-keymap("n", "<C-n>", "<cmd>NvimTreeFocus<cr>", opts)
+set("n", "<C-n>", "<cmd>NvimTreeFocus<cr>", opts)
 
 -- Float term
 local term = require("lspsaga.floaterm")
 
 -- float terminal also you can pass the cli command in open_float_terminal function
-vim.keymap.set("n", "<A-d>", function()
+set("n", "<A-d>", function()
     term.open_float_terminal()
 end, { silent = true,noremap = true })
-vim.keymap.set("t", "<A-d>", function()
+set("t", "<A-d>", function()
     vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true))
     term.close_float_terminal()
 end, { silent = true })

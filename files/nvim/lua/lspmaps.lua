@@ -74,15 +74,18 @@ M.setup = function()
 
 	vim.keymap.set("n", "<leader>e", require("lspsaga.diagnostic").show_line_diagnostics, { silent = true,noremap = true })
 
-	-- jump diagnostic
+	-- Jump to diagnostic
 	vim.keymap.set("n", "[d", require("lspsaga.diagnostic").goto_prev, { silent = true, noremap =true })
 	vim.keymap.set("n", "]d", require("lspsaga.diagnostic").goto_next, { silent = true, noremap =true })
-	-- or jump to error
+	-- Jump to error
 	vim.keymap.set("n", "[e", function()
 		require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
 	end, { silent = true, noremap = true })
 	vim.keymap.set("n", "]e", function()
 		require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
 	end, { silent = true, noremap = true })
+	-- Jump to ale diagnostic
+	vim.keymap.set("n", "[f", "<cmd>ALENext<cr>", { silent = true, noremap =true })
+	vim.keymap.set("n", "]f", "<cmd>ALEPrevious<cr>", { silent = true, noremap =true })
 	end
 return M
