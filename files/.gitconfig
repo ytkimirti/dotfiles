@@ -5,6 +5,7 @@
 	excludesfile = /Users/ytkimirti/.gitignore_global
 	editor = vim
 	autocrlf = input
+	excludeFiles = .DS_Store
 [color]
 	ui = auto
 [filter "lfs"]
