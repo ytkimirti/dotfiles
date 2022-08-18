@@ -68,7 +68,7 @@ set("i", "<C-f>k", "<esc>m9kdd`9a", opts)
 set("i", "<C-f>J", "<esc>m9o<esc>`9a", opts)
 set("i", "<C-f>K", "<esc>m9O<esc>`9a", opts)
 
-set("i", "<C-z>", "<esc>u", opts)
+set("i", "<C-z>", "<C-o>u", opts)
 
 -- Make sure C-R breaks the undo so you can
 -- undo just the pasting
