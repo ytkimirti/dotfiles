@@ -53,6 +53,44 @@ set("n", "<S-h>", ":bprevious<CR>", opts)
 
 -- Insert --
 set("i", "<S-CR>", "<ESC>o", opts) -- Newline with S-CR
+set("i", "<A-S-CR>", "<ESC>O", opts) -- Newline with S-CR
+set("i", "<C-l>", "<del>", opts)
+
+set("i", "<A-k>", "<Up>", opts)
+set("i", "<A-j>", "<Down>", opts)
+set("i", "<A-h>", "<Left>", opts)
+set("i", "<A-l>", "<Right>", opts)
+
+set("i", "<C-f>o", "<esc>m9o<esc>kO<esc>`9a", opts)
+
+set("i", "<C-f>j", "<esc>m9jdd`9a", opts)
+set("i", "<C-f>k", "<esc>m9kdd`9a", opts)
+set("i", "<C-f>J", "<esc>m9o<esc>`9a", opts)
+set("i", "<C-f>K", "<esc>m9O<esc>`9a", opts)
+
+set("i", "<C-z>", "<esc>u", opts)
+
+-- Make sure C-R breaks the undo so you can
+-- undo just the pasting
+set("i", "<C-r>", "<C-g>u<C-r>", opts)
+
+-- Some default vim inser mode mapping
+-- C-W delete before cursor
+-- C-T C-D [t]ab and [d]el tab
+-- C-U delete line before cursor completely
+-- C-U delete line before
+
+set("i", "<A-w>", "<C-o>w", opts)
+set("i", "<A-e>", "<esc>ea", opts)
+set("i", "<A-b>", "<C-o>b", opts)
+set("i", "<A-S-w>", "<C-o>W", opts)
+set("i", "<A-S-e>", "<esc>Ea", opts)
+set("i", "<A-S-b>", "<C-o>B", opts)
+
+set("i", "<A-4>", "<C-o>$", opts)
+set("i", "<A-0>", "<C-o>0", opts)
+
+
 
 -- Visual --
 -- Stay in indent mode
@@ -62,8 +100,8 @@ set("v", ">", ">gv", opts)
 -- Move text up and down
 set("n", "<A-j>", ":m +1<CR>==", opts)
 set("n", "<A-k>", ":m -2<CR>==", opts)
-set("i", "<A-j>", "<esc>:m .+1<CR>==gi", opts)
-set("i", "<A-k>", "<esc>:m .-2<CR>==gi", opts)
+-- set("i", "<A-j>", "<esc>:m .+1<CR>==gi", opts)
+-- set("i", "<A-k>", "<esc>:m .-2<CR>==gi", opts)
 set("v", "<A-j>", ":m '>+1<CR>gv=gv", opts)
 set("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 
