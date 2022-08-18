@@ -64,14 +64,17 @@ nmap <leader>q     :q<CR>
 map <leader>z <Action>(ToggleDistractionFreeMode)
 
 
-map q <Action>(EditorSelectWord)
+" map q <Action>(EditorSelectWord)
 
+nnoremap ; :
+nnoremap : ;
 
 " Handlers
 sethandler <C-D> a:vim
 sethandler <C-I> a:vim
 sethandler <C-J> a:vim
 sethandler <C-O> a:vim
+sethandler <C-V> a:vim
 
 sethandler <C-2> a:ide
 sethandler <C-S-2> a:ide
@@ -90,5 +93,4 @@ sethandler <C-P> a:ide
 sethandler <C-R> a:ide
 sethandler <C-S> a:ide
 sethandler <C-T> a:ide
-sethandler <C-V> a:ide
 sethandler <C-W> a:ide
