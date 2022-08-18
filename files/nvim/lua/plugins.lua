@@ -50,7 +50,7 @@ return packer.startup(function(use)
 	-- use "ytkimirti/nvim-norm"
 
 	-- Movement
-	use 'knubie/vim-kitty-navigator'
+	-- use 'knubie/vim-kitty-navigator'
 
 	-- Editor
 	use { "mfussenegger/nvim-dap", config = [[require('config.dap')]] }
