@@ -55,6 +55,8 @@ set("n", "<S-h>", ":bprevious<CR>", opts)
 set("i", "<S-CR>", "<ESC>o", opts) -- Newline with S-CR
 set("i", "<A-S-CR>", "<ESC>O", opts) -- Newline with S-CR
 set("i", "<C-l>", "<del>", opts)
+set("i", "<C-;>", "<esc>:", opts)
+set("n", "<C-;>", ":", {silent = false})
 
 set("i", "<A-k>", "<Up>", opts)
 set("i", "<A-j>", "<Down>", opts)

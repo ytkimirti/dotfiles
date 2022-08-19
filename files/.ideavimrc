@@ -4,6 +4,7 @@ let mapleader=" "
 " or use
 
 " Plugins
+set relativenumber
 set visualbell
 set txtobj-entire
 " set ReplaceWithRegister
@@ -66,8 +67,8 @@ map <leader>z <Action>(ToggleDistractionFreeMode)
 
 " map q <Action>(EditorSelectWord)
 
-nnoremap ; :
-nnoremap : ;
+nnoremap <C-;> :
+" nnoremap : ;
 
 " Handlers
 sethandler <C-D> a:vim
