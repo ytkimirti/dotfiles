@@ -56,7 +56,7 @@ return packer.startup(function(use)
 	use { "mfussenegger/nvim-dap", config = [[require('config.dap')]] }
 	use { 'lewis6991/gitsigns.nvim', tag = 'release', config = [[require('config.gitsigns')]] }
 	use 'tpope/vim-fugitive'
-	use "tpope/vim-surround"
+	use 'tpope/vim-surround'
 	use { "windwp/nvim-autopairs", config = [[require('config.autopairs')]] }
 	use { 'windwp/nvim-ts-autotag', config = [[require('config.ts-autotag')]] }
 	use { "numToStr/Comment.nvim", config = [[require('config.comment')]] }
@@ -68,7 +68,7 @@ return packer.startup(function(use)
 	-- use 'windwp/nvim-ts-autotag' -- TODO: What is this?
 
 	-- Visual
-	use "fladson/vim-kitty"
+	-- use "fladson/vim-kitty"
 	-- use "sainnhe/gruvbox-material"
 	use "https://github.com/morhetz/gruvbox"
 	-- use "rafi/awesome-vim-colorschemes"

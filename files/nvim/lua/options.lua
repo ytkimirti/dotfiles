@@ -1,5 +1,5 @@
 local options = {
-	joinspaces = false,											 -- Insert only one space when joining lines with J
+  joinspaces = false,											 -- Insert only one space when joining lines with J
   backup = false,                          -- creates a backup file
   cmdheight = 1,                           -- more space in the neovim command line for displaying messages
   completeopt = { "menuone", "noselect" }, -- mostly just for cmp*
