@@ -20,12 +20,12 @@ set surround
 set argtextobj
 let g:argtextobj_pairs="(:),{:},<:>"
 
-map J <Action>(MethodDown)
-map K <Action>(MethodUp)
+nmap J <Action>(MethodDown)
+nmap K <Action>(MethodUp)
 
 " Visual mode
-map <leader>v <c-v>
-map <leader>h :nohl<CR>
+nmap <leader>v <c-v>
+nmap <leader>h :nohl<CR>
 
 
 "Copying and pasting
@@ -36,13 +36,13 @@ nnoremap <leader>P "*P
 nnoremap Y "*y
 vnoremap Y "*y
 
-map <C-o> <Action>(Back)
-map <C-i> <Action>(Forward)
+nmap <C-o> <Action>(Back)
+nmap <C-i> <Action>(Forward)
 
 " IntelliJ-specific Actions
 " -------------------------
 
-map <leader>i <Action>(QuickImplementations)
+nmap <leader>i <Action>(QuickImplementations)
 
 " Navigation
 nmap <leader>o     :action GotoFile<CR>
@@ -51,18 +51,18 @@ nmap <leader>f     :action FileStructurePopup<CR>
 nmap <leader>F     :action GotoSymbol<CR>
 
 " Other
-map <leader>b <Action>(ToggleLineBreakpoint)
-map <leader>d <Action>(QuickJavaDoc)
-map <leader>e <Action>(ShowErrorDescription)
+nmap <leader>b <Action>(ToggleLineBreakpoint)
+nmap <leader>d <Action>(QuickJavaDoc)
+nmap <leader>e <Action>(ShowErrorDescription)
 
 " Git actions
 nmap <leader>gm <Action>(Git.Menu)
 nmap <leader>gq <Action>(Vcs.QuickListPopupAction)
-map <leader>ga <Action>(Annotate)
+nmap <leader>ga <Action>(Annotate)
 
 nmap <leader>w     <Action>(SaveDocument)
 nmap <leader>q     :q<CR>
-map <leader>z <Action>(ToggleDistractionFreeMode)
+nmap <leader>z <Action>(ToggleDistractionFreeMode)
 
 
 " map q <Action>(EditorSelectWord)
