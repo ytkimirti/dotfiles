@@ -25,7 +25,7 @@ end
 --   augroup end
 -- ]]
 
--- Use a protected call so we don"t error out on first use
+-- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
 	return
@@ -47,19 +47,19 @@ return packer.startup(function(use)
 	use "nvim-lua/plenary.nvim"
 
 	-- Editor
-	use { "mfussenegger/nvim-dap", config = [[require("config.dap")]] }
-	use { "lewis6991/gitsigns.nvim", tag = "release", config = [[require("config.gitsigns")]] }
+	use { "mfussenegger/nvim-dap", config = [[require('config.dap')]] }
+	use { 'lewis6991/gitsigns.nvim', tag = 'release', config = [[require('config.gitsigns')]] }
 	use "tpope/vim-fugitive"
 	use "tpope/vim-surround"
 	use { "windwp/nvim-autopairs", config = [[require("config.autopairs")]] }
-	use { "windwp/nvim-ts-autotag", config = [[require("config.ts-autotag")]] }
-	use { "numToStr/Comment.nvim", config = [[require("config.comment")]] }
+	use { 'windwp/nvim-ts-autotag', config = [[require('config.ts-autotag')]] }
+	use { "numToStr/Comment.nvim", config = [[require('config.comment')]] }
 	use { "Pocco81/AutoSave.nvim", module = "autosave" }
-	use { "kyazdani42/nvim-tree.lua", config = [[require("config.nvim-tree")]],
-		cmd = { "NvimTreeToggle", "NvimTreeFocus", "NvimTreeFindFile", "NvimTreeCollapse" } }
+	use { "kyazdani42/nvim-tree.lua", config = [[require('config.nvim-tree')]],
+		cmd = { 'NvimTreeToggle', 'NvimTreeFocus', 'NvimTreeFindFile', 'NvimTreeCollapse' } }
 	use { "wellle/targets.vim" }
 
-	-- use "windwp/nvim-ts-autotag" -- TODO: What is this?
+	-- use 'windwp/nvim-ts-autotag' -- TODO: What is this?
 
 	-- Visual
 	-- use "fladson/vim-kitty"
@@ -68,7 +68,7 @@ return packer.startup(function(use)
 	-- use "rafi/awesome-vim-colorschemes"
 	use "kyazdani42/nvim-web-devicons"
 	-- use { "rcarriga/nvim-notify", module = "notify" }
-	-- use { "goolord/alpha-nvim", config = [[require("config.alpha")]] }
+	-- use { 'goolord/alpha-nvim', config = [[require('config.alpha')]] }
 
 	-- Other
 	-- use "akinsho/bufferline.nvim"
@@ -82,16 +82,16 @@ return packer.startup(function(use)
 	-- use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
 
 	-- COQ plugins, configured already under lspconfig
-	-- use { "ms-jpq/coq_nvim", branch = "coq" }
-	-- use { "ms-jpq/coq.artifacts", branch = "artifacts" }
-	-- use {"ms-jpq/coq.thirdparty", branch = "3p"}
+	-- use { 'ms-jpq/coq_nvim', branch = 'coq' }
+	-- use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
+	-- use {'ms-jpq/coq.thirdparty', branch = '3p'}
 
 	-- snippets
-	use { "L3MON4D3/LuaSnip", config = [[require("config.luasnip")]] } --snippet engine
-	use { "rafamadriz/friendly-snippets", config = [[require("config.friendly-snippets")]]}
+	use { "L3MON4D3/LuaSnip", config = [[require('config.luasnip')]] } --snippet engine
+	use { 'rafamadriz/friendly-snippets', config = [[require('config.friendly-snippets')]]}
 
 	-- cmp plugins
-	use { "hrsh7th/nvim-cmp", config = [[require("config.cmp")]] }
+	use { "hrsh7th/nvim-cmp", config = [[require('config.cmp')]] }
 	use "hrsh7th/cmp-nvim-lsp"
 	use "hrsh7th/cmp-nvim-lua" -- vim api stuff
 	use "hrsh7th/cmp-buffer"
@@ -100,15 +100,15 @@ return packer.startup(function(use)
 	use "hrsh7th/cmp-cmdline"
 	use { "mtoohey31/cmp-fish", ft = "fish" }
 	use "onsails/lspkind.nvim"
-	use { "saadparwaiz1/cmp_luasnip" }
+	use { 'saadparwaiz1/cmp_luasnip' }
 
 
 	-- LSP
-	use { "neovim/nvim-lspconfig", config = [[require("config.lspconfig")]] }
+	use { "neovim/nvim-lspconfig", config = [[require('config.lspconfig')]] }
 	use { "williamboman/nvim-lsp-installer" }
-	use { "glepnir/lspsaga.nvim", branch = "main", config = [[require("config.lspsaga")]] }
-	use { "ytkimirti/ale", config = [[require("config.ale")]] }
-	-- use "folke/lsp-colors.nvim"
+	use { 'glepnir/lspsaga.nvim', branch = 'main', config = [[require('config.lspsaga')]] }
+	use { 'ytkimirti/ale', config = [[require('config.ale')]] }
+	-- use 'folke/lsp-colors.nvim'
 	-- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
 	-- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
@@ -116,10 +116,10 @@ return packer.startup(function(use)
 
 	-- Telescope
 	use "nvim-telescope/telescope.nvim"
-	use "nvim-telescope/telescope-media-files.nvim"
+	use 'nvim-telescope/telescope-media-files.nvim'
 
 	-- Treesitter
-	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = [[require("config.treesitter")]] }
+	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = [[require('config.treesitter')]] }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
