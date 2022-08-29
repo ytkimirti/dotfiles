@@ -59,10 +59,7 @@ return packer.startup(function(use)
 		cmd = { 'NvimTreeToggle', 'NvimTreeFocus', 'NvimTreeFindFile', 'NvimTreeCollapse' } }
 	use { "wellle/targets.vim" }
 
-	-- use 'windwp/nvim-ts-autotag' -- TODO: What is this?
-
 	-- Visual
-	-- use "fladson/vim-kitty"
 	-- use "sainnhe/gruvbox-material"
 	use { "https://github.com/morhetz/gruvbox" }
 	-- use "rafi/awesome-vim-colorschemes"
@@ -81,19 +78,14 @@ return packer.startup(function(use)
 	-- use "goolord/alpha-nvim"
 	-- use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
 
-	-- COQ plugins, configured already under lspconfig
-	-- use { 'ms-jpq/coq_nvim', branch = 'coq' }
-	-- use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
-	-- use {'ms-jpq/coq.thirdparty', branch = '3p'}
-
 	-- snippets
 	use { "L3MON4D3/LuaSnip", config = [[require('config.luasnip')]] } --snippet engine
-	use { 'rafamadriz/friendly-snippets', config = [[require('config.friendly-snippets')]]}
+	use { 'ytkimirti/friendly-snippets', config = [[require('config.friendly-snippets')]]}
 
 	-- cmp plugins
 	use { "hrsh7th/nvim-cmp", config = [[require('config.cmp')]] }
 	use "hrsh7th/cmp-nvim-lsp"
-	use "hrsh7th/cmp-nvim-lua" -- vim api stuff
+	use "hrsh7th/cmp-nvim-lua"
 	use "hrsh7th/cmp-buffer"
 	use "hrsh7th/cmp-path"
 	use "hrsh7th/cmp-nvim-lsp-signature-help"
@@ -109,14 +101,13 @@ return packer.startup(function(use)
 	use { 'glepnir/lspsaga.nvim', branch = 'main', config = [[require('config.lspsaga')]] }
 	use { 'ytkimirti/ale', config = [[require('config.ale')]] }
 	-- use 'folke/lsp-colors.nvim'
-	-- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
+	-- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json
 	-- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
 	use { "alec-gibson/nvim-tetris", command = ":Tetris" }
 
 	-- Telescope
 	use "nvim-telescope/telescope.nvim"
-	use 'nvim-telescope/telescope-media-files.nvim'
 
 	-- Treesitter
 	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = [[require('config.treesitter')]] }

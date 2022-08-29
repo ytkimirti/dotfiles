@@ -8,6 +8,7 @@ local has_words_before = function()
 	return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
 
+vim.cmd("inoremap <C-i> <nop>")
 cmp.setup({
 	formatting = {
 		format = lspkind.cmp_format(),
@@ -31,9 +32,10 @@ cmp.setup({
 		['<C-Space>'] = cmp.mapping.complete(),
 		-- ['<C-e>'] = cmp.mapping.abort(),
 		['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		['<C-i>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
 		['<C-.>'] = cmp.mapping(function(fallback)
-			if luasnip.expand_or_jumpable() then
-				luasnip.expand_or_jump()
+			if luasnip.jumpable() then
+				luasnip.jump(1)
 			else
 				cmp.mapping.scroll_docs(4)
 			end
@@ -46,7 +48,7 @@ cmp.setup({
 				cmp.mapping.scroll_docs(-4)
 			end
 		end
-		)
+		),
 		-- ["<Tab>"] = cmp.mapping(function(fallback)
 		-- 	if cmp.visible() then
 		-- 		cmp.select_next_item()
