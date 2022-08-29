@@ -60,8 +60,6 @@ M.setup = function()
 		action.smart_scroll_with_saga(-1)
 	end, { silent = true, remap = true })
 
-	-- show signature help
-	vim.keymap.set("n", "gs", require("lspsaga.signaturehelp").signature_help, { silent = true, noremap = true })
 	-- rename
 	vim.keymap.set("n", "gr", require("lspsaga.rename").lsp_rename, { silent = true, noremap = true })
 	-- preview definition

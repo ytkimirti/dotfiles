@@ -1,6 +1,7 @@
 local cmp = require 'cmp'
 local luasnip = require("luasnip")
 local lspkind = require('lspkind')
+local set = vim.keymap.set
 
 local has_words_before = function()
 	local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -27,11 +28,25 @@ cmp.setup({
 		-- documentation = cmp.config.window.bordered(),
 	},
 	mapping = cmp.mapping.preset.insert({
-		['<C-.>'] = cmp.mapping.scroll_docs(-4),
-		['<C-,>'] = cmp.mapping.scroll_docs(4),
 		['<C-Space>'] = cmp.mapping.complete(),
 		-- ['<C-e>'] = cmp.mapping.abort(),
 		['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		['<C-.>'] = cmp.mapping(function(fallback)
+			if luasnip.expand_or_jumpable() then
+				luasnip.expand_or_jump()
+			else
+				cmp.mapping.scroll_docs(4)
+			end
+		end
+		),
+		['<C-,>'] = cmp.mapping(function(fallback)
+			if luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				cmp.mapping.scroll_docs(-4)
+			end
+		end
+		)
 		-- ["<Tab>"] = cmp.mapping(function(fallback)
 		-- 	if cmp.visible() then
 		-- 		cmp.select_next_item()

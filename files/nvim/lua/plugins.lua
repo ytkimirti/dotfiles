@@ -46,9 +46,6 @@ return packer.startup(function(use)
 	use "wbthomason/packer.nvim"
 	use "nvim-lua/plenary.nvim"
 
-	-- MY <3
-	-- use "ytkimirti/nvim-norm"
-
 	-- Movement
 	-- use 'knubie/vim-kitty-navigator'
 
@@ -70,7 +67,7 @@ return packer.startup(function(use)
 	-- Visual
 	-- use "fladson/vim-kitty"
 	-- use "sainnhe/gruvbox-material"
-	use "https://github.com/morhetz/gruvbox"
+	use { "https://github.com/morhetz/gruvbox" }
 	-- use "rafi/awesome-vim-colorschemes"
 	use "kyazdani42/nvim-web-devicons"
 	-- use { "rcarriga/nvim-notify", module = "notify" }
@@ -92,6 +89,10 @@ return packer.startup(function(use)
 	-- use { 'ms-jpq/coq.artifacts', branch = 'artifacts' }
 	-- use {'ms-jpq/coq.thirdparty', branch = '3p'}
 
+	-- snippets
+	use { "L3MON4D3/LuaSnip", config = [[require('config.luasnip')]] } --snippet engine
+	use { 'rafamadriz/friendly-snippets', config = [[require('config.friendly-snippets')]]}
+
 	-- cmp plugins
 	use { "hrsh7th/nvim-cmp", config = [[require('config.cmp')]] }
 	use "hrsh7th/cmp-nvim-lsp"
@@ -102,10 +103,8 @@ return packer.startup(function(use)
 	use "hrsh7th/cmp-cmdline"
 	use { "mtoohey31/cmp-fish", ft = "fish" }
 	use "onsails/lspkind.nvim"
+	use { 'saadparwaiz1/cmp_luasnip' }
 
-	-- snippets
-	use "L3MON4D3/LuaSnip" --snippet engine
-	use "rafamadriz/friendly-snippets" -- a bunch of snippets to use
 
 	-- LSP
 	use { "neovim/nvim-lspconfig", config = [[require('config.lspconfig')]] }
@@ -116,7 +115,7 @@ return packer.startup(function(use)
 	-- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json for
 	-- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
-	use {"alec-gibson/nvim-tetris", command = ":Tetris"}
+	use { "alec-gibson/nvim-tetris", command = ":Tetris" }
 
 	-- Telescope
 	use "nvim-telescope/telescope.nvim"
