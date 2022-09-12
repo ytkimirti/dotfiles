@@ -138,17 +138,17 @@ set("n", "<leader>as", "<cmd>EnableAutoSave<cr>", opts)
 -- Nvimtree
 set("n", "<C-n>", "<cmd>NvimTreeFocus<cr>", opts)
 
--- Float term
-local term = require("lspsaga.floaterm")
-
--- float terminal also you can pass the cli command in open_float_terminal function
-set("n", "<A-d>", function()
-    term.open_float_terminal()
-end, { silent = true,noremap = true })
-set("t", "<A-d>", function()
-    vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true))
-    term.close_float_terminal()
-end, { silent = true })
+-- -- Float term
+-- local term = require("lspsaga.floaterm")
+--
+-- -- float terminal also you can pass the cli command in open_float_terminal function
+-- set("n", "<A-d>", function()
+--     term.open_float_terminal()
+-- end, { silent = true,noremap = true })
+-- set("t", "<A-d>", function()
+--     vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true))
+--     term.close_float_terminal()
+-- end, { silent = true })
 
 
 -- Gitsigns

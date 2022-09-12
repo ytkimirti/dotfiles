@@ -98,7 +98,7 @@ return packer.startup(function(use)
 	-- LSP
 	use { "neovim/nvim-lspconfig", config = [[require('config.lspconfig')]] }
 	use { "williamboman/nvim-lsp-installer" }
-	use { 'glepnir/lspsaga.nvim', branch = 'main', config = [[require('config.lspsaga')]] }
+	-- use { 'glepnir/lspsaga.nvim', branch = 'main', config = [[require('config.lspsaga')]] }
 	use { 'ytkimirti/ale', config = [[require('config.ale')]] }
 	-- use 'folke/lsp-colors.nvim'
 	-- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json
