@@ -1,6 +1,6 @@
+# Fig pre block. Keep at the top of this file.
+[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Fig pre
-[[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && . "$HOME/.fig/shell/zshrc.pre.zsh"
-
 # ------------ zsh options --------------
 # export ZSH="$HOME/.oh-my-zsh"
 # export ZSH_CUSTOM="$HOME/dotfiles/files/zsh_custom"
@@ -46,4 +46,6 @@
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Fig post
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && . "$HOME/.fig/shell/zshrc.post.zsh"
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
