@@ -32,6 +32,7 @@ SETUVAR _fish_abbr_gs:git\x20status\x20\x2d\x2dshort
 SETUVAR _fish_abbr_ll:exa\x20\x2dalh
 SETUVAR _fish_abbr_mk:make\x20\x2dj8
 SETUVAR _fish_abbr_n:norminette\x20\x7c\x20grep\x20\x2dE\x20\x27\x5eError\x3a\x20\x7cError\x21\x27
+SETUVAR _fish_abbr_najs:cowsay\x20najs
 SETUVAR _fish_abbr_nh:norminette\x20\x7c\x20grep\x20\x2dE\x20\x27\x5eError\x3a\x20\x7cError\x21\x27\x20\x7c\x20head
 SETUVAR _fish_abbr_p:pnpm
 SETUVAR _fish_abbr_ta:tmux\x20new\x2dsession\x20\x2dA\x20\x2ds\x20main
