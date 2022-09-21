@@ -128,6 +128,9 @@ set("n", "<leader>to", "<cmd>Telescope oldfiles<cr>", opts)
 set("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
 set("n", "<leader>tm", "<cmd>Telescope marks<cr>", opts)
 
+set("n", "<leader>e", '<cmd>edit term://bash<cr>', opts)
+set("t", "<esc>", "<C-\\><C-n>", opts)
+
 -- Custom
 
 set('n', '<leader>hh', '<cmd>EcoleHeader<cr>', opts)
