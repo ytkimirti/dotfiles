@@ -17,6 +17,9 @@ set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden'
 
 # Homebrew stuff
 if [ "$IS_ECOLE" = "true" ]
+	set -gx RUSTUP_HOME "/goinfre/$USER/.rustup"
+	set -gx CARGO_HOME "/goinfre/$USER/.cargo"
+
 	set -gx HOMEBREW_PREFIX "$HOME/mybin/homebrew"
 	set -gx HOMEBREW_CELLAR "$HOME/mybin/homebrew/Cellar"
 	set -gx HOMEBREW_REPOSITORY "$HOME/mybin/homebrew"
@@ -39,7 +42,7 @@ set -gxa C_INCLUDE_PATH "$HOMEBREW_PREFIX/include"
 set -gxp INFOPATH "$HOMEBREW_PREFIX/share/info"
 
 set -gxp PATH "$HOME/.fzf/bin"
-set -gxp PATH "$HOME/.cargo/bin"
+set -gxp PATH "$CARGO_HOME/bin"
 
 # pyenv
 set -gx PYENV_SHELL fish
