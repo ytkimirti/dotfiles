@@ -72,11 +72,11 @@ cmp.setup({
 		-- end, { "i", "s" }),
 	}),
 	sources = cmp.config.sources({
+		{ name = 'luasnip' },
 		{ name = 'nvim_lsp' },
 		{ name = 'nvim_lsp_signature_help' },
 		{ name = 'fish' },
 		{ name = 'path' },
-		{ name = 'luasnip' },
 	},
 		{
 			{ name = 'buffer' },
