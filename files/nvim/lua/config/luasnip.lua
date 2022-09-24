@@ -64,22 +64,23 @@ ls.add_snippets("all", {
 		i(0),
 		t({ "", "", "#endif" })
 	}),
-	s({ trig = "tst", docstring = "create a typedef struct" }, {
-		t("typedef struct s_"),
-		i(1, "name"),
-		t({ "", "{", "\t" }),
-		i(0),
-		t({ "", "}\tt_" }),
-		f(function(args) return args[1][1] end, { 1 }),
-	}),
-	s({ trig = "fn", docstring = "function" }, {
-		i(1),
-		t("("),
-		i(2, "void"),
-		t({ ")", "{", "\t" }),
-		i(0),
-		t({"", "}"}),
-	}),
+	-- s({ trig = "tst", docstring = "create a typedef struct" }, {
+	-- 	t("typedef struct s_"),
+	-- 	i(1, "name"),
+	-- 	t({ "", "{", "\t" }),
+	-- 	i(0),
+	-- 	t({ "", "}\tt_" }),
+	-- 	f(function(args) return args[1][1] end, { 1 }),
+	-- }),
+	-- s({ trig = "fn", docstring = "function" }, {
+	-- 	i(1),
+	-- 	t("("),
+	-- 	i(2, "void"),
+	-- 	t({ ")", "{", "\t" }),
+	-- 	i(0),
+	-- 	t({"", "}"}),
+	-- }),
 })
 
-require("luasnip/loaders/from_vscode").lazy_load()
+require("luasnip/loaders/from_vscode").load({ include = { "c" } })
+-- require("luasnip/loaders/from_vscode").lazy_load();
