@@ -22,8 +22,8 @@ vim.g.maplocalleader = " "
 -- set("n", "<C-k>", "<C-w>k", opts)
 -- set("n", "<C-l>", "<C-w>l", opts)
 
-set('n', ';', ':', {remap = false, silent = false})
-set('n', ':', ';', {remap = false, silent = false})
+set({'n', 'v'}, ';', ':', {remap = false, silent = false})
+set({'n', 'v'}, ':', ';', {remap = false, silent = false})
 
 vim.cmd('set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<')
 set('n', '<F3>', '<esc><cmd>set list!<cr>', {})
@@ -58,10 +58,10 @@ set("i", "<C-l>", "<del>", opts)
 set("i", "<C-;>", "<esc>:", opts)
 set("n", "<C-;>", ":", {silent = false})
 
-set("i", "<A-k>", "<Up>", opts)
-set("i", "<A-j>", "<Down>", opts)
-set("i", "<A-h>", "<Left>", opts)
-set("i", "<A-l>", "<Right>", opts)
+set({"i", "c"}, "<A-k>", "<Up>")
+set({"i", "c"}, "<A-j>", "<Down>")
+set({"i", "c"}, "<A-h>", "<Left>")
+set({"i", "c"}, "<A-l>", "<Right>")
 
 set("i", "<C-f>o", "<esc>m9o<esc>kO<esc>`9a", opts)
 
@@ -184,4 +184,3 @@ set('n', '<leader>hD', function() gs.diffthis('~') end)
 
 -- Text object
 set({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
-

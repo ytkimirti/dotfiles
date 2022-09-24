@@ -57,7 +57,7 @@ return packer.startup(function(use)
 	use { "Pocco81/AutoSave.nvim", module = "autosave" }
 	use { "kyazdani42/nvim-tree.lua", config = [[require('config.nvim-tree')]],
 		cmd = { 'NvimTreeToggle', 'NvimTreeFocus', 'NvimTreeFindFile', 'NvimTreeCollapse' } }
-	use { "wellle/targets.vim" }
+	-- use { "wellle/targets.vim" }
 
 	-- Visual
 	-- use "sainnhe/gruvbox-material"
@@ -111,6 +111,8 @@ return packer.startup(function(use)
 
 	-- Treesitter
 	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = [[require('config.treesitter')]] }
+	use { "nvim-treesitter/nvim-treesitter-textobjects" }
+	use { "nvim-treesitter/playground" }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins

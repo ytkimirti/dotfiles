@@ -8,3 +8,4 @@ local function source_vim(filename)
 end
 
 source_vim('ecole_header.vim')
+source_vim('misc.vim')
