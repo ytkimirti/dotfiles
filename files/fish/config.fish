@@ -41,6 +41,10 @@ set -gxa LIBRARY_PATH "$HOMEBREW_PREFIX/lib"
 set -gxa C_INCLUDE_PATH "$HOMEBREW_PREFIX/include"
 set -gxp INFOPATH "$HOMEBREW_PREFIX/share/info"
 
+if [ -d $HOME/mybin ]
+	set -gxp PATH "$HOME/mybin/bin"
+end
+
 set -gxp PATH "$HOME/.fzf/bin"
 set -gxp PATH "$CARGO_HOME/bin"
 
