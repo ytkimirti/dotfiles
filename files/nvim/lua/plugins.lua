@@ -48,7 +48,8 @@ return packer.startup(function(use)
 
 	-- Editor
 	use { "mfussenegger/nvim-dap", config = [[require('config.dap')]] }
-	use { 'lewis6991/gitsigns.nvim', tag = 'release', config = [[require('config.gitsigns')]] }
+	-- This commit is for now
+	use { 'lewis6991/gitsigns.nvim', commit = "851cd32caaea84f303c4fdf51d72dfa5fcd795bb", config = [[require('config.gitsigns')]] }
 	use "tpope/vim-fugitive"
 	use "tpope/vim-surround"
 	use { "windwp/nvim-autopairs", config = [[require("config.autopairs")]] }
