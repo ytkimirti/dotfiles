@@ -23,9 +23,11 @@ cmp.setup({
 	},
 	mapping = cmp.mapping.preset.insert({
 		['<C-Space>'] = cmp.mapping.complete(),
-		-- ['<C-e>'] = cmp.mapping.abort(),
+		['<C-e>'] = cmp.mapping.abort(),
 		['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-		['<C-i>'] = cmp.mapping.confirm({ select = true }), -- Accept the top element
+		-- ['<C-m>'] = function(fallback)
+		-- 	cmp.mapping.confirm({ select = true }) -- Accept the top element
+		-- end,
 		['<C-.>'] = cmp.mapping(function(fallback)
 			if luasnip.jumpable() then
 				luasnip.jump(1)
@@ -42,6 +44,7 @@ cmp.setup({
 			end
 		end
 		),
+		["<Tab>"] = function(fallback) fallback() end
 		-- ["<Tab>"] = cmp.mapping(function(fallback)
 		-- 	if cmp.visible() then
 		-- 		cmp.select_next_item()
