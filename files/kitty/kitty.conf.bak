@@ -7,17 +7,21 @@ disable_ligatures always
 # adjust_column_width 0
 
 font_family      Iosevka Nerd Font Mono
+# font_family      Monocraft Medium
+# bold_font      Monocraft Medium
+# italic_font      Monocraft Medium
+# bold_italic_font      Monocraft Medium
 # bold_font        Iosevka Term Heavy
 # italic_font      auto
 # bold_italic_font auto
 
-
+macos_option_as_alt yes
 
 # hide_window_decorations titlebar-only
-tab_bar_style slant
+tab_bar_style powerline
 background_opacity 1
 
-font_size 17
+font_size 15
 
 macos_show_window_title_in none
 
@@ -43,10 +47,10 @@ map kitty_mod+d>a detach_window ask
 
 #: Movement {{{
 
-map ctrl+j kitten pass_keys.py neighboring_window bottom ctrl+j
-map ctrl+k kitten pass_keys.py neighboring_window top    ctrl+k
-map ctrl+h kitten pass_keys.py neighboring_window left   ctrl+h
-map ctrl+l kitten pass_keys.py neighboring_window right  ctrl+l
+# map ctrl+j kitten pass_keys.py neighboring_window bottom ctrl+j
+# map ctrl+k kitten pass_keys.py neighboring_window top    ctrl+k
+# map ctrl+h kitten pass_keys.py neighboring_window left   ctrl+h
+# map ctrl+l kitten pass_keys.py neighboring_window right  ctrl+l
 
 map kitty_mod+j neighboring_window bottom
 map kitty_mod+k neighboring_window top
@@ -66,7 +70,7 @@ map kitty_mod+t new_tab_with_cwd
 map kitty_mod+e new_tab_with_cwd
 
 map cmd+enter new_window_with_cwd
-map kitty_mod+enter new_tab_with_cwd
+map kitty_mod+enter new_window_with_cwd
 
 globinclude kitty.d/**/*.conf
 
@@ -2242,6 +2246,6 @@ watcher ${HOME}/.fig/tools/kitty-integration.py
 
 
 # BEGIN_KITTY_THEME
-# Rosé Pine
-include current-theme.conf
+# Gruvbox Dark Hard
+include kimirti_theme.conf
 # END_KITTY_THEME
