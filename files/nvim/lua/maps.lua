@@ -1,5 +1,4 @@
 local opts = { noremap = true, silent = true }
-local term_opts = { silent = true }
 local set = vim.keymap.set
 
 set("", "<C-c>", "<ESC>", {remap = true, silent = true}) -- C-c same as ESC
@@ -172,8 +171,8 @@ set('n', '[c', function()
 end, {expr=true})
 
 -- Actions
-set({'n', 'v'}, '<leader>hs', ':Gitsigns stage_hunk<CR>')
-set({'n', 'v'}, '<leader>hr', ':Gitsigns reset_hunk<CR>')
+set({'n', 'v'}, '<leader>hs', '<cmd>Gitsigns stage_hunk<cr>')
+set({'n', 'v'}, '<leader>hr', '<cmd>Gitsigns reset_hunk<cr>')
 set('n', '<leader>hS', gs.stage_buffer)
 set('n', '<leader>hu', gs.undo_stage_hunk)
 set('n', '<leader>hR', gs.reset_buffer)
