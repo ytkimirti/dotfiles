@@ -62,7 +62,7 @@ then
 	~/.fzf/install
 fi
 
-fish $HOME/dotfiles/scripts/install_nvchad.fish
+# fish $HOME/dotfiles/scripts/install_nvchad.fish
 
 echo "✅ All packages are installed!"
 
