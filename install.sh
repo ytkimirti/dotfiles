@@ -69,7 +69,7 @@ echo "✅ All packages are installed!"
 echo "🚛 Linking config files"
 
 # Disabled nvim for now, because using nvchad!!
-configs=( .zshrc .vimrc .macos .gitconfig .gitignore .ideavimrc .tmux.conf fish iterm kitty )
+configs=( .zshrc .vimrc .macos .gitconfig .gitignore .ideavimrc .tmux.conf fish iterm kitty lazygit )
 for i in "${configs[@]}"
 do
 	fish $HOME/dotfiles/scripts/link_config.fish $i
