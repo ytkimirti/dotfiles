@@ -2246,6 +2246,6 @@ watcher ${HOME}/.fig/tools/kitty-integration.py
 
 
 # BEGIN_KITTY_THEME
-# Gruvbox Dark Hard
-include kimirti_theme.conf
+# Catppuccin-Mocha
+include current-theme.conf
 # END_KITTY_THEME
