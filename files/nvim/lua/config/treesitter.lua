@@ -1,4 +1,7 @@
-require 'nvim-treesitter.configs'.setup {
+local status_ok, tsconfig = pcall(require, "nvim-treesitter.configs")
+if not status_ok then return end
+
+tsconfig.setup {
 	-- A list of parser names, or "all"
 	ensure_installed = {
 		"c",
