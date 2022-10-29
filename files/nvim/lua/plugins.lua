@@ -17,28 +17,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
 	vim.cmd [[packadd packer.nvim]]
 end
 
--- Autocommand that reloads neovim whenever you save the plugins.lua file
--- vim.cmd [[
---   augroup packer_user_config
---     autocmd!
---     autocmd BufWritePost plugins.lua source <afile> | PackerSync
---   augroup end
--- ]]
-
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
-if not status_ok then
-	return
-end
-
--- Have packer use a popup window
-packer.init {
-	display = {
-		open_fn = function()
-			return require("packer.util").float { border = "rounded" }
-		end,
-	},
-}
+if not status_ok then return end
 
 -- Install your plugins here
 return packer.startup(function(use)
@@ -47,13 +28,13 @@ return packer.startup(function(use)
 	use "nvim-lua/plenary.nvim"
 
 	-- Editor
-	use { "mfussenegger/nvim-dap", config = [[require('config.dap')]] }
+	-- use { "mfussenegger/nvim-dap", config = [[require('config.dap')]] }
+
 	-- This commit is for now
 	use { 'lewis6991/gitsigns.nvim', commit = "851cd32caaea84f303c4fdf51d72dfa5fcd795bb", config = [[require('config.gitsigns')]] }
 	use "tpope/vim-fugitive"
 	use "tpope/vim-surround"
 	use { "windwp/nvim-autopairs", config = [[require("config.autopairs")]] }
-	use { 'windwp/nvim-ts-autotag', config = [[require('config.ts-autotag')]] }
 	use { "numToStr/Comment.nvim", config = [[require('config.comment')]] }
 	use { "Pocco81/AutoSave.nvim", module = "autosave" }
 	use { "kyazdani42/nvim-tree.lua", config = [[require('config.nvim-tree')]],
@@ -95,7 +76,6 @@ return packer.startup(function(use)
 	use "onsails/lspkind.nvim"
 	use { 'saadparwaiz1/cmp_luasnip' }
 
-
 	-- LSP
 	use { "neovim/nvim-lspconfig", config = [[require('config.lspconfig')]] }
 	use { "williamboman/nvim-lsp-installer" }
@@ -111,9 +91,15 @@ return packer.startup(function(use)
 	use "nvim-telescope/telescope.nvim"
 
 	-- Treesitter
-	use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", config = [[require('config.treesitter')]] }
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+    }
 	use { "nvim-treesitter/nvim-treesitter-textobjects" }
-	use { "nvim-treesitter/playground" }
+	-- use { "nvim-treesitter/playground" }
+	-- use { 'windwp/nvim-ts-autotag', config = [[require('config.ts-autotag')]],
+	-- 	requires = { 'nvim-treesitter/nvim-treesitter' }
+	-- }
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
