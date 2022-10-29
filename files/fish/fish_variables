@@ -8,6 +8,7 @@ SETUVAR Z_EXCLUDE:\x5e/Users/kimirti\x24
 SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_aa:abbr\x20\x2da\x20\x2dU
 SETUVAR _fish_abbr_addpath:set\x20\x2dU\x20\x2da\x20fish_user_path
+SETUVAR _fish_abbr_cdpacker:cd\x20\x24HOME/\x2elocal/share/nvim/site/pack/packer/start
 SETUVAR _fish_abbr_covfefe:caffeinate\x20\x2ddisu
 SETUVAR _fish_abbr_dfiles:cd\x20\x24HOME/dotfiles
 SETUVAR _fish_abbr_editfiles:cd\x20\x24HOME/dotfiles
