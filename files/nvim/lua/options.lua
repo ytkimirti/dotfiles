@@ -37,12 +37,24 @@ local options = {
 -- This is for gruvbox-material. Available values: 'hard', 'medium'(default), 'soft'
 -- vim.g.gruvbox_material_background = 'medium'
 
-if pcall(vim.cmd, "colorscheme gruvbox") then
+-- local function call_ok(func, ...)
+-- 	local ok, _ = pcall(func, ...)
+-- 	return ok
+-- end
+
+if pcall(vim.cmd, 'colorscheme carbonfox') then
+
+elseif pcall(vim.cmd, "colorscheme tokyonight") then
+	local ok, tokyonight = pcall(require, "tokyonight")
+	if ok then
+		tokyonight.setup {
+			style = "night",
+		}
+	end
+elseif pcall(vim.cmd, "colorscheme gruvbox") then
 	vim.g.gruvbox_transparent_bg = 1
 	vim.g.gruvbox_bold = 0
 	vim.g.gruvbox_contrast_dark = "hard"
-else
-	print("Need gruvbox")
 end
 
 vim.opt.shortmess:append "c"

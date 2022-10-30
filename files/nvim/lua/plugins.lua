@@ -37,6 +37,8 @@ return packer.startup(function(use)
 	-- Visual
 	-- use "sainnhe/gruvbox-material"
 	use { "https://github.com/morhetz/gruvbox" }
+	use { "folke/tokyonight.nvim" }
+	use { "EdenEast/nightfox.nvim" }
 	-- use "rafi/awesome-vim-colorschemes"
 	use "kyazdani42/nvim-web-devicons"
 	-- use { "rcarriga/nvim-notify", module = "notify" }
