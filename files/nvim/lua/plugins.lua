@@ -54,7 +54,7 @@ return packer.startup(function(use)
 	-- use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
 
 	-- snippets
-	use { "L3MON4D3/LuaSnip", config = [[require('config.luasnip')]] } --snippet engine
+	use { "L3MON4D3/LuaSnip", config = [[require('config.luasnip')]], tag="v1.1.0" }
 	use { 'ytkimirti/friendly-snippets', config = [[require('config.friendly-snippets')]]}
 
 	-- cmp plugins
@@ -72,11 +72,8 @@ return packer.startup(function(use)
 	-- LSP
 	use { "neovim/nvim-lspconfig", config = [[require('config.lspconfig')]] }
 	use { "williamboman/nvim-lsp-installer" }
-	use { 'glepnir/lspsaga.nvim', branch = 'main', config = [[require('config.lspsaga')]] }
+	use { 'glepnir/lspsaga.nvim', commit = '361e1ad', config = [[require('config.lspsaga')]] }
 	use { 'ytkimirti/ale', config = [[require('config.ale')]] }
-	-- use 'folke/lsp-colors.nvim'
-	-- use "tamago324/nlsp-settings.nvim" -- language server settings defined in json
-	-- use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
 
 	use { "alec-gibson/nvim-tetris", command = ":Tetris" }
 
