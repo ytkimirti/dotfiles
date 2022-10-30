@@ -134,9 +134,6 @@ set("t", "<esc>", "<C-\\><C-n>", opts)
 
 set('n', '<leader>hh', '<cmd>EcoleHeader<cr>', opts)
 
--- TODO: Fix autosave error
-set("n", "<leader>as", "<cmd>EnableAutoSave<cr>", opts)
-
 -- Nvimtree
 set("n", "<C-n>", "<cmd>NvimTreeFocus<cr>", opts)
 
