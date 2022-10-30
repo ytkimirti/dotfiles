@@ -278,26 +278,6 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Config for: lspsaga.nvim
-time([[Config for lspsaga.nvim]], true)
-require('config.lspsaga')
-time([[Config for lspsaga.nvim]], false)
--- Config for: ale
-time([[Config for ale]], true)
-require('config.ale')
-time([[Config for ale]], false)
--- Config for: Comment.nvim
-time([[Config for Comment.nvim]], true)
-require('config.comment')
-time([[Config for Comment.nvim]], false)
--- Config for: nvim-autopairs
-time([[Config for nvim-autopairs]], true)
-require("config.autopairs")
-time([[Config for nvim-autopairs]], false)
--- Config for: nvim-lspconfig
-time([[Config for nvim-lspconfig]], true)
-require('config.lspconfig')
-time([[Config for nvim-lspconfig]], false)
 -- Config for: friendly-snippets
 time([[Config for friendly-snippets]], true)
 require('config.friendly-snippets')
@@ -306,14 +286,34 @@ time([[Config for friendly-snippets]], false)
 time([[Config for nvim-cmp]], true)
 require('config.cmp')
 time([[Config for nvim-cmp]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-require('config.luasnip')
-time([[Config for LuaSnip]], false)
+-- Config for: ale
+time([[Config for ale]], true)
+require('config.ale')
+time([[Config for ale]], false)
+-- Config for: nvim-lspconfig
+time([[Config for nvim-lspconfig]], true)
+require('config.lspconfig')
+time([[Config for nvim-lspconfig]], false)
 -- Config for: gitsigns.nvim
 time([[Config for gitsigns.nvim]], true)
 require('config.gitsigns')
 time([[Config for gitsigns.nvim]], false)
+-- Config for: lspsaga.nvim
+time([[Config for lspsaga.nvim]], true)
+require('config.lspsaga')
+time([[Config for lspsaga.nvim]], false)
+-- Config for: LuaSnip
+time([[Config for LuaSnip]], true)
+require('config.luasnip')
+time([[Config for LuaSnip]], false)
+-- Config for: Comment.nvim
+time([[Config for Comment.nvim]], true)
+require('config.comment')
+time([[Config for Comment.nvim]], false)
+-- Config for: nvim-autopairs
+time([[Config for nvim-autopairs]], true)
+require("config.autopairs")
+time([[Config for nvim-autopairs]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
