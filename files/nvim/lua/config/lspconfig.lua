@@ -26,6 +26,7 @@ local lsp_flags = {
 local server_configs = {
 	pyright = {},
 	bashls = {},
+	dockerls = {},
 	cssls = {},
 	clangd = {},
 	emmet_ls = require('server.emmet_ls'),
