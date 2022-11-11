@@ -1,80 +1,102 @@
 #!/bin/bash
 
+# set -e
+
 line()
 {
 	echo "---------- $1 -------------"
 }
+
+echo "🚛 Linking config files"
+
+configs=( .zshrc .vimrc .macos .gitconfig .ideavimrc .tmux.conf fish iterm kitty lazygit nvim )
+for i in "${configs[@]}"
+do
+	bash ~/dotfiles/scripts/link_config.sh "$i"
+done
+
 cmd=""
 
-# Takes package name as first argument, you can specify a command name to
+# Takes package name as first argument.
+# You can specify a command name to
 # look for if you want with the second argument
 install()
 {
+	if ! command -v "$cmd" &> /dev/null; then
+		echo "No package manager named $cmd found!"
+		exit 1
+	fi
 	cmd_name=${2:-$1}
-	if ! command -v $cmd_name &> /dev/null
+	if ! command -v "$cmd_name" &> /dev/null
 	then
-		echo "🧐 $1 could not be found"
-		read -p "🤨 Install $1? " -n 1 -r
-		if [[ ! $REPLY =~ ^[Yy]$  ]]
-		then
-			echo "❌ skipped installation of $1"
-			return
-		fi
-		echo
+		# echo "🧐 $1 could not be found"
+		# read -p "🤨 Install $1? " -n 1 -r
+		# if [[ ! $REPLY =~ ^[Yy]$  ]]
+		# then
+		# 	echo "❌ skipped installation of $1"
+		# 	return
+		# fi
 		echo "\$ $cmd install $1"
-		$cmd install $1
-         else
-            echo "✅ $cmd_name already installed"
-         fi
+		if ! $cmd install -y "$1"; then
+			echo "❌ $cmd_name installation failed"
+			exit 1
+		fi
+		echo "✅ $cmd_name installed"
+	else
+		echo "👌 $cmd_name"
+	fi
 }
 
+echo "🚛 Installing packages"
+
 if [[ $OSTYPE == 'darwin'* ]]; then
-	bash $HOME/dotfiles/scripts/configure_macos.sh
-	bash $HOME/dotfiles/scripts/install_brew.sh
 	cmd="brew"
+elif [[ $OSTYPE == 'linux-gnu'* ]]; then
+	cmd="apt"
+	apt update
+else
+	echo "Unknown os" && exit 1
+fi
+
+install neovim nvim
+install tmux
+
+if [[ $OSTYPE == 'darwin'* ]]; then
+	bash ~/dotfiles/scripts/configure_macos.sh
+	if ! command -v brew &> /dev/null
+	then
+		echo "Installing brew..."
+		bash ~/dotfiles/scripts/install_brew.sh
+	fi
+	cmd="brew"
+	if ! command -v "rg" &> /dev/null
+	then
+		install ripgrep rg
+	fi
+	if ! command -v "lazygit" &> /dev/null
+	then
+		install lazygit
+	fi
 elif [[ $OSTYPE == 'linux-gnu'* ]]; then
 	echo "Owww, you are on linux"
 	cmd="apt"
-fi
-
-read -p "🔎 Install packages with $cmd? [Y/n]" -n 1 -r
-if [[ ! $REPLY =~ ^[Nn]$  ]]
-then
-   install fish
-   install ripgrep rg
-   install nvim
-else
-   echo "Skipped..."
+	bash ~/dotfiles/scripts/install_ripgrep.sh
+	bash ~/dotfiles/scripts/install_lazygit.sh
 fi
 
 if command -v tmux &> /dev/null && [[ ! -d "$HOME/.tmux/plugins/tpm" ]]
 then
 	# Tmux plugin manager
-	line "Installing tmux plugin manager"
+	echo "Installing tmux plugin manager"
 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
+echo "👌 tmux plugin manager"
 
-if [[ ! -d "$HOME/.fzf" ]]
+if [[ ! -d ~/.fzf ]]
 then
 	#FZF install
-	line "Installing fzf"
+	echo "Installing fzf"
 	git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-	~/.fzf/install
+	~/.fzf/install --bin
 fi
-
-# fish $HOME/dotfiles/scripts/install_nvchad.fish
-
-echo "✅ All packages are installed!"
-
-echo "🚛 Linking config files"
-
-# Disabled nvim for now, because using nvchad!!
-configs=( .zshrc .vimrc .macos .gitconfig .gitignore .ideavimrc .tmux.conf fish iterm kitty lazygit )
-for i in "${configs[@]}"
-do
-	fish $HOME/dotfiles/scripts/link_config.fish $i
-done
-
-# fish $HOME/dotfiles/scripts/configure_apps.fish
-
-echo "✅ All OK!"
+echo "👌 fzf"
