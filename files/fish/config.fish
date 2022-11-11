@@ -13,6 +13,7 @@ if [ -d /goinfre ]
 	set -gx IS_ECOLE true
 end
 
+set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden'
 
 # Homebrew stuff
