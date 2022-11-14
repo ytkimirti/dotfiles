@@ -29,6 +29,7 @@ local server_configs = {
 	dockerls = {},
 	cssls = {},
 	clangd = {},
+	texlab = {},
 	emmet_ls = require('server.emmet_ls'),
 	tsserver = require('server.tsserver'),
 	-- diagnosticls = require('server.diagnosticls'),
