@@ -14,6 +14,7 @@ tsconfig.setup {
 		"markdown",
 		"markdown_inline",
 	},
+	ignore_install = { "latex" },
 	-- Install parsers synchronously (only applied to `ensure_installed`)
 	sync_install = true,
 
