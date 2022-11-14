@@ -20,6 +20,9 @@ return packer.startup(function(use)
 	use "wbthomason/packer.nvim"
 	use "nvim-lua/plenary.nvim"
 
+	-- Latex
+	use { 'lervag/vimtex', config = [[require('config.vimtex')]] }
+
 	-- Editor
 	-- use { "mfussenegger/nvim-dap", config = [[require('config.dap')]] }
 
