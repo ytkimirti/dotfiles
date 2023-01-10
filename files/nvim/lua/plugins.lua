@@ -76,9 +76,13 @@ return packer.startup(function(use)
 	use { 'saadparwaiz1/cmp_luasnip' }
 
 	-- LSP
-	use { "neovim/nvim-lspconfig", config = [[require('config.lspconfig')]] }
-	use { "williamboman/nvim-lsp-installer" }
-	use { 'glepnir/lspsaga.nvim', commit = '361e1ad', config = [[require('config.lspsaga')]] }
+	use "williamboman/mason.nvim"
+	use "williamboman/mason-lspconfig.nvim"
+	use {
+		"neovim/nvim-lspconfig",
+		config = [[require('config.lspconfig')]]
+	}
+	use { 'glepnir/lspsaga.nvim', config = [[require('config.lspsaga')]] }
 	use { 'ytkimirti/ale', config = [[require('config.ale')]] }
 
 	use { "alec-gibson/nvim-tetris", command = ":Tetris" }
