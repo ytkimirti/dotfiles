@@ -47,8 +47,8 @@ set("n", "<M-Left>", ":vertical resize -2<CR>", opts)
 set("n", "<M-Right>", ":vertical resize +2<CR>", opts)
 
 -- Navigate buffers
-set("n", "<S-l>", ":bnext<CR>", opts)
-set("n", "<S-h>", ":bprevious<CR>", opts)
+set("n", "<C-l>", ":bnext<CR>", opts)
+set("n", "<C-h>", ":bprevious<CR>", opts)
 
 -- Insert --
 set("i", "<S-CR>", "<ESC>o", opts) -- Newline with S-CR

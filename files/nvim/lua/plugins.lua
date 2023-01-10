@@ -49,6 +49,7 @@ return packer.startup(function(use)
 
 	-- Other
 	-- use "akinsho/bufferline.nvim"
+	use "ap/vim-buftabline"
 	-- use "moll/vim-bbye"
 	-- use "nvim-lualine/lualine.nvim"
 	-- use "akinsho/toggleterm.nvim"

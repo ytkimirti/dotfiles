@@ -2,7 +2,17 @@
 " By dawid conway
 call matchadd('ColorColumnu', '\%81v', 100)
 
-"
+" Move to beginning/end of line without taking my fingers off of home row:
+nnoremap H ^
+nnoremap L $
+vnoremap H ^
+vnoremap L $
+
+" I use this for quickly executing throw-away macros with the q register
+nnoremap Q @q
+
+nnoremap <leader>cd :cd %:p:h<CR>
+ 
 " ( heyoo ) { heyoo }normal! i"
 " ormal! i"
 " "heyoo" 'heyoo' [ heyoo ]
