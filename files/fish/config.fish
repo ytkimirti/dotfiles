@@ -25,6 +25,9 @@ if [ "$IS_ECOLE" = "true" ]
 	set -gx HOMEBREW_CELLAR "$HOME/mybin/homebrew/Cellar"
 	set -gx HOMEBREW_REPOSITORY "$HOME/mybin/homebrew"
 else
+	set -gx RUSTUP_HOME "$HOME/.rustup"
+	set -gx CARGO_HOME "$HOME/.cargo"
+
 	set -gx HOMEBREW_PREFIX "/opt/homebrew"
 	set -gx HOMEBREW_CELLAR "/opt/homebrew/Cellar"
 	set -gx HOMEBREW_REPOSITORY "/opt/homebrew"
@@ -48,6 +51,7 @@ end
 
 set -gxp PATH "$HOME/.fzf/bin"
 set -gxp PATH "$CARGO_HOME/bin"
+set -gxp PATH "$HOME/go/bin"
 
 # pyenv
 set -gx PYENV_SHELL fish
