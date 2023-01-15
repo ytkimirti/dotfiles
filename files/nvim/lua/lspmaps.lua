@@ -27,7 +27,7 @@ local function saga_new()
 	-- you can edit the definition file in this flaotwindow
 	-- also support open/vsplit/etc operation check definition_action_keys
 	-- support tagstack C-t jump back
-	set("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
+	set("n", "gp", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
 
 	-- Show line diagnostics
 	set("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
@@ -82,7 +82,7 @@ M.setup = function()
 	-- set('n', '<space>rn', vim.lsp.buf.rename, opts)
 	-- set('n', '<space>ca', vim.lsp.buf.code_action, opts)
 	-- set('n', 'gr', vim.lsp.buf.references, opts)
-	set('n', '<space>fm', vim.lsp.buf.formatting, opts)
+	set('n', '<space>lf', vim.lsp.buf.formatting, opts) -- like lsp format
 
 	saga_new();
 

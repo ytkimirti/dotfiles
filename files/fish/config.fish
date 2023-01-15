@@ -52,6 +52,7 @@ end
 set -gxp PATH "$HOME/.fzf/bin"
 set -gxp PATH "$CARGO_HOME/bin"
 set -gxp PATH "$HOME/go/bin"
+set -gxp PATH "/opt/metasploit-framework/bin"
 
 # pyenv
 set -gx PYENV_SHELL fish
