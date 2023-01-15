@@ -54,6 +54,8 @@ set -gxp PATH "$CARGO_HOME/bin"
 set -gxp PATH "$HOME/go/bin"
 set -gxp PATH "/opt/metasploit-framework/bin"
 
+set -gxp PATH "/usr/local/bin"
+
 # pyenv
 set -gx PYENV_SHELL fish
 set -gx PYENV_ROOT $HOME/.pyenv
