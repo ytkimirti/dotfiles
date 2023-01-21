@@ -15,6 +15,7 @@ end
 
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -gx FZF_DEFAULT_COMMAND 'rg --files --hidden'
+set -gx FZF_CTRL_T_COMMAND 'rg --files --hidden'
 
 # Homebrew stuff
 if [ "$IS_ECOLE" = "true" ]
