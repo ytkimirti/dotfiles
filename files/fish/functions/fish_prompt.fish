@@ -99,5 +99,6 @@ function fish_prompt
         set repo_info "$normal on $info_color$repo_branch"
     end
 
-    echo -n -s $arrow $cwd $repo_info $normal ' '
+    # echo -n -s $arrow $cwd $repo_info $normal ' '
+	echo -n -s "$arrow> "
 end
