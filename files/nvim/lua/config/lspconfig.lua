@@ -34,7 +34,7 @@ local server_configs = {
 	emmet_ls = require('server.emmet_ls'),
 	tsserver = require('server.tsserver'),
 	-- diagnosticls = require('server.diagnosticls'),
-	sumneko_lua = require('server.sumneko_lua'),
+	lua_ls = require('server.lua_ls'),
 	rust_analyzer = require('server.rust_analyzer')
 }
 
