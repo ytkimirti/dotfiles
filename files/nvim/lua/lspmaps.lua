@@ -6,9 +6,7 @@ local set = vim.keymap.set
 
 -- See `:help vim.lsp.*` for documentation on any of the below functions
 
-local function saga_new()
-	local saga = require('lspsaga')
-
+local function set_saga_maps()
 	-- Lsp finder find the symbol definition implement reference
 	-- if there is no implement it will hide
 	-- when you use action in finder like open vsplit then you can
@@ -82,62 +80,7 @@ M.setup = function()
 	-- set('n', 'gr', vim.lsp.buf.references, opts)
 	set('n', '<space>lf', vim.lsp.buf.formatting, opts) -- like lsp format
 
-	saga_new();
+	set_saga_maps();
 
-	-- lspsaga --
-
-	-- Hover
-	-- set("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
-	--
-	-- -- Find usages
-	-- set("n", "gu", "<cmd>Lspsaga lsp_finder<cr>", { silent = true, noremap = true })
-
-	-- Code action
-
-	-- local codeaction = require("lspsaga.codeaction")
-	--
-	-- set("n", "<leader>ca", codeaction.code_action, { silent = true, noremap = true })
-	-- set("v", "<leader>ca", function()
-	-- 	vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-U>", true, false, true))
-	-- 	codeaction.range_code_action()
-	-- end, { silent = true, noremap = true })
-
-	-- scroll docs
-
-	-- local action = require("lspsaga.action")
-
-	-- set("n", "<C-.>", function()
-	-- 	action.smart_scroll_with_saga(1)
-	-- end, { silent = true, remap = true })
-	-- -- scroll up hover doc
-	-- set("n", "<C-,>", function()
-	-- 	action.smart_scroll_with_saga(-1)
-	-- end, { silent = true, remap = true })
-
-	-- rename
-	-- vim.keymap.set("n", "gr", require("lspsaga.rename").lsp_rename, { silent = true, noremap = true })
-	-- preview definition
-	-- vim.keymap.set("n", "gp", require("lspsaga.definition").preview_definition, { silent = true, noremap = true })
-
-	-- diagnostics --
-
-	-- -- Open list
-	-- set('n', '<space>E', vim.diagnostic.setloclist, opts)
-	--
-	-- vim.keymap.set("n", "<leader>e", require("lspsaga.diagnostic").show_line_diagnostics, { silent = true,noremap = true })
-	--
-	-- -- Jump to diagnostic
-	-- vim.keymap.set("n", "[d", require("lspsaga.diagnostic").goto_prev, { silent = true, noremap =true })
-	-- vim.keymap.set("n", "]d", require("lspsaga.diagnostic").goto_next, { silent = true, noremap =true })
-	-- -- Jump to error
-	-- vim.keymap.set("n", "[e", function()
-	-- 	require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
-	-- end, { silent = true, noremap = true })
-	-- vim.keymap.set("n", "]e", function()
-	-- 	require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
-	-- end, { silent = true, noremap = true })
-	-- -- Jump to ale diagnostic
-	-- vim.keymap.set("n", "[f", "<cmd>ALENext<cr>", { silent = true, noremap =true })
-	-- vim.keymap.set("n", "]f", "<cmd>ALEPrevious<cr>", { silent = true, noremap =true })
 	end
 return M
