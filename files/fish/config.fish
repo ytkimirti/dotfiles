@@ -50,6 +50,7 @@ if [ -d $HOME/mybin ]
 	set -gxp PATH "$HOME/mybin/bin"
 end
 
+set -gxp PATH "$HOME/flutter/bin"
 set -gxp PATH "$HOME/.fzf/bin"
 set -gxp PATH "$CARGO_HOME/bin"
 set -gxp PATH "$HOME/go/bin"
