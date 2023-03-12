@@ -35,6 +35,9 @@ set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 noremap <F3> :set list!<CR>
 inoremap <F3> <C-o>:set list!<CR>
 
+" Update cwd while browsing in netrw
+let netwr_keepdir = 0
+
 set backspace=indent,eol,start
 set autoindent noexpandtab tabstop=4 shiftwidth=4
 set mouse=a
@@ -59,7 +62,7 @@ let &t_ut='' " A fix for kitty terminal
 
 set termguicolors
 syntax on
-colorscheme habamax
+silent! colorscheme habamax
 " ------------------ Colorscheme choices ----------------
 " onedark			easy on the eyes
 " two-firewatch		really really dark, reddish
