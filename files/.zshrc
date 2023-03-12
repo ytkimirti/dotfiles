@@ -43,4 +43,6 @@
 # Fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export PATH=$HOME/mybin/homebrew/bin:$PATH
+
 # Fig post
