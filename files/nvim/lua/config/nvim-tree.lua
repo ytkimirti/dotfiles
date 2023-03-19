@@ -1,5 +1,6 @@
 require("nvim-tree").setup({
   respect_buf_cwd = true,
+  sync_root_with_cwd = true,
   sort_by = "case_sensitive",
   view = {
     adaptive_size = true,
@@ -13,6 +14,6 @@ require("nvim-tree").setup({
     group_empty = true,
   },
   filters = {
-    dotfiles = true,
+    dotfiles = false,
   },
 })
