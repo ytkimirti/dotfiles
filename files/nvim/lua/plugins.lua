@@ -48,6 +48,7 @@ return packer.startup(function(use)
 	-- use { 'goolord/alpha-nvim', config = [[require('config.alpha')]] }
 
 	-- Other
+	use {'ThePrimeagen/harpoon', config = [[require('config.harpoon')]]}
 	-- use "akinsho/bufferline.nvim"
 	use "ap/vim-buftabline"
 	-- use "moll/vim-bbye"
