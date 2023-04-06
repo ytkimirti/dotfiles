@@ -10,6 +10,7 @@ SETUVAR _fish_abbr_aa:abbr\x20\x2da\x20\x2dU
 SETUVAR _fish_abbr_addpath:set\x20\x2dU\x20\x2da\x20fish_user_path
 SETUVAR _fish_abbr_cdpacker:cd\x20\x24HOME/\x2elocal/share/nvim/site/pack/packer/start
 SETUVAR _fish_abbr_chrome:/Applications/Google\x5c\x20Chrome\x2eapp/Contents/MacOS/Google\x5c\x20Chrome
+SETUVAR _fish_abbr_chrome_2D_edge:/Applications/Google\x5c\x20Chrome\x2eapp/Contents/MacOS/Google\x5c\x20Chrome\x20\x20\x2d\x2duser\x2dagent\x3d\x22Mozilla/5\x2e0\x20\x28Macintosh\x3b\x20Intel\x20Mac\x20OS\x20X\x2010_15_7\x29\x20AppleWebKit/537\x2e36\x20\x28KHTML\x2c\x20like\x20Gecko\x29\x20Chrome/112\x2e0\x2e0\x2e0\x20Safari/537\x2e36\x20Edg/112\x2e0\x2e0\x2e0\x22
 SETUVAR _fish_abbr_covfefe:caffeinate\x20\x2ddisu
 SETUVAR _fish_abbr_dfiles:cd\x20\x24HOME/dotfiles
 SETUVAR _fish_abbr_drun:bash\x20\x24HOME/dotfiles/scripts/docker_run\x2esh
@@ -35,10 +36,11 @@ SETUVAR _fish_abbr_gra:git\x20reset\x20\x2d\x2dhard\x20HEAD\x20\x26\x26\x20git\x
 SETUVAR _fish_abbr_gs:git\x20status\x20\x2d\x2dshort
 SETUVAR _fish_abbr_ll:exa\x20\x2dalh
 SETUVAR _fish_abbr_mk:make\x20\x2dj8
-SETUVAR _fish_abbr_n:norminette\x20\x7c\x20grep\x20\x2dE\x20\x27\x5eError\x3a\x20\x7cError\x21\x27
+SETUVAR _fish_abbr_n:cd\x20\x7e/notes\x20\x26\x26\x20lg
 SETUVAR _fish_abbr_najs:cowsay\x20najs
 SETUVAR _fish_abbr_nh:norminette\x20\x7c\x20grep\x20\x2dE\x20\x27\x5eError\x3a\x20\x7cError\x21\x27\x20\x7c\x20head
 SETUVAR _fish_abbr_p:pnpm
+SETUVAR _fish_abbr_sim:open\x20/Applications/Xcode\x2eapp/Contents/Developer/Applications/Simulator\x2eapp
 SETUVAR _fish_abbr_ta:tmux\x20new\x2dsession\x20\x2dA\x20\x2ds\x20main
 SETUVAR _fish_abbr_tree:exa\x20\x2d\x2dtree
 SETUVAR _fish_abbr_vimfzf:vim\x20\x28fzf\x29
