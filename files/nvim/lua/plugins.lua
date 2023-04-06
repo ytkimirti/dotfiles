@@ -39,6 +39,7 @@ return packer.startup(function(use)
 
 	-- Visual
 	-- use "sainnhe/gruvbox-material"
+	use { 'shaunsingh/solarized.nvim' }
 	use { "https://github.com/morhetz/gruvbox" }
 	use { "folke/tokyonight.nvim" }
 	use { "EdenEast/nightfox.nvim" }

@@ -42,9 +42,10 @@ local options = {
 -- 	return ok
 -- end
 
-if false and pcall(vim.cmd, 'colorscheme carbonfox') then
-
-elseif false and pcall(vim.cmd, "colorscheme tokyonight") then
+if pcall(vim.cmd, 'colorscheme nordfox') then
+elseif pcall(vim.cmd, 'colorscheme gruvbox') then
+elseif pcall(vim.cmd, 'colorscheme habamax') then
+elseif pcall(vim.cmd, "colorscheme tokyonight") then
 	local ok, tokyonight = pcall(require, "tokyonight")
 	if ok then
 		tokyonight.setup {
