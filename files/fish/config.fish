@@ -34,6 +34,8 @@ else
 	set -gx HOMEBREW_REPOSITORY "/opt/homebrew"
 end
 
+set -gx HOMEBREW_NO_AUTO_UPDATE
+
 set -q PATH; or set PATH ''; set -gx PATH "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin" $PATH;
 set -q MANPATH; or set MANPATH ''; set -gx MANPATH "$HOMEBREW_PREFIX/share/man" $MANPATH;
 set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "$HOMEBREW_PREFIX/share/info" $INFOPATH;
@@ -86,6 +88,11 @@ end
 if type -q thefuck
 	thefuck --alias | source
 end
+
+if [ -f ~/.asdf/asdf.fish ]
+	source ~/.asdf/asdf.fish
+end
+
 
 # if type -q starship
 # 	starship init fish | source
