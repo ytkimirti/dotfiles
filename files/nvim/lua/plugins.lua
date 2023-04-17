@@ -25,9 +25,6 @@ return packer.startup(function(use)
 	-- Latex
 	use { 'lervag/vimtex', config = [[require('config.vimtex')]] }
 
-	-- Editor
-	-- use { "mfussenegger/nvim-dap", config = [[require('config.dap')]] }
-
 	-- This commit is for now
 	use { 'lewis6991/gitsigns.nvim', commit = "851cd32caaea84f303c4fdf51d72dfa5fcd795bb", config =
 	[[require('config.gitsigns')]] }
@@ -81,8 +78,10 @@ return packer.startup(function(use)
 	use { 'saadparwaiz1/cmp_luasnip' }
 
 	-- LSP
-	use "williamboman/mason.nvim"
+	use { "folke/trouble.nvim", config = [[require('config.trouble')]] }
+	use { "williamboman/mason.nvim", config = [[require('config.fidget')]] }
 	use "williamboman/mason-lspconfig.nvim"
+	use "j-hui/fidget.nvim"
 	use {
 		"neovim/nvim-lspconfig",
 		config = [[require('config.lspconfig')]]
