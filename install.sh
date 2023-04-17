@@ -84,13 +84,13 @@ elif [[ $OSTYPE == 'linux-gnu'* ]]; then
 	bash ~/dotfiles/scripts/install_lazygit.sh
 fi
 
-if command -v tmux &> /dev/null && [[ ! -d "$HOME/.tmux/plugins/tpm" ]]
-then
-	# Tmux plugin manager
-	echo "Installing tmux plugin manager"
-	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-fi
-echo "👌 tmux plugin manager"
+# if command -v tmux &> /dev/null && [[ ! -d "$HOME/.tmux/plugins/tpm" ]]
+# then
+# 	# Tmux plugin manager
+# 	echo "Installing tmux plugin manager"
+# 	git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# fi
+# echo "👌 tmux plugin manager"
 
 if [[ ! -d ~/.fzf ]]
 then
