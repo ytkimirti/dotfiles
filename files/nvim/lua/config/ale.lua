@@ -1,4 +1,3 @@
--- No more needed since not using norminette
 vim.g.ale_fixers = {
 	'shellcheck',
 }
