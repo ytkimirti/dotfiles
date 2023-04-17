@@ -87,6 +87,12 @@ return packer.startup(function(use)
 		"neovim/nvim-lspconfig",
 		config = [[require('config.lspconfig')]]
 	}
+	use {
+	  "smjonas/inc-rename.nvim",
+	  config = function()
+		require("inc_rename").setup()
+	  end,
+	}
 	-- use { 'glepnir/lspsaga.nvim', config = [[require('config.lspsaga')]] }
 
 	-- No more needed since not using norminette

@@ -134,6 +134,9 @@ set("n", "gR", "<cmd>Telescope lsp_references<cr>", opts) -- saga is better
 
 -- LSP
 set('n', '<space>lf', vim.lsp.buf.format, opts) -- like lsp format
+set("n", "gr", function()
+	return ":IncRename " .. vim.fn.expand("<cword>")
+end, { expr = true })
 
 -- set("n", "<leader>e", '<cmd>edit term://bash<cr>', opts)
 set("t", "<esc>", "<C-\\><C-n>", opts)
