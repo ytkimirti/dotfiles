@@ -119,6 +119,7 @@ set("n", "<leader>o", "<cmd>Telescope find_files<cr>", opts)
 set("n", "<leader>b", "<cmd>Telescope buffers<cr>", opts)
 
 set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>", opts)
+
 set("n", "<leader>f", "<cmd>Telescope lsp_document_symbols<cr>", opts)
 set("n", "<leader>F", "<cmd>Telescope lsp_workspace_symbols<cr>", opts)
 
@@ -127,7 +128,14 @@ set("n", "<leader>to", "<cmd>Telescope oldfiles<cr>", opts)
 set("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
 set("n", "<leader>tm", "<cmd>Telescope marks<cr>", opts)
 
-set("n", "<leader>e", '<cmd>edit term://bash<cr>', opts)
+set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
+set("n", "gf", "<cmd>Telescope lsp_implementations<cr>", opts)
+set("n", "gR", "<cmd>Telescope lsp_references<cr>", opts) -- saga is better
+
+-- LSP
+set('n', '<space>lf', vim.lsp.buf.format, opts) -- like lsp format
+
+-- set("n", "<leader>e", '<cmd>edit term://bash<cr>', opts)
 set("t", "<esc>", "<C-\\><C-n>", opts)
 
 -- Custom
@@ -136,19 +144,6 @@ set('n', '<leader>hh', '<cmd>EcoleHeader<cr>', opts)
 
 -- Nvimtree
 set("n", "<C-n>", "<cmd>NvimTreeFocus<cr>", opts)
-
--- -- Float term
--- local term = require("lspsaga.floaterm")
---
--- -- float terminal also you can pass the cli command in open_float_terminal function
--- set("n", "<A-d>", function()
---     term.open_float_terminal()
--- end, { silent = true,noremap = true })
--- set("t", "<A-d>", function()
---     vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<C-\\><C-n>", true, false, true))
---     term.close_float_terminal()
--- end, { silent = true })
-
 
 -- Gitsigns
 
