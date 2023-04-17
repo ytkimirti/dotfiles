@@ -136,7 +136,7 @@ set("n", "<leader>r", "<cmd>Telescope lsp_references<cr>", opts)
 set('n', '[e', vim.diagnostic.goto_next, opts)
 set('n', ']e', vim.diagnostic.goto_prev, opts)
 set('n', 'K', vim.lsp.buf.hover, opts) -- like lsp format
-set('n', '<space>ca', vim.lsp.buf.code_action, opts) -- like lsp format
+set('n', '<space>ca', "<cmd>CodeActionMenu<cr>", opts) -- like lsp format
 set('n', '<space>lf', vim.lsp.buf.format, opts) -- like lsp format
 set("n", "gr", function()
 	return ":IncRename " .. vim.fn.expand("<cword>")
