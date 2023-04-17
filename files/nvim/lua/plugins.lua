@@ -39,6 +39,7 @@ return packer.startup(function(use)
 
 	-- Visual
 	-- use "sainnhe/gruvbox-material"
+	use { 'chriskempson/base16-vim' }
 	use { 'shaunsingh/solarized.nvim' }
 	use { "https://github.com/morhetz/gruvbox" }
 	use { "folke/tokyonight.nvim" }
@@ -104,7 +105,7 @@ return packer.startup(function(use)
 	use { "alec-gibson/nvim-tetris", command = ":Tetris" }
 
 	-- Telescope
-	use "nvim-telescope/telescope.nvim"
+	use { "nvim-telescope/telescope.nvim", config = [[config.telescope]] }
 
 	-- Treesitter
 	use {
