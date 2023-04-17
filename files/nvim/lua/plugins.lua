@@ -1,12 +1,12 @@
 local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+	local fn = vim.fn
+	local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+	if fn.empty(fn.glob(install_path)) > 0 then
+		fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+		vim.cmd [[packadd packer.nvim]]
+		return true
+	end
+	return false
 end
 
 local packer_bootstrap = ensure_packer()
@@ -29,7 +29,8 @@ return packer.startup(function(use)
 	-- use { "mfussenegger/nvim-dap", config = [[require('config.dap')]] }
 
 	-- This commit is for now
-	use { 'lewis6991/gitsigns.nvim', commit = "851cd32caaea84f303c4fdf51d72dfa5fcd795bb", config = [[require('config.gitsigns')]] }
+	use { 'lewis6991/gitsigns.nvim', commit = "851cd32caaea84f303c4fdf51d72dfa5fcd795bb", config =
+	[[require('config.gitsigns')]] }
 	use "tpope/vim-fugitive"
 	use "tpope/vim-surround"
 	use { "windwp/nvim-autopairs", config = [[require("config.autopairs")]] }
@@ -51,7 +52,7 @@ return packer.startup(function(use)
 	-- use { 'goolord/alpha-nvim', config = [[require('config.alpha')]] }
 
 	-- Other
-	use {'ThePrimeagen/harpoon', config = [[require('config.harpoon')]]}
+	use { 'ThePrimeagen/harpoon', config = [[require('config.harpoon')]] }
 	-- use "akinsho/bufferline.nvim"
 	use "ap/vim-buftabline"
 	-- use "moll/vim-bbye"
@@ -64,8 +65,8 @@ return packer.startup(function(use)
 	-- use "antoinemadec/FixCursorHold.nvim" -- This is needed to fix lsp doc highlight
 
 	-- snippets
-	use { "L3MON4D3/LuaSnip", config = [[require('config.luasnip')]], tag="v1.1.0" }
-	use { 'ytkimirti/friendly-snippets', config = [[require('config.friendly-snippets')]]}
+	use { "L3MON4D3/LuaSnip", config = [[require('config.luasnip')]], tag = "v1.1.0" }
+	use { 'ytkimirti/friendly-snippets', config = [[require('config.friendly-snippets')]] }
 
 	-- cmp plugins
 	use { "hrsh7th/nvim-cmp", config = [[require('config.cmp')]] }
@@ -95,11 +96,11 @@ return packer.startup(function(use)
 	use "nvim-telescope/telescope.nvim"
 
 	-- Treesitter
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+	use {
+		'nvim-treesitter/nvim-treesitter',
+		run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
 		config = [[require('config.treesitter')]]
-    }
+	}
 	use { "nvim-treesitter/nvim-treesitter-textobjects" }
 	-- use { "nvim-treesitter/playground" }
 	-- use { 'windwp/nvim-ts-autotag', config = [[require('config.ts-autotag')]],
