@@ -129,10 +129,14 @@ set("n", "<leader>tg", "<cmd>Telescope live_grep<cr>", opts)
 set("n", "<leader>tm", "<cmd>Telescope marks<cr>", opts)
 
 set("n", "gd", "<cmd>Telescope lsp_definitions<cr>", opts)
-set("n", "gf", "<cmd>Telescope lsp_implementations<cr>", opts)
-set("n", "gR", "<cmd>Telescope lsp_references<cr>", opts) -- saga is better
+set("n", "<leader>i", "<cmd>Telescope lsp_implementations<cr>", opts)
+set("n", "<leader>r", "<cmd>Telescope lsp_references<cr>", opts)
 
 -- LSP
+set('n', '[e', vim.diagnostic.goto_next, opts)
+set('n', ']e', vim.diagnostic.goto_prev, opts)
+set('n', 'K', vim.lsp.buf.hover, opts) -- like lsp format
+set('n', '<space>ca', vim.lsp.buf.code_action, opts) -- like lsp format
 set('n', '<space>lf', vim.lsp.buf.format, opts) -- like lsp format
 set("n", "gr", function()
 	return ":IncRename " .. vim.fn.expand("<cword>")
