@@ -87,10 +87,10 @@ return packer.startup(function(use)
 		config = [[require('config.lspconfig')]]
 	}
 	use {
-	  "smjonas/inc-rename.nvim",
-	  config = function()
-		require("inc_rename").setup()
-	  end,
+		"smjonas/inc-rename.nvim",
+		config = function()
+			require("inc_rename").setup()
+		end,
 	}
 	-- use { 'glepnir/lspsaga.nvim', config = [[require('config.lspsaga')]] }
 
