@@ -87,6 +87,10 @@ return packer.startup(function(use)
 		config = [[require('config.lspconfig')]]
 	}
 	use {
+		'weilbith/nvim-code-action-menu',
+		cmd = 'CodeActionMenu',
+	}
+	use {
 		"smjonas/inc-rename.nvim",
 		config = function()
 			require("inc_rename").setup()
