@@ -1,3 +1,10 @@
+-- NOTE: Disabled for now because its bloated
+-- I need:
+-- - rename
+-- - preview definition
+-- - code actions
+-- - diagnostics
+
 require('lspsaga').setup({})
 
 local keymap = vim.keymap.set
