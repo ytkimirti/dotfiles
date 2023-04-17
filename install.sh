@@ -92,6 +92,14 @@ fi
 # fi
 # echo "👌 tmux plugin manager"
 
+if [[ ! -d ~/.asdf ]]
+then
+	echo "Installing asdf"
+	git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3
+fi
+
+echo "👌 asdf"
+
 if [[ ! -d ~/.fzf ]]
 then
 	#FZF install
