@@ -105,7 +105,7 @@ return packer.startup(function(use)
 	use { "alec-gibson/nvim-tetris", command = ":Tetris" }
 
 	-- Telescope
-	use { "nvim-telescope/telescope.nvim", config = [[config.telescope]] }
+	use { "nvim-telescope/telescope.nvim", config = [[require('config.telescope')]] }
 
 	-- Treesitter
 	use {
