@@ -1,7 +1,7 @@
 local opts = { noremap = true, silent = true }
 local set = vim.keymap.set
 
-set("", "<C-c>", "<ESC>", {remap = true, silent = true}) -- C-c same as ESC
+set("", "<C-c>", "<ESC>", { remap = true, silent = true }) -- C-c same as ESC
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -21,15 +21,15 @@ vim.g.maplocalleader = " "
 -- set("n", "<C-k>", "<C-w>k", opts)
 -- set("n", "<C-l>", "<C-w>l", opts)
 
-set({'n', 'v'}, ';', ':', {remap = false, silent = false})
-set({'n', 'v'}, ':', ';', {remap = false, silent = false})
+set({ 'n', 'v' }, ';', ':', { remap = false, silent = false })
+set({ 'n', 'v' }, ':', ';', { remap = false, silent = false })
 
 vim.cmd('set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<')
 set('n', '<F3>', '<esc><cmd>set list!<cr>', {})
 set('i', '<F3>', '<C-o><cmd>set list!<cr>', {})
 
-set({'i', 'n', 'v'}, '<esc>', '<esc><cmd>noh<cr>', {silent = true})
-set({'n'}, 'i', '<cmd>noh<cr><esc>i', {silent= true})
+set({ 'i', 'n', 'v' }, '<esc>', '<esc><cmd>noh<cr>', { silent = true })
+set({ 'n' }, 'i', '<cmd>noh<cr><esc>i', { silent = true })
 
 -- Yank --
 set("n", "<leader>p", '"*p', opts)
@@ -51,16 +51,16 @@ set("n", "<C-l>", ":bnext<CR>", opts)
 set("n", "<C-h>", ":bprevious<CR>", opts)
 
 -- Insert --
-set("i", "<S-CR>", "<ESC>o", opts) -- Newline with S-CR
+set("i", "<S-CR>", "<ESC>o", opts)   -- Newline with S-CR
 set("i", "<A-S-CR>", "<ESC>O", opts) -- Newline with S-CR
 set("i", "<C-l>", "<del>", opts)
 set("i", "<C-;>", "<esc>:", opts)
-set("n", "<C-;>", ":", {silent = false})
+set("n", "<C-;>", ":", { silent = false })
 
-set({"i", "c"}, "<A-k>", "<Up>")
-set({"i", "c"}, "<A-j>", "<Down>")
-set({"i", "c"}, "<A-h>", "<Left>")
-set({"i", "c"}, "<A-l>", "<Right>")
+set({ "i", "c" }, "<A-k>", "<Up>")
+set({ "i", "c" }, "<A-j>", "<Down>")
+set({ "i", "c" }, "<A-h>", "<Left>")
+set({ "i", "c" }, "<A-l>", "<Right>")
 
 set("i", "<C-f>o", "<esc>m9o<esc>kO<esc>`9a", opts)
 
@@ -110,8 +110,8 @@ set("v", "<A-k>", ":m '<-2<CR>gv=gv", opts)
 set("v", "p", '"_dP', opts)
 
 -- Comment
-set("n", "<C-/>", "gcc", {remap = true})
-set("v", "<C-/>", "gc", {remap = true})
+set("n", "<C-/>", "gcc", { remap = true })
+set("v", "<C-/>", "gc", { remap = true })
 
 -- Telescope
 
@@ -154,17 +154,17 @@ set('n', ']c', function()
 	if vim.wo.diff then return ']c' end
 	vim.schedule(function() gs.next_hunk() end)
 	return '<Ignore>'
-end, {expr=true})
+end, { expr = true })
 
 set('n', '[c', function()
 	if vim.wo.diff then return '[c' end
 	vim.schedule(function() gs.prev_hunk() end)
 	return '<Ignore>'
-end, {expr=true})
+end, { expr = true })
 
 -- Actions
-set({'n', 'v'}, '<leader>hs', '<cmd>Gitsigns stage_hunk<cr>')
-set({'n', 'v'}, '<leader>hr', '<cmd>Gitsigns reset_hunk<cr>')
+set({ 'n', 'v' }, '<leader>hs', '<cmd>Gitsigns stage_hunk<cr>')
+set({ 'n', 'v' }, '<leader>hr', '<cmd>Gitsigns reset_hunk<cr>')
 set('n', '<leader>hS', gs.stage_buffer)
 set('n', '<leader>hu', gs.undo_stage_hunk)
 set('n', '<leader>hR', gs.reset_buffer)
@@ -174,4 +174,4 @@ set('n', '<leader>hD', function() gs.diffthis('~') end)
 
 
 -- Text object
-set({'o', 'x'}, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
+set({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>')
