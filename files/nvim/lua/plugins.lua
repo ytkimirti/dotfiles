@@ -20,6 +20,8 @@ return packer.startup(function(use)
 	use "wbthomason/packer.nvim"
 	use "nvim-lua/plenary.nvim"
 
+	use "dstein64/vim-startuptime"
+
 	-- Latex
 	use { 'lervag/vimtex', config = [[require('config.vimtex')]] }
 
