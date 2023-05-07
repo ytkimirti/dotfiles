@@ -42,20 +42,53 @@ local options = {
 -- 	return ok
 -- end
 
-if pcall(vim.cmd, 'colorscheme nordfox') then
-elseif pcall(vim.cmd, 'colorscheme gruvbox') then
-elseif pcall(vim.cmd, 'colorscheme habamax') then
-elseif pcall(vim.cmd, "colorscheme tokyonight") then
-	local ok, tokyonight = pcall(require, "tokyonight")
-	if ok then
-		tokyonight.setup {
-			style = "night",
+
+local colors = {
+	"habamax",
+	{
+		name = "gruvbox",
+		func = function ()
+			vim.g.gruvbox_transparent_bg = 1
+			vim.g.gruvbox_bold = 0
+			vim.g.gruvbox_contrast_dark = "medium"
+		end
+	},
+	"nordfox",
+	{
+		name = "tokyonight",
+		func = function ()
+			local ok, tokyonight = pcall(require, "tokyonight")
+			if ok then
+				tokyonight.setup {
+					style = "night",
+				}
+			end
+		end
+	}
+}
+
+for i, raw_entry in ipairs(colors) do
+	local entry = nil
+
+	if type(raw_entry) == "string" then
+		entry = {
+			name = raw_entry
 		}
+	elseif type(raw_entry) == "table" then
+		entry = raw_entry
 	end
-elseif pcall(vim.cmd, "colorscheme gruvbox") then
-	vim.g.gruvbox_transparent_bg = 1
-	vim.g.gruvbox_bold = 0
-	vim.g.gruvbox_contrast_dark = "hard"
+
+
+	if not entry.name then
+		error("No name field included at index " .. i)
+	end
+
+	if (pcall(vim.cmd, 'colorscheme ' .. entry.name)) then
+		if type(entry.func) == "function" then
+			entry.func()
+		end
+		break
+	end
 end
 
 vim.opt.shortmess:append "c"
