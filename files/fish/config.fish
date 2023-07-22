@@ -48,6 +48,10 @@ set -gxa LIBRARY_PATH "$HOMEBREW_PREFIX/lib"
 set -gxa C_INCLUDE_PATH "$HOMEBREW_PREFIX/include"
 set -gxp INFOPATH "$HOMEBREW_PREFIX/share/info"
 
+if [ -d "$HOME/Library/Android/sdk" ]
+	set -gx ANDROID_HOME "$HOME/Library/Android/sdk"
+end
+
 if [ -d $HOME/mybin ]
 	set -gxp PATH "$HOME/mybin/bin"
 end
@@ -59,6 +63,10 @@ set -gxp PATH "$HOME/go/bin"
 set -gxp PATH "/opt/metasploit-framework/bin"
 
 set -gxp PATH "/usr/local/bin"
+set -gxp PATH "/opt/homebrew/opt/curl/bin"
+set -gxp PATH "$HOME/Library/Android/sdk/platform-tools"
+set -gxp PATH "$HOME/Library/Android/sdk/tools"
+set -gxp PATH "$HOME/Library/Android/sdk/emulator"
 
 # pyenv
 set -gx PYENV_SHELL fish
@@ -97,3 +105,42 @@ end
 # if type -q starship
 # 	starship init fish | source
 # end
+
+abbr -a -- gla 'git log --oneline --decorate --graph --all' # imported from a universal variable, see `help abbr`
+abbr -a -- gra 'git reset --hard HEAD && git clean -fd' # imported from a universal variable, see `help abbr`
+abbr -a -- editkitty 'nvim ~/.config/kitty/kitty.conf' # imported from a universal variable, see `help abbr`
+abbr -a -- gcaa git\ add\ --all\ \&\&\ git\ commit\ -m\ \'Autocommit\'\ \&\&\ git\ pull\ \&\&\ git\ push # imported from a universal variable, see `help abbr`
+abbr -a -- chrome /Applications/Google\\\ Chrome.app/Contents/MacOS/Google\\\ Chrome # imported from a universal variable, see `help abbr`
+abbr -a -- dfiles 'cd $HOME/dotfiles' # imported from a universal variable, see `help abbr`
+abbr -a -- n 'cd ~/notes && lg' # imported from a universal variable, see `help abbr`
+abbr -a -- chrome-edge /Applications/Google\\\ Chrome.app/Contents/MacOS/Google\\\ Chrome\ \ --user-agent=\"Mozilla/5.0\ \(Macintosh\;\ Intel\ Mac\ OS\ X\ 10_15_7\)\ AppleWebKit/537.36\ \(KHTML,\ like\ Gecko\)\ Chrome/112.0.0.0\ Safari/537.36\ Edg/112.0.0.0\" # imported from a universal variable, see `help abbr`
+abbr -a -- covfefe 'caffeinate -disu' # imported from a universal variable, see `help abbr`
+abbr -a -- editfiles 'cd $HOME/dotfiles' # imported from a universal variable, see `help abbr`
+abbr -a -- gl 'git log --oneline --decorate --graph' # imported from a universal variable, see `help abbr`
+abbr -a -- edittmux 'vim ~/.tmux.conf' # imported from a universal variable, see `help abbr`
+abbr -a -- addpath 'set -U -a fish_user_path' # imported from a universal variable, see `help abbr`
+abbr -a -- editfish 'cd $HOME/.config/fish && nvim config.fish' # imported from a universal variable, see `help abbr`
+abbr -a -- editnvim 'cd ~/.config/nvim && nvim' # imported from a universal variable, see `help abbr`
+abbr -a -- p pnpm # imported from a universal variable, see `help abbr`
+abbr -a -- editnvchad 'cd ~/.config/nvim/lua/custom && nvim ~/.config/nvim/lua/custom/chadrc.lua && cd -' # imported from a universal variable, see `help abbr`
+abbr -a -- cdpacker 'cd $HOME/.local/share/nvim/site/pack/packer/start' # imported from a universal variable, see `help abbr`
+abbr -a -- editnvimp 'nvim ~/.config/nvim/lua/user/plugins.lua' # imported from a universal variable, see `help abbr`
+abbr -a -- drun 'bash $HOME/dotfiles/scripts/docker_run.sh' # imported from a universal variable, see `help abbr`
+abbr -a -- editmacos 'vim ~/.macos' # imported from a universal variable, see `help abbr`
+abbr -a -- ta 'tmux new-session -A -s main' # imported from a universal variable, see `help abbr`
+abbr -a -- editvim 'vim ~/.vimrc' # imported from a universal variable, see `help abbr`
+abbr -a -- g git # imported from a universal variable, see `help abbr`
+abbr -a -- mk 'make -j8' # imported from a universal variable, see `help abbr`
+abbr -a -- gca 'git add --all && git commit && git push' # imported from a universal variable, see `help abbr`
+abbr -a -- gf 'cd /goinfre/ykimirti' # imported from a universal variable, see `help abbr`
+abbr -a -- git-local-branch-clean git\ branch\ --merged\ \|\ egrep\ -v\ \"\(^\\\*\|master\|dev\)\"\ \|\ xargs\ git\ branch\ -d # imported from a universal variable, see `help abbr`
+abbr -a -- gs 'git status --short' # imported from a universal variable, see `help abbr`
+abbr -a -- fen 'funced -e nvim' # imported from a universal variable, see `help abbr`
+abbr -a -- vimfzf 'vim (fzf)' # imported from a universal variable, see `help abbr`
+abbr -a -- ll 'exa -alh' # imported from a universal variable, see `help abbr`
+abbr -a -- najs 'cowsay najs' # imported from a universal variable, see `help abbr`
+abbr -a -- nh norminette\ \|\ grep\ -E\ \'^Error:\ \|Error!\'\ \|\ head # imported from a universal variable, see `help abbr`
+abbr -a -- tree 'exa --tree' # imported from a universal variable, see `help abbr`
+abbr -a -- sim 'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app' # imported from a universal variable, see `help abbr`
+abbr -a -- editgit 'nvim ~/.gitconfig' # imported from a universal variable, see `help abbr`
+abbr -a -- vv '. .venv/bin/activate.fish'
