@@ -9,7 +9,7 @@ line()
 
 echo "🚛 Linking config files"
 
-configs=( .zshrc .vimrc .macos .gitconfig .ideavimrc .tmux.conf fish iterm kitty lazygit nvim )
+configs=( .condarc .zshrc .vimrc .macos .gitconfig .ideavimrc .tmux.conf fish iterm kitty lazygit nvim )
 for i in "${configs[@]}"
 do
 	bash ~/dotfiles/scripts/link_config.sh "$i"
