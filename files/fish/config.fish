@@ -56,7 +56,7 @@ if [ -d $HOME/mybin ]
 	set -gxp PATH "$HOME/mybin/bin"
 end
 
-set -gxp PATH "$HOME/mybin/bin"
+set -gxp PATH "$HOME/miniconda3/bin"
 set -gxp PATH "$HOME/flutter/bin"
 set -gxp PATH "$HOME/.fzf/bin"
 set -gxp PATH "$CARGO_HOME/bin"
@@ -145,3 +145,11 @@ abbr -a -- tree 'exa --tree' # imported from a universal variable, see `help abb
 abbr -a -- sim 'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app' # imported from a universal variable, see `help abbr`
 abbr -a -- editgit 'nvim ~/.gitconfig' # imported from a universal variable, see `help abbr`
 abbr -a -- vv '. .venv/bin/activate.fish'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /Users/kimirti/miniconda3/bin/conda
+    eval /Users/kimirti/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+end
+# <<< conda initialize <<<
+
