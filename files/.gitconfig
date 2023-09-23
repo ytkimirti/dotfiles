@@ -31,7 +31,7 @@
 	a = add
 	aa = add --all
 [pull]
-	rebase = true
+	rebase = false
 [mergetool "fugitive"]
 	cmd = nvim -d -c \"wincmd l\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
 [merge]
