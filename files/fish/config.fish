@@ -44,9 +44,11 @@ set -q INFOPATH; or set INFOPATH ''; set -gx INFOPATH "$HOMEBREW_PREFIX/share/in
 set --path LIBRARY_PATH
 set --path C_INCLUDE_PATH
 
-set -gxa LIBRARY_PATH "$HOMEBREW_PREFIX/lib"
-set -gxa C_INCLUDE_PATH "$HOMEBREW_PREFIX/include"
-set -gxp INFOPATH "$HOMEBREW_PREFIX/share/info"
+if [ -d "$HOMEBREW_PREFIX" ]
+	set -gxa LIBRARY_PATH "$HOMEBREW_PREFIX/lib"
+	set -gxa C_INCLUDE_PATH "$HOMEBREW_PREFIX/include"
+	set -gxp INFOPATH "$HOMEBREW_PREFIX/share/info"
+end
 
 if [ -d "$HOME/Library/Android/sdk" ]
 	set -gx ANDROID_HOME "$HOME/Library/Android/sdk"
