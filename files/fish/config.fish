@@ -71,9 +71,24 @@ set -gxp PATH "$HOME/Library/Android/sdk/platform-tools"
 set -gxp PATH "$HOME/Library/Android/sdk/tools"
 set -gxp PATH "$HOME/Library/Android/sdk/emulator"
 
-# pyenv
+set -gxp PATH "$HOME/Library/Application Support/Code/User/globalStorage/ziglang.vscode-zig/zig_install"
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /Users/kimirti/miniconda3/bin/conda
+    eval /Users/kimirti/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+end
+# <<< conda initialize <<<
+
+# pyenv comes after conda so python by default is from pyenv
 set -gx PYENV_SHELL fish
 set -gx PYENV_ROOT $HOME/.pyenv
+
+# You can manually set shims like this too but with it's own init script, it's safer
+# set -gxp PATH $PYENV_ROOT/shims
+if type -q pyenv
+	pyenv init - | source
+end
 
 set -gx LC_ALL "en_US.UTF-8"
 
@@ -81,11 +96,6 @@ if type -q id; set -gx GROUP (id -gn $USER); end
 set -gx ECOLE_MAIL "ykimirti@42istanbul.com.tr"
 set -gx ECOLE_USER "ykimirti"
 
-# You can manually set shims like this too but with it's own init script, it's safer
-# set -gxp PATH $PYENV_ROOT/shims
-if type -q fnm
-	pyenv init - | source
-end
 
 if type -q fnm
 	eval (fnm env)
@@ -147,11 +157,4 @@ abbr -a -- tree 'exa --tree' # imported from a universal variable, see `help abb
 abbr -a -- sim 'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app' # imported from a universal variable, see `help abbr`
 abbr -a -- editgit 'nvim ~/.gitconfig' # imported from a universal variable, see `help abbr`
 abbr -a -- vv '. .venv/bin/activate.fish'
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-if test -f /Users/kimirti/miniconda3/bin/conda
-    eval /Users/kimirti/miniconda3/bin/conda "shell.fish" "hook" $argv | source
-end
-# <<< conda initialize <<<
 
