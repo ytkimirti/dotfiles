@@ -157,4 +157,5 @@ abbr -a -- tree 'exa --tree' # imported from a universal variable, see `help abb
 abbr -a -- sim 'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app' # imported from a universal variable, see `help abbr`
 abbr -a -- editgit 'nvim ~/.gitconfig' # imported from a universal variable, see `help abbr`
 abbr -a -- vv '. .venv/bin/activate.fish'
+abbr -a -- vc "python -m venv .venv"
 
