@@ -159,3 +159,10 @@ abbr -a -- editgit 'nvim ~/.gitconfig' # imported from a universal variable, see
 abbr -a -- vv '. .venv/bin/activate.fish'
 abbr -a -- vc "python -m venv .venv"
 
+
+# pnpm
+set -gx PNPM_HOME "$HOME/Library/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+# pnpm end
