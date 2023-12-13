@@ -4,11 +4,17 @@ function envsource
     echo "Unable to load $envfile"
     return 1
   end
-  while read line
-    if not string match -qr '^#|^$' "$line"
-      set item (string split -m 1 '=' $line)
-      set -gx $item[1] $item[2]
-      echo "Exported key $item[1]"
-    end
-  end < "$envfile"
+  set -l lines (cat "$envfile")
+  for line in $lines
+    set -l key (echo $line | cut -d= -f1)
+    # Take after the first =
+    set -l value (echo $line | cut -d= -f2-)
+    
+    # Remove quotes value's start and end
+    set -l value (echo $value | sed -e 's/^"//' -e 's/"$//')
+    
+    set -xg $key $value
+
+    echo "$key=$value"
+  end
 end
