@@ -135,6 +135,7 @@ abbr -a -- addpath 'set -U -a fish_user_path' # imported from a universal variab
 abbr -a -- editfish 'cd $HOME/.config/fish && nvim config.fish' # imported from a universal variable, see `help abbr`
 abbr -a -- editnvim 'cd ~/.config/nvim && nvim' # imported from a universal variable, see `help abbr`
 abbr -a -- p pnpm # imported from a universal variable, see `help abbr`
+abbr -a -- px pnpx # imported from a universal variable, see `help abbr`
 abbr -a -- editnvchad 'cd ~/.config/nvim/lua/custom && nvim ~/.config/nvim/lua/custom/chadrc.lua && cd -' # imported from a universal variable, see `help abbr`
 abbr -a -- cdpacker 'cd $HOME/.local/share/nvim/site/pack/packer/start' # imported from a universal variable, see `help abbr`
 abbr -a -- editnvimp 'nvim ~/.config/nvim/lua/user/plugins.lua' # imported from a universal variable, see `help abbr`
