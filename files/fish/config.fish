@@ -63,6 +63,7 @@ set -gxp PATH "$HOME/flutter/bin"
 set -gxp PATH "$HOME/.fzf/bin"
 set -gxp PATH "$CARGO_HOME/bin"
 set -gxp PATH "$HOME/go/bin"
+set -gxp PATH "$HOME/.bun/bin"
 set -gxp PATH "/opt/metasploit-framework/bin"
 
 set -gxp PATH "/usr/local/bin"
@@ -159,6 +160,7 @@ abbr -a -- sim 'open /Applications/Xcode.app/Contents/Developer/Applications/Sim
 abbr -a -- editgit 'nvim ~/.gitconfig' # imported from a universal variable, see `help abbr`
 abbr -a -- vv '. .venv/bin/activate.fish'
 abbr -a -- vc "python -m venv .venv"
+abbr -a -- gp "git push --no-verify"
 
 
 # pnpm
