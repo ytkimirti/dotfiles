@@ -2,10 +2,9 @@
 	name = ytkimirti
 	email = yusuftaha9@gmail.com
 [core]
-	excludesfile = /Users/ytkimirti/.gitignore_global
+	excludesfile = ~/.gitignore_global
 	editor = vim
 	autocrlf = input
-	excludeFiles = .DS_Store
 [color]
 	ui = auto
 [filter "lfs"]
@@ -15,9 +14,6 @@
 	required = true
 [init]
 	defaultBranch = main
-[diff]
-	tool = vimdiff
-	prompt = false
 [alias]
 	d = difftool
 	lg = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
@@ -32,7 +28,15 @@
 	aa = add --all
 [pull]
 	rebase = false
-[mergetool "fugitive"]
-	cmd = nvim -d -c \"wincmd l\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\"
 [merge]
-	tool = fugitive
+	tool = vscode
+[mergetool "vscode"]
+    cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[commit]
+	gpgsign = true
+[tag]
+	gpgsign = true
