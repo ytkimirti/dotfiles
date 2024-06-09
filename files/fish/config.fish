@@ -6,11 +6,14 @@ end
 if type -q nvim
 	set -gx EDITOR nvim
 else if type -q vim
-	set -gx EDITOR nvim
+	set -gx EDITOR vim
 end
 
 if [ -d /goinfre ]
 	set -gx IS_ECOLE true
+
+	set -gx ECOLE_MAIL "ykimirti@42istanbul.com.tr"
+	set -gx ECOLE_USER "ykimirti"
 end
 
 set -gx XDG_CONFIG_HOME "$HOME/.config"
@@ -35,6 +38,7 @@ else
 end
 
 set -gx HOMEBREW_NO_AUTO_UPDATE
+set -gx HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK
 
 set -q PATH; or set PATH ''; set -gx PATH "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin" $PATH;
 set -q MANPATH; or set MANPATH ''; set -gx MANPATH "$HOMEBREW_PREFIX/share/man" $MANPATH;
@@ -59,7 +63,6 @@ if [ -d $HOME/mybin/bin ]
 end
 
 set -gxp PATH "$HOME/miniconda3/bin"
-set -gxp PATH "$HOME/flutter/bin"
 set -gxp PATH "$HOME/.fzf/bin"
 set -gxp PATH "$CARGO_HOME/bin"
 set -gxp PATH "$HOME/go/bin"
@@ -67,7 +70,6 @@ set -gxp PATH "$HOME/.bun/bin"
 set -gxp PATH "/opt/metasploit-framework/bin"
 
 set -gxp PATH "/usr/local/bin"
-set -gxp PATH "/opt/homebrew/opt/curl/bin"
 set -gxp PATH "$HOME/Library/Android/sdk/platform-tools"
 set -gxp PATH "$HOME/Library/Android/sdk/tools"
 set -gxp PATH "$HOME/Library/Android/sdk/emulator"
@@ -76,8 +78,8 @@ set -gxp PATH "$HOME/Library/Application Support/Code/User/globalStorage/ziglang
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if test -f /Users/kimirti/miniconda3/bin/conda
-    eval /Users/kimirti/miniconda3/bin/conda "shell.fish" "hook" $argv | source
+if test -f "$HOME/miniconda3/bin/conda"
+    eval "$HOME/miniconda3/bin/conda" "shell.fish" "hook" $argv | source
 end
 # <<< conda initialize <<<
 
@@ -94,31 +96,9 @@ end
 set -gx LC_ALL "en_US.UTF-8"
 
 if type -q id; set -gx GROUP (id -gn $USER); end
-set -gx ECOLE_MAIL "ykimirti@42istanbul.com.tr"
-set -gx ECOLE_USER "ykimirti"
 
-
-if type -q fnm
-	eval (fnm env)
-end
-
-# Does make difference?
-# if type -q fnm
-# 	fnm env --use-on-cd | source
-# end
-
-if type -q thefuck
-	thefuck --alias | source
-end
-
-if [ -f ~/.asdf/asdf.fish ]
-	source ~/.asdf/asdf.fish
-end
-
-
-# if type -q starship
-# 	starship init fish | source
-# end
+set -gx DENO_INSTALL "$HOME/.deno"
+set -gxp PATH "$DENO_INSTALL/bin:$PATH"
 
 abbr -a -- gla 'git log --oneline --decorate --graph --all' # imported from a universal variable, see `help abbr`
 abbr -a -- gra 'git reset --hard HEAD && git clean -fd' # imported from a universal variable, see `help abbr`
