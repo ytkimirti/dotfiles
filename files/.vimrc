@@ -60,7 +60,8 @@ filetype plugin on
 
 let &t_ut='' " A fix for kitty terminal
 
-set termguicolors
+" set termguicolors
+
 syntax on
 silent! colorscheme habamax
 " ------------------ Colorscheme choices ----------------
