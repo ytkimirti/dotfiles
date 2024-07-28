@@ -37,8 +37,8 @@ else
 	set -gx HOMEBREW_REPOSITORY "/opt/homebrew"
 end
 
-set -gx HOMEBREW_NO_AUTO_UPDATE
-set -gx HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK
+set -gx HOMEBREW_NO_AUTO_UPDATE "1"
+set -gx HOMEBREW_NO_INSTALLED_DEPENDENTS_CHECK "1"
 
 set -q PATH; or set PATH ''; set -gx PATH "$HOMEBREW_PREFIX/bin" "$HOMEBREW_PREFIX/sbin" $PATH;
 set -q MANPATH; or set MANPATH ''; set -gx MANPATH "$HOMEBREW_PREFIX/share/man" $MANPATH;
@@ -78,7 +78,7 @@ set -gxp PATH "$HOME/Library/Application Support/Code/User/globalStorage/ziglang
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-if test -f "$HOME/miniconda3/bin/conda"
+if false and test -f "$HOME/miniconda3/bin/conda"
     eval "$HOME/miniconda3/bin/conda" "shell.fish" "hook" $argv | source
 end
 # <<< conda initialize <<<
@@ -100,48 +100,43 @@ if type -q id; set -gx GROUP (id -gn $USER); end
 set -gx DENO_INSTALL "$HOME/.deno"
 set -gxp PATH "$DENO_INSTALL/bin:$PATH"
 
-abbr -a -- gla 'git log --oneline --decorate --graph --all' # imported from a universal variable, see `help abbr`
-abbr -a -- gra 'git reset --hard HEAD && git clean -fd' # imported from a universal variable, see `help abbr`
-abbr -a -- editkitty 'nvim ~/.config/kitty/kitty.conf' # imported from a universal variable, see `help abbr`
-abbr -a -- gcaa git\ add\ --all\ \&\&\ git\ commit\ -m\ \'Autocommit\'\ \&\&\ git\ pull\ \&\&\ git\ push # imported from a universal variable, see `help abbr`
-abbr -a -- chrome /Applications/Google\\\ Chrome.app/Contents/MacOS/Google\\\ Chrome # imported from a universal variable, see `help abbr`
-abbr -a -- dfiles 'cd $HOME/dotfiles' # imported from a universal variable, see `help abbr`
-abbr -a -- n 'cd ~/notes && lg' # imported from a universal variable, see `help abbr`
-abbr -a -- chrome-edge /Applications/Google\\\ Chrome.app/Contents/MacOS/Google\\\ Chrome\ \ --user-agent=\"Mozilla/5.0\ \(Macintosh\;\ Intel\ Mac\ OS\ X\ 10_15_7\)\ AppleWebKit/537.36\ \(KHTML,\ like\ Gecko\)\ Chrome/112.0.0.0\ Safari/537.36\ Edg/112.0.0.0\" # imported from a universal variable, see `help abbr`
-abbr -a -- covfefe 'caffeinate -disu' # imported from a universal variable, see `help abbr`
-abbr -a -- editfiles 'cd $HOME/dotfiles' # imported from a universal variable, see `help abbr`
-abbr -a -- gl 'git log --oneline --decorate --graph' # imported from a universal variable, see `help abbr`
-abbr -a -- edittmux 'vim ~/.tmux.conf' # imported from a universal variable, see `help abbr`
-abbr -a -- addpath 'set -U -a fish_user_path' # imported from a universal variable, see `help abbr`
-abbr -a -- editfish 'cd $HOME/.config/fish && nvim config.fish' # imported from a universal variable, see `help abbr`
-abbr -a -- editnvim 'cd ~/.config/nvim && nvim' # imported from a universal variable, see `help abbr`
-abbr -a -- p pnpm # imported from a universal variable, see `help abbr`
-abbr -a -- px pnpx # imported from a universal variable, see `help abbr`
-abbr -a -- editnvchad 'cd ~/.config/nvim/lua/custom && nvim ~/.config/nvim/lua/custom/chadrc.lua && cd -' # imported from a universal variable, see `help abbr`
-abbr -a -- cdpacker 'cd $HOME/.local/share/nvim/site/pack/packer/start' # imported from a universal variable, see `help abbr`
-abbr -a -- editnvimp 'nvim ~/.config/nvim/lua/user/plugins.lua' # imported from a universal variable, see `help abbr`
-abbr -a -- drun 'bash $HOME/dotfiles/scripts/docker_run.sh' # imported from a universal variable, see `help abbr`
-abbr -a -- editmacos 'vim ~/.macos' # imported from a universal variable, see `help abbr`
-abbr -a -- ta 'tmux new-session -A -s main' # imported from a universal variable, see `help abbr`
-abbr -a -- editvim 'vim ~/.vimrc' # imported from a universal variable, see `help abbr`
-abbr -a -- g git # imported from a universal variable, see `help abbr`
-abbr -a -- mk 'make -j8' # imported from a universal variable, see `help abbr`
-abbr -a -- gca 'git add --all && git commit && git push' # imported from a universal variable, see `help abbr`
-abbr -a -- gf 'cd /goinfre/ykimirti' # imported from a universal variable, see `help abbr`
-abbr -a -- git-local-branch-clean git\ branch\ --merged\ \|\ egrep\ -v\ \"\(^\\\*\|master\|dev\)\"\ \|\ xargs\ git\ branch\ -d # imported from a universal variable, see `help abbr`
-abbr -a -- gs 'git status --short' # imported from a universal variable, see `help abbr`
-abbr -a -- fen 'funced -e nvim' # imported from a universal variable, see `help abbr`
-abbr -a -- vimfzf 'vim (fzf)' # imported from a universal variable, see `help abbr`
-abbr -a -- ll 'exa -alh' # imported from a universal variable, see `help abbr`
-abbr -a -- najs 'cowsay najs' # imported from a universal variable, see `help abbr`
-abbr -a -- nh norminette\ \|\ grep\ -E\ \'^Error:\ \|Error!\'\ \|\ head # imported from a universal variable, see `help abbr`
-abbr -a -- tree 'exa --tree' # imported from a universal variable, see `help abbr`
-abbr -a -- sim 'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app' # imported from a universal variable, see `help abbr`
-abbr -a -- editgit 'nvim ~/.gitconfig' # imported from a universal variable, see `help abbr`
+abbr -a -- gla 'git log --oneline --decorate --graph --all'
+abbr -a -- gra 'git reset --hard HEAD && git clean -fd'
+abbr -a -- chrome '/Applications/Google\\\ Chrome.app/Contents/MacOS/Google\\\ Chrome'
+abbr -a -- dfiles 'cd $HOME/dotfiles'
+abbr -a -- n 'cd ~/notes && lg'
+abbr -a -- chrome-edge '/Applications/Google\\\ Chrome.app/Contents/MacOS/Google\\\ Chrome\'' \ --user-agent=\"Mozilla/5.0\ \(Macintosh\;\ Intel\ Mac\ OS\ X\ 10_15_7\)\ AppleWebKit/537.36\ \(KHTML,\ like\ Gecko\)\ Chrome/112.0.0.0\ Safari/537.36\ Edg/112.0.0.0\"
+abbr -a -- covfefe 'caffeinate -disu'
+abbr -a -- gl 'git log --oneline --decorate --graph'
+abbr -a -- editfish 'cd $HOME/.config/fish && nvim config.fish'
+abbr -a -- editnvim 'cd ~/.config/nvim && nvim'
+abbr -a -- editvim 'vim ~/.vimrc'
+abbr -a -- editkitty 'nvim ~/.config/kitty/kitty.conf'
+abbr -a -- editgit 'nvim ~/.gitconfig'
+
+abbr -a -- p pnpm
+abbr -a -- px pnpx
+
+abbr -a -- cleanvim 'rm -rf $HOME/.local/share/nvim'
+
+abbr -a -- g git
+abbr -a -- gca 'git add --all && git commit && git push'
+abbr -a -- git-local-branch-clean git\ branch\ --merged\ \|\ egrep\ -v\ \"\(^\\\*\|master\|dev\)\"\ \|\ xargs\ git\ branch\ -d
+abbr -a -- gs 'git status --short'
+
+abbr -a -- vf 'nvim (fzf)'
+abbr -a -- ll 'exa -alh'
+abbr -a -- najs 'cowsay najs'
+abbr -a -- nh norminette\ \|\ grep\ -E\ \'^Error:\ \|Error!\'\ \|\ head
+abbr -a -- tree 'exa --tree'
+abbr -a -- sim 'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
 abbr -a -- vv '. .venv/bin/activate.fish'
 abbr -a -- vc "python -m venv .venv"
 abbr -a -- gp "git push --no-verify"
-
+abbr -a -- yt "cd ~/Movies/yt && yt-dlp"
+abbr -a -- r "ranger"
+abbr -a -- t "turbo"
+abbr -a -- lgh "export HUSKY=0 && lg"
 
 # pnpm
 set -gx PNPM_HOME "$HOME/Library/pnpm"
