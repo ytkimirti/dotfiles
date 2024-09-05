@@ -69,7 +69,6 @@ set -gxp PATH "$HOME/go/bin"
 set -gxp PATH "$HOME/.bun/bin"
 set -gxp PATH "/opt/metasploit-framework/bin"
 
-set -gxp PATH "/usr/local/bin"
 set -gxp PATH "$HOME/Library/Android/sdk/platform-tools"
 set -gxp PATH "$HOME/Library/Android/sdk/tools"
 set -gxp PATH "$HOME/Library/Android/sdk/emulator"
@@ -136,7 +135,7 @@ abbr -a -- gp "git push --no-verify"
 abbr -a -- yt "cd ~/Movies/yt && yt-dlp"
 abbr -a -- r "ranger"
 abbr -a -- t "turbo"
-abbr -a -- lgh "export HUSKY=0 && lg"
+abbr -a -- lgh "export HUSKY=0 && lg && set -e HUSKY"
 
 # pnpm
 set -gx PNPM_HOME "$HOME/Library/pnpm"
