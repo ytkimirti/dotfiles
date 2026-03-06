@@ -1,7 +1,7 @@
 set -gx CLEAN_PATH "$PATH"
 # When running a script etc. The shell is not interactive
 if status is-interactive
-
+    set -g fish_keyboard_protocol none
 end
 
 if type -q nvim
