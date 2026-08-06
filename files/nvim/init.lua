@@ -1,11 +1,10 @@
-require 'plugins'
-require 'options'
-require 'maps'
-require 'cmds'
+-- Leader has to be set before lazy.nvim loads any spec, otherwise every
+-- plugin-defined <leader> mapping binds to "\" instead of space.
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
-local function source_vim(filename)
-	vim.cmd('source ' .. vim.fn.stdpath('config') .. '/vim/' .. filename)
-end
-
-source_vim('ecole_header.vim')
-source_vim('misc.vim')
+require 'config.options'
+require 'config.lazy'
+require 'config.keymaps'
+require 'config.autocmds'
+require 'config.commands'
