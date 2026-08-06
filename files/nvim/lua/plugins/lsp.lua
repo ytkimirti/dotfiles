@@ -1,26 +1,47 @@
+-- Which TypeScript server to run. Measured on a real project, 2026-08:
+--
+--            hover  def  refs  rename  docSymbols  codeActions
+--   vtsls      ok    ok    4     ok         3          19
+--   tsgo       ok    ok    4     ok         5           1
+--
+-- tsgo (microsoft/typescript-go, the native Go rewrite) is the newer and much
+-- faster server, and it does have the one action that matters most -- "Add
+-- import from ...". What it does not have yet is refactorings: convert
+-- export/import styles, extract function, and so on. It also still reports
+-- itself as `7.0.0-dev` and upstream labels it experimental.
+--
+-- So the default is vtsls. Change this one string to 'tsgo' if you want the
+-- fast one; everything else adjusts automatically.
+local TS_SERVER = 'vtsls'
+
 -- Servers mason installs and keeps up to date for you. Kept deliberately
 -- short because this machine is short on disk -- anything you `:MasonInstall`
--- later is picked up automatically by mason-lspconfig's automatic_enable.
+-- later is picked up automatically. mason is a convenience, not a
+-- requirement: see IF_AVAILABLE below.
 local MASON_SERVERS = {
 	'lua_ls',
-	'vtsls', -- TypeScript / JavaScript
+	TS_SERVER,
 	'jsonls',
 	'cssls',
 	'html',
 	'bashls',
 }
 
--- Servers we enable only when the binary is already on $PATH, so nothing here
--- costs disk and :checkhealth stays quiet about the ones you don't have.
+-- Servers enabled only when the binary is already on $PATH, however it got
+-- there -- brew, npm, cargo, go install, rustup, mason, doesn't matter. Costs
+-- no disk, and :checkhealth stays quiet about the ones you don't have.
+--
 -- This is what was broken before: the old config called vim.lsp.enable() on
--- ten servers, none of which were installed.
+-- ten servers, none of which were installed, so LSP silently did nothing.
+--
+-- A nested table means "first one that exists wins", so two servers covering
+-- the same filetype never both attach and double up every diagnostic.
 local IF_AVAILABLE = {
 	'clangd',
 	'gopls',
 	'rust_analyzer',
-	'pyright',
-	'basedpyright',
-	'ruff',
+	{ 'basedpyright', 'pyright' }, -- basedpyright is the maintained fork
+	'ruff', -- lints/formats python alongside the type checker
 	'zls',
 	'taplo',
 	'yamlls',
@@ -90,17 +111,32 @@ return {
 			})
 
 			-- ------------------------------------------------------ mason ---
+			-- Enable every mason-installed server except the TypeScript one
+			-- we didn't pick. Without this both attach to the same buffer and
+			-- every diagnostic shows up twice.
+			local other_ts = TS_SERVER == 'tsgo' and 'vtsls' or 'tsgo'
 			require('mason-lspconfig').setup {
 				ensure_installed = MASON_SERVERS,
-				automatic_enable = true, -- calls vim.lsp.enable() for installed servers
+				automatic_enable = { exclude = { other_ts } },
 			}
 
-			-- Anything already on $PATH (rustup, go install, brew, Xcode...)
-			for _, name in ipairs(IF_AVAILABLE) do
+			-- Is this server's binary on $PATH, however it got installed?
+			local function available(name)
 				local ok, cfg = pcall(function() return vim.lsp.config[name] end)
-				local cmd = ok and cfg and cfg.cmd
-				if type(cmd) == 'table' and vim.fn.executable(cmd[1]) == 1 then
-					vim.lsp.enable(name)
+				if not ok or not cfg then return false end
+				-- Most configs give a cmd table; a few build the command in a
+				-- function, in which case fall back to the server's own name.
+				local exe = type(cfg.cmd) == 'table' and cfg.cmd[1] or name
+				return vim.fn.executable(exe) == 1
+			end
+
+			for _, entry in ipairs(IF_AVAILABLE) do
+				-- A table is a preference list: enable the first one present.
+				for _, name in ipairs(type(entry) == 'table' and entry or { entry }) do
+					if available(name) then
+						vim.lsp.enable(name)
+						break
+					end
 				end
 			end
 

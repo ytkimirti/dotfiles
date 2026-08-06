@@ -9,4 +9,4 @@ SETUVAR __fish_initialized:4300
 SETUVAR _fisher_edc_2F_bass_files:/Users/ytkimirti/\x2econfig/fish/functions/__bass\x2epy\x1e/Users/ytkimirti/\x2econfig/fish/functions/bass\x2efish
 SETUVAR _fisher_jorgebucaran_2F_fisher_files:/Users/ytkimirti/\x2econfig/fish/functions/fisher\x2efish\x1e/Users/ytkimirti/\x2econfig/fish/completions/fisher\x2efish
 SETUVAR _fisher_plugins:jorgebucaran/fisher\x1eedc/bass
-SETUVAR fish_user_paths:/Users/kimirti/\x2eantigravity/antigravity/bin\x1e/Users/kimirti/\x2ecodeium/windsurf/bin\x1e/opt/homebrew/opt/openjdk/bin
+SETUVAR fish_user_paths:/Users/kimirti/bin\x1e/Users/kimirti/\x2eopencode/bin\x1e/Users/kimirti/\x2eantigravity/antigravity/bin\x1e/Users/kimirti/\x2ecodeium/windsurf/bin\x1e/opt/homebrew/opt/openjdk/bin

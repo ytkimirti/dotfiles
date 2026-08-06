@@ -1,9 +1,5 @@
 set -gx CLEAN_PATH "$PATH"
 # When running a script etc. The shell is not interactive
-if status is-interactive
-    set -g fish_keyboard_protocol none
-end
-
 if type -q nvim
     set -gx EDITOR nvim
 else if type -q vim
@@ -71,7 +67,6 @@ if [ -d $HOME/.local/bin ]
 end
 
 set -gxp PATH "$HOME/miniconda3/bin"
-set -gxp PATH "$HOME/.fzf/bin"
 set -gxp PATH "$CARGO_HOME/bin"
 set -gxp PATH "$HOME/go/bin"
 set -gxp PATH "$HOME/.bun/bin"
@@ -107,7 +102,8 @@ abbr -a -- px pnpx
 
 abbr -a -- cleanvim 'rm -rf $HOME/.local/share/nvim'
 
-abbr -a -- g git
+abbr -a -- g 'codex --dangerously-bypass-approvals-and-sandbox'
+abbr -a -- gn 'codex -s danger-full-access -a never'
 abbr -a -- gca 'git add --all && git commit && git push'
 abbr -a -- git-local-branch-clean git\ branch\ --merged\ \|\ egrep\ -v\ \"\(^\\\*\|master\|dev\)\"\ \|\ xargs\ git\ branch\ -d
 abbr -a -- gs 'git status --short'
@@ -128,21 +124,35 @@ abbr -a -- lgh "export HUSKY=0 && lg && set -e HUSKY"
 abbr -a -- stremio-clean 'rm -rf "/Users/kimirti/Library/Application Support/stremio-server/streamio-cache"'
 abbr -a -- qs 'pnpx @upstash/qstash-cli dev'
 
-abbr -a -- c claude
+abbr -a -- o 'open .'
+abbr -a -- v nvim
+abbr -a -- c 'claude --dangerously-skip-permissions'
+abbr -a -- cr 'claude --dangerously-skip-permissions --resume'
 
 # pnpm
 set -gx PNPM_HOME "$HOME/Library/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
+# pnpm v11+ writes shims to $PNPM_HOME/bin; keep it ahead of the legacy root
+if not string match -q -- "$PNPM_HOME/bin" $PATH
+    set -gx PATH "$PNPM_HOME/bin" $PATH
+end
 # pnpm end
 
 if type -q fnm
-    fnm env --use-on-cd --log-level=quiet --shell fish | source
+    fnm env --log-level=quiet --shell fish | source
 end
-
-# Added by Windsurf
-fish_add_path /Users/kimirti/.codeium/windsurf/bin
 
 # Added by Antigravity
 fish_add_path /Users/kimirti/.antigravity/antigravity/bin
+
+# opencode
+fish_add_path /Users/kimirti/.opencode/bin
+
+# claude code: never stop retrying (watchdog uncaps MAX_RETRIES)
+set -gx CLAUDE_CODE_RETRY_WATCHDOG 1
+set -gx CLAUDE_CODE_MAX_RETRIES 300
+set -gx API_TIMEOUT_MS 1200000
+
+fish_add_path /Users/kimirti/bin

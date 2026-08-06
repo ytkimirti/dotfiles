@@ -1,6 +1,7 @@
 [user]
 	name = ytkimirti
 	email = yusuftaha9@gmail.com
+	signingkey = 45DF189470C3C4447D308515437E51A6DC52A2DD
 [core]
 	excludesfile = ~/.gitignore_global
 	editor = vim
@@ -40,3 +41,12 @@
 	gpgsign = true
 [tag]
 	gpgsign = true
+[gpg]
+	program = /usr/local/bin/gpg
+	format = openpgp
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential

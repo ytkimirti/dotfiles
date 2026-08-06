@@ -1,0 +1,14 @@
+#!/bin/bash
+# Block commits that contain secrets. Install: scripts/link_hooks.sh
+# Skip with: git commit --no-verify
+
+if ! command -v gitleaks &> /dev/null; then
+	echo "⚠️  gitleaks not installed, skipping secret scan (brew install gitleaks)"
+	exit 0
+fi
+
+if ! gitleaks git --staged --no-banner --redact -c "$(git rev-parse --show-toplevel)/.gitleaks.toml"; then
+	echo "❌ secret detected in staged changes, commit blocked"
+	echo "   false positive? add a .gitleaksignore entry or use --no-verify"
+	exit 1
+fi

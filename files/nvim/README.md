@@ -24,15 +24,38 @@ lua/plugins/*.lua     one file per area, auto-imported by lazy
 
 ## LSP
 
-`mason-lspconfig` installs and enables the servers in `MASON_SERVERS`
-(`lua_ls`, `vtsls`, `jsonls`, `cssls`, `html`, `bashls`). Anything else you
-`:MasonInstall` is enabled automatically on the next start.
+Two ways a server gets turned on, both in `plugins/lsp.lua`:
 
-Servers listed in `IF_AVAILABLE` (clangd, gopls, rust_analyzer, pyright, ruff,
-taplo, yamlls, marksman, dockerls, emmet_ls, fish_lsp, tailwindcss, eslint) are
-enabled **only if the binary is already on `$PATH`**, so `rustup component add
-rust-analyzer` or `go install golang.org/x/tools/gopls@latest` is all it takes,
-and nothing warns about servers you don't have.
+1. **`MASON_SERVERS`** — installed and kept updated by mason
+   (`lua_ls`, the TS server, `jsonls`, `cssls`, `html`, `bashls`).
+   Anything else you `:MasonInstall` is enabled automatically next start.
+2. **`IF_AVAILABLE`** — enabled only if the binary is already on `$PATH`,
+   however it got there: brew, npm, cargo, `rustup component add
+   rust-analyzer`, `go install .../gopls@latest`. Costs no disk and never
+   warns about servers you don't have.
+
+So mason is a convenience, not a requirement — install servers whichever way
+you like and they get picked up. Where two servers cover the same filetype
+(basedpyright/pyright) the list is nested and only the first one present
+attaches, so diagnostics never double up.
+
+### TypeScript: vtsls vs tsgo
+
+`TS_SERVER` at the top of `plugins/lsp.lua` picks one. Measured on a real
+project, 2026-08:
+
+| | hover | def | refs | rename | doc symbols | code actions |
+| --- | --- | --- | --- | --- | --- | --- |
+| `vtsls` | ok | ok | 4 | ok | 3 | **19** |
+| `tsgo` | ok | ok | 4 | ok | **5** | 1 |
+
+[tsgo] is the native Go rewrite and is much faster. It does have the action
+that matters most (*Add import from …*), but no refactorings — convert
+export/import styles, extract function, and so on — and it still reports
+itself as `7.0.0-dev`. Default is `vtsls`; change the one string to `'tsgo'`
+if you'd rather have the fast one.
+
+[tsgo]: https://github.com/microsoft/typescript-go
 
 ## Keys
 

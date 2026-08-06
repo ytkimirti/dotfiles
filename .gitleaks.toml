@@ -1,0 +1,34 @@
+[extend]
+useDefault = true
+
+# gitleaks' default ruleset has no idea about these, add them.
+
+[[rules]]
+id = "upstash-box-api-key"
+description = "Upstash Box API key"
+regex = '''box_[0-9a-f]{40,80}'''
+keywords = ["box_"]
+
+[[rules]]
+id = "upstash-token"
+description = "Upstash REST token / connection string"
+regex = '''(?i)(upstash[_-]?\w*(token|key|password)\s*[=: ]+["']?)[A-Za-z0-9_=-]{20,}'''
+keywords = ["upstash"]
+
+[[rules]]
+id = "generic-prefixed-key"
+description = "generic <word>_<long hex> credential"
+regex = '''\b(sk|pk|key|tok|secret|api)_[A-Za-z0-9]{32,}\b'''
+keywords = ["sk_", "pk_", "key_", "tok_", "secret_", "api_"]
+
+[allowlist]
+description = "known-safe values"
+regexTarget = "line"
+regexes = [
+  '''signingkey\s*=\s*[A-F0-9]{40}''',   # GPG *public* key fingerprint, public by design
+]
+paths = [
+  '''files/nvim/lazy-lock\.json''',   # plugin commit SHAs
+  '''files/iterm/.*\.plist''',        # UI UUIDs
+  '''itermthemes/.*''',
+]

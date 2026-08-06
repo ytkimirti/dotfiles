@@ -16,6 +16,8 @@ do
 	bash ~/dotfiles/scripts/link_config.sh "$i"
 done
 
+bash ~/dotfiles/scripts/link_hooks.sh
+
 cmd=""
 
 # Takes package name as first argument.
